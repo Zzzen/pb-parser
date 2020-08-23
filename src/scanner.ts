@@ -332,7 +332,7 @@ export class Scanner {
     if (Keywords.has(matched[0])) {
       this.addToken(Keywords.get(matched[0])!);
     } else {
-      this.addToken(TokenType.STRING, matched[0]);
+      this.addToken(TokenType.IDENTIFIER, matched[0]);
     }
   }
 

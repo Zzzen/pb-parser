@@ -19,13 +19,52 @@ export interface SyntaxStatement extends BaseNode {
 
 export interface ImportStatement extends BaseNode {
   type: "ImportStatement";
+  file: string;
+  modifier: "weak" | "public";
 }
 
 export interface Option extends BaseNode {
   type: "Option";
+  name: OptionName;
+  value: Constant;
 }
 
+export interface ProtoFile extends BaseNode {
+  type: "ProtoFile";
+  syntax?: SyntaxStatement;
+  body: TopLevelDirective[];
+}
+
+export type TopLevelDirective =
+  | ImportStatement
+  | Package
+  | Option
+  | TopLevelDef
+  | EmptyStatement;
+
 export type TopLevelDef = Message | Enum | Extend | Service;
+
+export interface Package extends BaseNode {
+  type: "Package";
+  name: FullIdentifier;
+}
+
+export interface FullIdentifier extends BaseNode {
+  type: "FullIdentifier";
+  value: string;
+}
+
+export interface OptionName extends BaseNode {
+  type: "OptionName";
+  value: string;
+}
+
+export type Constant = FullIdentifier | Literal;
+
+export interface Literal extends BaseNode {
+  type: "Literal";
+  value: string | number | boolean;
+}
 
 export interface Message extends BaseNode {
   type: "Message";

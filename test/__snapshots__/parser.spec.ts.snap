@@ -1,10 +1,227 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Parser parse empty statment 1`] = `
+Object {
+  "body": Array [],
+  "end": 11,
+  "start": 1,
+  "syntax": undefined,
+  "type": "ProtoFile",
+}
+`;
+
+exports[`Parser parse example proto 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "end": 48,
+      "file": "other.proto",
+      "modifier": "public",
+      "start": 20,
+      "type": "ImportStatement",
+    },
+    Object {
+      "end": 89,
+      "name": Object {
+        "end": 68,
+        "start": 56,
+        "type": "OptionName",
+        "value": "java_package",
+      },
+      "start": 49,
+      "type": "Option",
+      "value": Object {
+        "end": 88,
+        "start": 71,
+        "type": "Literal",
+        "value": "com.example.foo",
+      },
+    },
+  ],
+  "end": 94,
+  "start": 1,
+  "syntax": Object {
+    "end": 19,
+    "start": 1,
+    "type": "SyntaxStatement",
+    "value": "proto2",
+  },
+  "type": "ProtoFile",
+}
+`;
+
+exports[`Parser parse import 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "end": 23,
+      "file": "./test.proto",
+      "modifier": undefined,
+      "start": 1,
+      "type": "ImportStatement",
+    },
+    Object {
+      "end": 51,
+      "file": "./test.proto",
+      "modifier": "weak",
+      "start": 24,
+      "type": "ImportStatement",
+    },
+    Object {
+      "end": 81,
+      "file": "./test.proto",
+      "modifier": "public",
+      "start": 52,
+      "type": "ImportStatement",
+    },
+  ],
+  "end": 86,
+  "start": 1,
+  "syntax": undefined,
+  "type": "ProtoFile",
+}
+`;
+
+exports[`Parser parse option 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "end": 41,
+      "name": Object {
+        "end": 20,
+        "start": 8,
+        "type": "OptionName",
+        "value": "java_package",
+      },
+      "start": 1,
+      "type": "Option",
+      "value": Object {
+        "end": 40,
+        "start": 23,
+        "type": "Literal",
+        "value": "com.example.foo",
+      },
+    },
+    Object {
+      "end": 67,
+      "name": Object {
+        "end": 61,
+        "start": 49,
+        "type": "OptionName",
+        "value": "java_package",
+      },
+      "start": 42,
+      "type": "Option",
+      "value": Object {
+        "end": 65,
+        "start": 64,
+        "type": "Literal",
+        "value": -1,
+      },
+    },
+    Object {
+      "end": 108,
+      "name": Object {
+        "end": 87,
+        "start": 75,
+        "type": "OptionName",
+        "value": "java_package",
+      },
+      "start": 68,
+      "type": "Option",
+      "value": Object {
+        "end": 107,
+        "start": 90,
+        "type": "Literal",
+        "value": "com.example.foo",
+      },
+    },
+    Object {
+      "end": 152,
+      "name": Object {
+        "end": 131,
+        "start": 116,
+        "type": "OptionName",
+        "value": "(java._package)",
+      },
+      "start": 109,
+      "type": "Option",
+      "value": Object {
+        "end": 151,
+        "start": 134,
+        "type": "Literal",
+        "value": "com.example.foo",
+      },
+    },
+    Object {
+      "end": 191,
+      "name": Object {
+        "end": 170,
+        "start": 160,
+        "type": "OptionName",
+        "value": "java.pp.cc",
+      },
+      "start": 153,
+      "type": "Option",
+      "value": Object {
+        "end": 190,
+        "start": 173,
+        "type": "Literal",
+        "value": "com.example.foo",
+      },
+    },
+  ],
+  "end": 192,
+  "start": 1,
+  "syntax": undefined,
+  "type": "ProtoFile",
+}
+`;
+
+exports[`Parser parse package 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "end": 11,
+      "name": Object {
+        "end": 10,
+        "start": 9,
+        "type": "FullIdentifier",
+        "value": "a",
+      },
+      "start": 1,
+      "type": "Package",
+    },
+    Object {
+      "end": 25,
+      "name": Object {
+        "end": 24,
+        "start": 20,
+        "type": "FullIdentifier",
+        "value": "a.bc",
+      },
+      "start": 12,
+      "type": "Package",
+    },
+  ],
+  "end": 30,
+  "start": 1,
+  "syntax": undefined,
+  "type": "ProtoFile",
+}
+`;
+
 exports[`Parser parse syntax 1`] = `
 Object {
-  "end": 16,
+  "body": Array [],
+  "end": 18,
   "start": 0,
-  "type": "SyntaxStatement",
-  "value": "proto2",
+  "syntax": Object {
+    "end": 18,
+    "start": 0,
+    "type": "SyntaxStatement",
+    "value": "proto2",
+  },
+  "type": "ProtoFile",
 }
 `;

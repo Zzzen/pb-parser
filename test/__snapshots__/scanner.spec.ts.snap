@@ -118,7 +118,7 @@ Array [
     "line": 1,
     "literal": "foo",
     "start": 1,
-    "type": "STRING",
+    "type": "IDENTIFIER",
   },
   Object {
     "end": 8,
@@ -126,7 +126,7 @@ Array [
     "line": 2,
     "literal": "bar",
     "start": 5,
-    "type": "STRING",
+    "type": "IDENTIFIER",
   },
   Object {
     "end": 13,
@@ -134,7 +134,7 @@ Array [
     "line": 3,
     "literal": "_foo",
     "start": 9,
-    "type": "STRING",
+    "type": "IDENTIFIER",
   },
   Object {
     "end": 21,
@@ -150,7 +150,7 @@ Array [
     "line": 4,
     "literal": "foo",
     "start": 22,
-    "type": "STRING",
+    "type": "IDENTIFIER",
   },
   Object {
     "end": 26,

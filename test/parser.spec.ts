@@ -6,6 +6,55 @@ function parse(src: string) {
 
 describe("Parser", () => {
   it("parse syntax", () => {
-    expect(parse('syntax "proto2";')).toMatchSnapshot();
+    expect(parse('syntax = "proto2";')).toMatchSnapshot();
+  });
+
+  it("parse import", () => {
+    expect(
+      parse(`
+import "./test.proto";
+import weak "./test.proto";
+import public "./test.proto";
+    `)
+    ).toMatchSnapshot();
+  });
+
+  it("parse package", () => {
+    expect(
+      parse(`
+package a;
+package a.bc;
+    `)
+    ).toMatchSnapshot();
+  });
+
+  it("parse option", () => {
+    expect(
+      parse(`
+option java_package = "com.example.foo";
+option java_package = -1;
+option java_package = "com.example.foo";
+option (java._package) = "com.example.foo";
+option java.pp.cc = "com.example.foo";
+`)
+    ).toMatchSnapshot();
+  });
+
+  it("parse empty statment", () => {
+    expect(
+      parse(`
+;;;;;
+    `)
+    ).toMatchSnapshot();
+  });
+
+  it("parse example proto", () => {
+    expect(
+      parse(`
+syntax = "proto2";
+import public "other.proto";
+option java_package = "com.example.foo";
+    `)
+    ).toMatchSnapshot();
   });
 });
