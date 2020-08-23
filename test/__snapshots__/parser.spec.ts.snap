@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Parser parse syntax 1`] = `
+Object {
+  "end": 16,
+  "start": 0,
+  "type": "SyntaxStatement",
+  "value": "proto2",
+}
+`;

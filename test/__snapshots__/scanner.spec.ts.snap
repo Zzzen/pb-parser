@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Scanner scan combinations of simple symbols 1`] = `
+Array [
+  Object {
+    "end": 1,
+    "lexeme": "{",
+    "line": 0,
+    "literal": undefined,
+    "start": 0,
+    "type": "LEFT_BRACE",
+  },
+  Object {
+    "end": 2,
+    "lexeme": "}",
+    "line": 0,
+    "literal": undefined,
+    "start": 1,
+    "type": "RIGHT_BRACE",
+  },
+  Object {
+    "end": 2,
+    "lexeme": "",
+    "line": 0,
+    "start": 1,
+    "type": "EOF",
+  },
+]
+`;
+
+exports[`Scanner scan combinations of simple symbols 2`] = `
+Array [
+  Object {
+    "end": 1,
+    "lexeme": "[",
+    "line": 0,
+    "literal": undefined,
+    "start": 0,
+    "type": "LEFT_BRACKET",
+  },
+  Object {
+    "end": 2,
+    "lexeme": "]",
+    "line": 0,
+    "literal": undefined,
+    "start": 1,
+    "type": "RIGHT_BRACKET",
+  },
+  Object {
+    "end": 2,
+    "lexeme": "",
+    "line": 0,
+    "start": 1,
+    "type": "EOF",
+  },
+]
+`;
+
+exports[`Scanner scan comments 1`] = `
+Array [
+  Object {
+    "end": 11,
+    "lexeme": "//comment1",
+    "line": 1,
+    "literal": "comment1",
+    "start": 1,
+    "type": "COMMENT",
+  },
+  Object {
+    "end": 23,
+    "lexeme": "// comment2",
+    "line": 2,
+    "literal": " comment2",
+    "start": 12,
+    "type": "COMMENT",
+  },
+  Object {
+    "end": 24,
+    "lexeme": "",
+    "line": 3,
+    "start": 23,
+    "type": "EOF",
+  },
+]
+`;
+
+exports[`Scanner scan comments 2`] = `
+Array [
+  Object {
+    "end": 32,
+    "lexeme": "/**
+ * comment1
+ * comment2
+ */",
+    "line": 1,
+    "literal": "*
+ * comment1
+ * comment2
+ ",
+    "start": 1,
+    "type": "COMMENT",
+  },
+  Object {
+    "end": 41,
+    "lexeme": "",
+    "line": 2,
+    "start": 40,
+    "type": "EOF",
+  },
+]
+`;
+
+exports[`Scanner scan identifiers 1`] = `
+Array [
+  Object {
+    "end": 4,
+    "lexeme": "foo",
+    "line": 1,
+    "literal": "foo",
+    "start": 1,
+    "type": "STRING",
+  },
+  Object {
+    "end": 8,
+    "lexeme": "bar",
+    "line": 2,
+    "literal": "bar",
+    "start": 5,
+    "type": "STRING",
+  },
+  Object {
+    "end": 13,
+    "lexeme": "_foo",
+    "line": 3,
+    "literal": "_foo",
+    "start": 9,
+    "type": "STRING",
+  },
+  Object {
+    "end": 21,
+    "lexeme": "package",
+    "line": 4,
+    "literal": undefined,
+    "start": 14,
+    "type": "PACKAGE",
+  },
+  Object {
+    "end": 25,
+    "lexeme": "foo",
+    "line": 4,
+    "literal": "foo",
+    "start": 22,
+    "type": "STRING",
+  },
+  Object {
+    "end": 26,
+    "lexeme": ";",
+    "line": 4,
+    "literal": undefined,
+    "start": 25,
+    "type": "SEMICOLON",
+  },
+  Object {
+    "end": 33,
+    "lexeme": "import",
+    "line": 5,
+    "literal": undefined,
+    "start": 27,
+    "type": "IMPORT",
+  },
+  Object {
+    "end": 42,
+    "lexeme": "",
+    "line": 6,
+    "start": 41,
+    "type": "EOF",
+  },
+]
+`;
+
+exports[`Scanner scan numbers 1`] = `
+Array [
+  Object {
+    "end": 3,
+    "lexeme": "23",
+    "line": 1,
+    "literal": 23,
+    "start": 1,
+    "type": "NUMBER",
+  },
+  Object {
+    "end": 10,
+    "lexeme": "234.35",
+    "line": 2,
+    "literal": 234.35,
+    "start": 4,
+    "type": "NUMBER",
+  },
+  Object {
+    "end": 15,
+    "lexeme": "0x43",
+    "line": 3,
+    "literal": 67,
+    "start": 11,
+    "type": "NUMBER",
+  },
+  Object {
+    "end": 20,
+    "lexeme": "0345",
+    "line": 4,
+    "literal": 229,
+    "start": 16,
+    "type": "NUMBER",
+  },
+  Object {
+    "end": 24,
+    "lexeme": "1e3",
+    "line": 5,
+    "literal": 1000,
+    "start": 21,
+    "type": "NUMBER",
+  },
+  Object {
+    "end": 33,
+    "lexeme": "",
+    "line": 6,
+    "start": 32,
+    "type": "EOF",
+  },
+]
+`;
