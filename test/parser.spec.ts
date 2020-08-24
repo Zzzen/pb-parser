@@ -48,6 +48,20 @@ option java.pp.cc = "com.example.foo";
     ).toMatchSnapshot();
   });
 
+  it("parse reserved", () => {
+    expect(
+      parse(`
+message M {
+  reserved 1;
+  reserved 1 to 2, 5 to max, 6;
+  reserved "foo";
+  reserved "foo", "bar";
+}
+      
+      `)
+    ).toMatchSnapshot();
+  });
+
   it("parse example proto", () => {
     expect(
       parse(`

@@ -211,6 +211,74 @@ Object {
 }
 `;
 
+exports[`Parser parse reserved 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "body": Array [
+        Object {
+          "end": 26,
+          "fieldName": undefined,
+          "ranges": Array [
+            Array [
+              1,
+            ],
+          ],
+          "start": 15,
+          "type": "Reserved",
+        },
+        Object {
+          "end": 58,
+          "fieldName": undefined,
+          "ranges": Array [
+            Array [
+              1,
+              2,
+            ],
+            Array [
+              5,
+              "max",
+            ],
+            Array [
+              6,
+            ],
+          ],
+          "start": 29,
+          "type": "Reserved",
+        },
+        Object {
+          "end": 76,
+          "fieldName": Array [
+            "foo",
+          ],
+          "ranges": undefined,
+          "start": 61,
+          "type": "Reserved",
+        },
+        Object {
+          "end": 101,
+          "fieldName": Array [
+            "foo",
+            "bar",
+          ],
+          "ranges": undefined,
+          "start": 79,
+          "type": "Reserved",
+        },
+      ],
+      "end": 103,
+      "name": "M",
+      "start": 1,
+      "type": "Message",
+    },
+  ],
+  "end": 117,
+  "start": 1,
+  "syntax": undefined,
+  "type": "ProtoFile",
+}
+`;
+
 exports[`Parser parse syntax 1`] = `
 Object {
   "body": Array [],

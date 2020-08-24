@@ -68,7 +68,21 @@ export interface Literal extends BaseNode {
 
 export interface Message extends BaseNode {
   type: "Message";
+  name: string;
+  body: MessageBody[];
 }
+
+export type MessageBody =
+  | Field
+  | Enum
+  | Message
+  | Extend
+  | Extensions
+  | Group
+  | Option
+  | OneOf
+  | MapField
+  | Reserved;
 
 export interface Enum extends BaseNode {
   type: "Enum";
@@ -104,6 +118,8 @@ export interface MapField extends BaseNode {
 
 export interface Reserved extends BaseNode {
   type: "Reserved";
+  ranges: Array<[number, number | "max"] | [number]> | undefined;
+  fieldName: string[] | undefined;
 }
 
 export interface EmptyStatement extends BaseNode {

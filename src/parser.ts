@@ -10,6 +10,10 @@ import {
   Option,
   OptionName,
   Constant,
+  TopLevelDef,
+  Message,
+  Reserved,
+  MessageBody,
 } from "./ast";
 
 export class Parser {
@@ -67,12 +71,119 @@ export class Parser {
         continue;
       } else if (this.match(TokenType.SEMICOLON)) {
         continue;
+      } else if (
+        [
+          TokenType.MESSAGE,
+          TokenType.ENUM,
+          TokenType.EXTEND,
+          TokenType.SERVICE,
+        ].includes(this.peek().type)
+      ) {
+        topLevelDirectives.push(this.parseTopLevelDef());
+        continue;
       }
 
       this.error(this.peek(), `unexpected token`);
     }
 
     return topLevelDirectives;
+  }
+
+  /**
+   * topLevelDef = message | enum | extend | service
+   */
+  parseTopLevelDef(): TopLevelDef {
+    if (this.check(TokenType.MESSAGE)) {
+      return this.parseMessage();
+    }
+
+    this.error(this.peek(), "");
+  }
+
+  /**
+   * message = "message" messageName messageBody
+   * messageBody = "{" { field | enum | message | extend | extensions | group |
+   *   option | oneof | mapField | reserved | emptyStatement } "}"
+   */
+  parseMessage(): Message {
+    const messageToken = this.consume(TokenType.MESSAGE);
+    const name = this.consume(TokenType.IDENTIFIER).lexeme as string;
+    this.consume(TokenType.LEFT_BRACE);
+    const body: MessageBody[] = [];
+    while (!this.check(TokenType.RIGHT_BRACE)) {
+      if (this.check(TokenType.RESERVED)) {
+        body.push(this.parserReserved());
+        continue;
+      }
+
+      this.error(this.peek());
+    }
+
+    const end = this.consume(TokenType.RIGHT_BRACE);
+
+    return {
+      type: "Message",
+      start: messageToken.start,
+      end: end.end,
+      body,
+      name,
+    };
+  }
+
+  /**
+   * reserved = "reserved" ( ranges | fieldNames ) ";"
+   * ranges = range { "," range }
+   * range =  intLit [ "to" ( intLit | "max" ) ]
+   * fieldNames = fieldName { "," fieldName }
+   */
+  parserReserved(): Reserved {
+    const reserved = this.consume(TokenType.RESERVED);
+    if (this.check(TokenType.STRING)) {
+      // fieldNames
+      const ids = [this.advance()];
+      while (this.match(TokenType.COMMA)) {
+        ids.push(this.consume(TokenType.STRING));
+      }
+
+      const end = this.consume(TokenType.SEMICOLON);
+      return {
+        type: "Reserved",
+        ranges: undefined,
+        fieldName: ids.map((x) => x.literal as string),
+        start: reserved.start,
+        end: end.end,
+      };
+    } else {
+      // ranges
+      const ranges = [this.parseRange()];
+      while (this.match(TokenType.COMMA)) {
+        ranges.push(this.parseRange());
+      }
+
+      const end = this.consume(TokenType.SEMICOLON);
+      return {
+        type: "Reserved",
+        ranges: ranges,
+        fieldName: undefined,
+        start: reserved.start,
+        end: end.end,
+      };
+    }
+  }
+
+  parseRange(): [number, number | "max"] | [number] {
+    const lit = this.consume(TokenType.NUMBER);
+    const value = lit.literal as number;
+    if (this.match(TokenType.TO)) {
+      if (this.match(TokenType.MAX)) {
+        return [value, "max"];
+      } else {
+        const toValue = this.consume(TokenType.NUMBER).literal as number;
+        return [value, toValue];
+      }
+    } else {
+      return [value];
+    }
   }
 
   /**
@@ -213,6 +324,9 @@ export class Parser {
     };
   }
 
+  /**
+   * proto = syntax { import | package | option | topLevelDef | emptyStatement }
+   */
   parseRoot(): ProtoFile {
     const syntax = this.parseSyntax();
     const body = this.parseTopLevelDirectives();
@@ -254,7 +368,7 @@ export class Parser {
     throw this.error(this.peek(), errorMessage);
   }
 
-  private error(token: Token, message: string) {
+  private error(token: Token, message?: string): never {
     throw new Error(
       `parsing Error: unexpect token ${token.type}(${token.lexeme}), ${message}`
     );

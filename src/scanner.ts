@@ -54,6 +54,7 @@ export enum TokenType {
   SERVICE = "SERVICE",
   RPC = "RPC",
   RETURNS = "RETURNS",
+  MAX = "MAX",
 
   // int32, int64, string, bytes...
   PRIMITIVE_TYPE = "PRIMITIVE_TYPE",
@@ -83,6 +84,7 @@ const Keywords = new Map<string, TokenType>([
   ["service", TokenType.SERVICE],
   ["rpc", TokenType.RPC],
   ["returns", TokenType.RETURNS],
+  ["max", TokenType.MAX],
 ]);
 
 export interface Token {
