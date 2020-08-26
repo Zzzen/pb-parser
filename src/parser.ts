@@ -160,6 +160,12 @@ export class Parser {
 
     const numberToken = this.consume(TokenType.NUMBER);
 
+    let options: Option[] = [];
+    if (this.match(TokenType.LEFT_BRACKET)) {
+      options = this.parseFieldOptions();
+      this.consume(TokenType.RIGHT_BRACKET);
+    }
+
     const end = this.consume(TokenType.SEMICOLON);
 
     return {
@@ -170,6 +176,7 @@ export class Parser {
       keyType: keyToken.lexeme,
       mapName: id.lexeme,
       fieldNumber: Number(numberToken.lexeme),
+      options,
     };
   }
 
@@ -287,6 +294,34 @@ export class Parser {
       value: constant,
       start: start.start,
       end: end.end,
+    };
+  }
+
+  /**
+   * fieldOptions = fieldOption { ","  fieldOption }
+   */
+  parseFieldOptions() {
+    const opts = [this.parseFieldOption()];
+    while (this.match(TokenType.COMMA)) {
+      opts.push(this.parseFieldOption());
+    }
+
+    return opts;
+  }
+
+  /**
+   * fieldOption = optionName "=" constant
+   */
+  parseFieldOption(): Option {
+    const name = this.parseOptionName();
+    this.consume(TokenType.EQUAL);
+    const constant = this.parseConstant();
+    return {
+      type: "Option",
+      start: name.start,
+      end: constant.end,
+      value: constant,
+      name: name,
     };
   }
 

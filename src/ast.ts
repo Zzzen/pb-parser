@@ -118,6 +118,7 @@ export interface MapField extends BaseNode {
   valueType: ValueType;
   fieldNumber: number;
   mapName: string;
+  options: Option[];
 }
 
 export interface ValueType extends BaseNode {

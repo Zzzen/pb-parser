@@ -92,6 +92,7 @@ Object {
           "fieldNumber": 1,
           "keyType": "int32",
           "mapName": "f1",
+          "options": Array [],
           "start": 15,
           "type": "MapField",
           "valueType": Object {
@@ -106,6 +107,7 @@ Object {
           "fieldNumber": 2,
           "keyType": "int32",
           "mapName": "f2",
+          "options": Array [],
           "start": 45,
           "type": "MapField",
           "valueType": Object {
@@ -120,6 +122,7 @@ Object {
           "fieldNumber": 3,
           "keyType": "int32",
           "mapName": "f3",
+          "options": Array [],
           "start": 70,
           "type": "MapField",
           "valueType": Object {
@@ -134,6 +137,7 @@ Object {
           "fieldNumber": 4,
           "keyType": "int32",
           "mapName": "f4",
+          "options": Array [],
           "start": 99,
           "type": "MapField",
           "valueType": Object {
@@ -144,10 +148,29 @@ Object {
           },
         },
         Object {
-          "end": 156,
+          "end": 190,
           "fieldNumber": 5,
           "keyType": "int32",
           "mapName": "f5",
+          "options": Array [
+            Object {
+              "end": 188,
+              "name": Object {
+                "end": 172,
+                "start": 157,
+                "type": "OptionName",
+                "value": "(custom_option)",
+              },
+              "start": 157,
+              "type": "Option",
+              "value": Object {
+                "end": 188,
+                "start": 175,
+                "type": "Literal",
+                "value": "hello world",
+              },
+            },
+          ],
           "start": 125,
           "type": "MapField",
           "valueType": Object {
@@ -158,13 +181,13 @@ Object {
           },
         },
       ],
-      "end": 158,
+      "end": 192,
       "name": "M",
       "start": 1,
       "type": "Message",
     },
   ],
-  "end": 178,
+  "end": 212,
   "start": 1,
   "syntax": undefined,
   "type": "ProtoFile",
