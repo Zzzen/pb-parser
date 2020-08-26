@@ -114,6 +114,15 @@ export interface OneOf extends BaseNode {
 
 export interface MapField extends BaseNode {
   type: "MapField";
+  keyType: string;
+  valueType: ValueType;
+  fieldNumber: number;
+  mapName: string;
+}
+
+export interface ValueType extends BaseNode {
+  type: "ValueType";
+  value: string;
 }
 
 export interface Reserved extends BaseNode {

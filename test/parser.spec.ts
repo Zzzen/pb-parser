@@ -62,6 +62,21 @@ message M {
     ).toMatchSnapshot();
   });
 
+  it("parse map field", () => {
+    expect(
+      parse(`
+message M {
+  map <int32, string> f1 = 1;
+  map <int32, M> f2 = 2;
+  map <int32, M.foo> f3 = 3;
+  map <int32, .M> f4 = 4;
+  map <int32, .M.foo.bar> f5 = 5;
+}      
+      
+      `)
+    ).toMatchSnapshot();
+  });
+
   it("parse example proto", () => {
     expect(
       parse(`

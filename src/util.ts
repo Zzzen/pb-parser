@@ -7,3 +7,7 @@ export function assertIsDefined<T>(
     throw new Error(message);
   }
 }
+
+export function last<T>(arr: T[]): T {
+  return arr[arr.length - 1];
+}

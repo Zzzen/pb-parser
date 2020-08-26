@@ -62,6 +62,22 @@ export enum TokenType {
   EOF = "EOF",
 }
 
+const PrimitiveTypes = [
+  "int32",
+  "int64",
+  "uint32",
+  "uint64",
+  "sint32",
+  "sint64",
+  "fixed32",
+  "fixed64",
+  "sfixed32",
+  "sfixed64",
+  "bool",
+  "string",
+  "bytes",
+] as const;
+
 const Keywords = new Map<string, TokenType>([
   ["syntax", TokenType.SYNTAX],
   ["import", TokenType.IMPORT],
@@ -331,7 +347,9 @@ export class Scanner {
     }
     this.current = this.start + matched[0].length;
 
-    if (Keywords.has(matched[0])) {
+    if (PrimitiveTypes.includes(matched[0] as any)) {
+      this.addToken(TokenType.PRIMITIVE_TYPE, matched[0]);
+    } else if (Keywords.has(matched[0])) {
       this.addToken(Keywords.get(matched[0])!);
     } else {
       this.addToken(TokenType.IDENTIFIER, matched[0]);

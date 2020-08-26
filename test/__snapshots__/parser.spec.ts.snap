@@ -82,6 +82,95 @@ Object {
 }
 `;
 
+exports[`Parser parse map field 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "body": Array [
+        Object {
+          "end": 42,
+          "fieldNumber": 1,
+          "keyType": "int32",
+          "mapName": "f1",
+          "start": 15,
+          "type": "MapField",
+          "valueType": Object {
+            "end": 33,
+            "start": 27,
+            "type": "ValueType",
+            "value": "string",
+          },
+        },
+        Object {
+          "end": 67,
+          "fieldNumber": 2,
+          "keyType": "int32",
+          "mapName": "f2",
+          "start": 45,
+          "type": "MapField",
+          "valueType": Object {
+            "end": 58,
+            "start": 57,
+            "type": "ValueType",
+            "value": "M",
+          },
+        },
+        Object {
+          "end": 96,
+          "fieldNumber": 3,
+          "keyType": "int32",
+          "mapName": "f3",
+          "start": 70,
+          "type": "MapField",
+          "valueType": Object {
+            "end": 87,
+            "start": 82,
+            "type": "ValueType",
+            "value": "M.foo",
+          },
+        },
+        Object {
+          "end": 122,
+          "fieldNumber": 4,
+          "keyType": "int32",
+          "mapName": "f4",
+          "start": 99,
+          "type": "MapField",
+          "valueType": Object {
+            "end": 113,
+            "start": 111,
+            "type": "ValueType",
+            "value": ".M",
+          },
+        },
+        Object {
+          "end": 156,
+          "fieldNumber": 5,
+          "keyType": "int32",
+          "mapName": "f5",
+          "start": 125,
+          "type": "MapField",
+          "valueType": Object {
+            "end": 147,
+            "start": 137,
+            "type": "ValueType",
+            "value": ".M.foo.bar",
+          },
+        },
+      ],
+      "end": 158,
+      "name": "M",
+      "start": 1,
+      "type": "Message",
+    },
+  ],
+  "end": 178,
+  "start": 1,
+  "syntax": undefined,
+  "type": "ProtoFile",
+}
+`;
+
 exports[`Parser parse option 1`] = `
 Object {
   "body": Array [

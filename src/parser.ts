@@ -14,7 +14,10 @@ import {
   Message,
   Reserved,
   MessageBody,
+  MapField,
+  ValueType,
 } from "./ast";
+import { last } from "./util";
 
 export class Parser {
   pendingComments: Comment[] = [];
@@ -115,6 +118,10 @@ export class Parser {
         body.push(this.parserReserved());
         continue;
       }
+      if (this.check(TokenType.MAP)) {
+        body.push(this.parseMapField());
+        continue;
+      }
 
       this.error(this.peek());
     }
@@ -128,6 +135,80 @@ export class Parser {
       body,
       name,
     };
+  }
+
+  /**
+   * mapField = "map" "<" keyType "," type ">" mapName "=" fieldNumber [ "[" fieldOptions "]" ] ";"
+   * keyType = "int32" | "int64" | "uint32" | "uint64" | "sint32" | "sint64" |
+   *          "fixed32" | "fixed64" | "sfixed32" | "sfixed64" | "bool" | "string"
+   */
+
+  parseMapField(): MapField {
+    const start = this.consume(TokenType.MAP);
+    this.consume(TokenType.LESS);
+    // keyType
+    const keyToken = this.consume(TokenType.PRIMITIVE_TYPE);
+    this.consume(TokenType.COMMA);
+
+    const value = this.parseValueType();
+
+    this.consume(TokenType.GREATER);
+
+    const id = this.consume(TokenType.IDENTIFIER);
+
+    this.consume(TokenType.EQUAL);
+
+    const numberToken = this.consume(TokenType.NUMBER);
+
+    const end = this.consume(TokenType.SEMICOLON);
+
+    return {
+      type: "MapField",
+      start: start.start,
+      end: end.end,
+      valueType: value,
+      keyType: keyToken.lexeme,
+      mapName: id.lexeme,
+      fieldNumber: Number(numberToken.lexeme),
+    };
+  }
+
+  /**
+   * type = "double" | "float" | "int32" | "int64" | "uint32" | "uint64"
+   *   | "sint32" | "sint64" | "fixed32" | "fixed64" | "sfixed32" | "sfixed64"
+   *   | "bool" | "string" | "bytes" | messageType | enumType
+   *
+   *
+   * messageType = [ "." ] { ident "." } messageName
+   * enumType = [ "." ] { ident "." } enumName
+   */
+  parseValueType(): ValueType {
+    if (this.match(TokenType.PRIMITIVE_TYPE)) {
+      const token = this.previous();
+      return {
+        type: "ValueType",
+        start: token.start,
+        end: token.end,
+        value: token.lexeme,
+      };
+    } else {
+      const leadingDot = this.check(TokenType.DOT) ? this.advance() : undefined;
+      const idents = [] as Token[];
+      while (this.check(TokenType.IDENTIFIER)) {
+        idents.push(this.advance());
+        if (!this.match(TokenType.DOT)) {
+          break;
+        }
+      }
+
+      return {
+        type: "ValueType",
+        start: leadingDot ? leadingDot.start : idents[0].start,
+        end: last(idents).end,
+        value:
+          (leadingDot ? "." : "") + idents.map((id) => id.lexeme).join("."),
+      };
+    }
   }
 
   /**
