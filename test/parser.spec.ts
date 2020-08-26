@@ -77,6 +77,17 @@ message M {
     ).toMatchSnapshot();
   });
 
+  it("parse option field", () => {
+    expect(
+      parse(`
+message M {
+  option (my_option).a = true;
+}      
+      
+      `)
+    ).toMatchSnapshot();
+  });
+
   it("parse example proto", () => {
     expect(
       parse(`

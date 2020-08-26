@@ -290,6 +290,42 @@ Object {
 }
 `;
 
+exports[`Parser parse option field 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "body": Array [
+        Object {
+          "end": 43,
+          "name": Object {
+            "end": 35,
+            "start": 22,
+            "type": "OptionName",
+            "value": "(my_option).a",
+          },
+          "start": 15,
+          "type": "Option",
+          "value": Object {
+            "end": 42,
+            "start": 38,
+            "type": "FullIdentifier",
+            "value": "true",
+          },
+        },
+      ],
+      "end": 45,
+      "name": "M",
+      "start": 1,
+      "type": "Message",
+    },
+  ],
+  "end": 65,
+  "start": 1,
+  "syntax": undefined,
+  "type": "ProtoFile",
+}
+`;
+
 exports[`Parser parse package 1`] = `
 Object {
   "body": Array [

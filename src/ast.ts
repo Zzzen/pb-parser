@@ -23,6 +23,8 @@ export interface ImportStatement extends BaseNode {
   modifier: "weak" | "public";
 }
 
+export type Label = "required" | "optional" | "repeated";
+
 export interface Option extends BaseNode {
   type: "Option";
   name: OptionName;
@@ -106,6 +108,10 @@ export interface Extensions extends BaseNode {
 
 export interface Group extends BaseNode {
   type: "Group";
+  label: Label;
+  groupName: string;
+  fieldNumber: number;
+  body: MessageBody[];
 }
 
 export interface OneOf extends BaseNode {

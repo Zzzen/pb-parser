@@ -17,7 +17,7 @@ import {
   MapField,
   ValueType,
 } from "./ast";
-import { last } from "./util";
+import { last, assertIsDefined } from "./util";
 
 export class Parser {
   pendingComments: Comment[] = [];
@@ -112,20 +112,7 @@ export class Parser {
     const messageToken = this.consume(TokenType.MESSAGE);
     const name = this.consume(TokenType.IDENTIFIER).lexeme as string;
     this.consume(TokenType.LEFT_BRACE);
-    const body: MessageBody[] = [];
-    while (!this.check(TokenType.RIGHT_BRACE)) {
-      if (this.check(TokenType.RESERVED)) {
-        body.push(this.parserReserved());
-        continue;
-      }
-      if (this.check(TokenType.MAP)) {
-        body.push(this.parseMapField());
-        continue;
-      }
-
-      this.error(this.peek());
-    }
-
+    const body = this.parseMessageBody();
     const end = this.consume(TokenType.RIGHT_BRACE);
 
     return {
@@ -135,6 +122,30 @@ export class Parser {
       body,
       name,
     };
+  }
+
+  parseMessageBody(): MessageBody[] {
+    const body: MessageBody[] = [];
+    while (!this.check(TokenType.RIGHT_BRACE)) {
+      if (this.check(TokenType.RESERVED)) {
+        body.push(this.parserReserved());
+        continue;
+      } else if (this.check(TokenType.MAP)) {
+        body.push(this.parseMapField());
+        continue;
+      } else if (this.check(TokenType.OPTION)) {
+        body.push(this.parseOption());
+        continue;
+      }
+
+      // emptyStatement
+      if (this.match(TokenType.SEMICOLON)) {
+        continue;
+      }
+
+      this.error(this.peek());
+    }
+    return body;
   }
 
   /**
@@ -462,6 +473,10 @@ export class Parser {
   check(type: TokenType) {
     if (this.isAtEnd()) return false;
     return this.peek().type == type;
+  }
+
+  checkNext(type: TokenType) {
+    return this.tokens[this.current + 1]?.type === type;
   }
 
   match(...types: TokenType[]) {
