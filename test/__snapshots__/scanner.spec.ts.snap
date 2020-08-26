@@ -140,9 +140,9 @@ Array [
     "end": 21,
     "lexeme": "package",
     "line": 4,
-    "literal": undefined,
+    "literal": "package",
     "start": 14,
-    "type": "PACKAGE",
+    "type": "IDENTIFIER",
   },
   Object {
     "end": 25,
@@ -164,9 +164,9 @@ Array [
     "end": 33,
     "lexeme": "import",
     "line": 5,
-    "literal": undefined,
+    "literal": "import",
     "start": 27,
-    "type": "IMPORT",
+    "type": "IDENTIFIER",
   },
   Object {
     "end": 42,

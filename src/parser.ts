@@ -1,4 +1,4 @@
-import { Scanner, Token, TokenType } from "./scanner";
+import { Scanner, Token, TokenType, Keyword } from "./scanner";
 import {
   Comment,
   SyntaxStatement,
@@ -17,7 +17,7 @@ import {
   MapField,
   ValueType,
 } from "./ast";
-import { last, assertIsDefined } from "./util";
+import { last } from "./util";
 
 export class Parser {
   pendingComments: Comment[] = [];
@@ -45,7 +45,7 @@ export class Parser {
 
   parseSyntax(): SyntaxStatement | undefined {
     this.handleComments();
-    if (this.check(TokenType.SYNTAX)) {
+    if (this.checkKeyword(Keyword.SYNTAX)) {
       const syntax = this.advance();
       this.handleComments();
       this.consume(TokenType.EQUAL);
@@ -63,24 +63,25 @@ export class Parser {
   parseTopLevelDirectives(): TopLevelDirective[] {
     const topLevelDirectives: TopLevelDirective[] = [];
     while (!this.isAtEnd()) {
-      if (this.check(TokenType.IMPORT)) {
+      if (this.checkKeyword(Keyword.IMPORT)) {
         topLevelDirectives.push(this.parseImport());
         continue;
-      } else if (this.check(TokenType.PACKAGE)) {
+      } else if (this.checkKeyword(Keyword.PACKAGE)) {
         topLevelDirectives.push(this.parsePackage());
         continue;
-      } else if (this.check(TokenType.OPTION)) {
+      } else if (this.checkKeyword(Keyword.OPTION)) {
         topLevelDirectives.push(this.parseOption());
         continue;
       } else if (this.match(TokenType.SEMICOLON)) {
         continue;
       } else if (
+        this.peek().type === TokenType.IDENTIFIER &&
         [
-          TokenType.MESSAGE,
-          TokenType.ENUM,
-          TokenType.EXTEND,
-          TokenType.SERVICE,
-        ].includes(this.peek().type)
+          Keyword.MESSAGE,
+          Keyword.ENUM,
+          Keyword.EXTEND,
+          Keyword.SERVICE,
+        ].includes(this.peek().lexeme as any)
       ) {
         topLevelDirectives.push(this.parseTopLevelDef());
         continue;
@@ -96,7 +97,7 @@ export class Parser {
    * topLevelDef = message | enum | extend | service
    */
   parseTopLevelDef(): TopLevelDef {
-    if (this.check(TokenType.MESSAGE)) {
+    if (this.checkKeyword(Keyword.MESSAGE)) {
       return this.parseMessage();
     }
 
@@ -109,7 +110,7 @@ export class Parser {
    *   option | oneof | mapField | reserved | emptyStatement } "}"
    */
   parseMessage(): Message {
-    const messageToken = this.consume(TokenType.MESSAGE);
+    const messageToken = this.consumeKeyword(Keyword.MESSAGE);
     const name = this.consume(TokenType.IDENTIFIER).lexeme as string;
     this.consume(TokenType.LEFT_BRACE);
     const body = this.parseMessageBody();
@@ -127,13 +128,13 @@ export class Parser {
   parseMessageBody(): MessageBody[] {
     const body: MessageBody[] = [];
     while (!this.check(TokenType.RIGHT_BRACE)) {
-      if (this.check(TokenType.RESERVED)) {
+      if (this.checkKeyword(Keyword.RESERVED)) {
         body.push(this.parserReserved());
         continue;
-      } else if (this.check(TokenType.MAP)) {
+      } else if (this.checkKeyword(Keyword.MAP)) {
         body.push(this.parseMapField());
         continue;
-      } else if (this.check(TokenType.OPTION)) {
+      } else if (this.checkKeyword(Keyword.OPTION)) {
         body.push(this.parseOption());
         continue;
       }
@@ -155,7 +156,7 @@ export class Parser {
    */
 
   parseMapField(): MapField {
-    const start = this.consume(TokenType.MAP);
+    const start = this.consumeKeyword(Keyword.MAP);
     this.consume(TokenType.LESS);
     // keyType
     const keyToken = this.consume(TokenType.PRIMITIVE_TYPE);
@@ -236,7 +237,7 @@ export class Parser {
    * fieldNames = fieldName { "," fieldName }
    */
   parserReserved(): Reserved {
-    const reserved = this.consume(TokenType.RESERVED);
+    const reserved = this.consumeKeyword(Keyword.RESERVED);
     if (this.check(TokenType.STRING)) {
       // fieldNames
       const ids = [this.advance()];
@@ -273,8 +274,8 @@ export class Parser {
   parseRange(): [number, number | "max"] | [number] {
     const lit = this.consume(TokenType.NUMBER);
     const value = lit.literal as number;
-    if (this.match(TokenType.TO)) {
-      if (this.match(TokenType.MAX)) {
+    if (this.matchKeyword(Keyword.TO)) {
+      if (this.matchKeyword(Keyword.MAX)) {
         return [value, "max"];
       } else {
         const toValue = this.consume(TokenType.NUMBER).literal as number;
@@ -289,7 +290,7 @@ export class Parser {
    * option = "option" optionName  "=" constant ";"
    */
   parseOption(): Option {
-    const start = this.consume(TokenType.OPTION);
+    const start = this.consumeKeyword(Keyword.OPTION);
 
     const optionName = this.parseOptionName();
 
@@ -401,7 +402,7 @@ export class Parser {
   }
 
   parsePackage(): Package {
-    const packageToken = this.consume(TokenType.PACKAGE);
+    const packageToken = this.consumeKeyword(Keyword.PACKAGE);
 
     const name = this.parseFullIdentifier();
 
@@ -432,9 +433,9 @@ export class Parser {
   }
 
   parseImport(): ImportStatement {
-    const importToken = this.consume(TokenType.IMPORT);
+    const importToken = this.consumeKeyword(Keyword.IMPORT);
     let modifier: Token | undefined;
-    if (this.check(TokenType.WEAK) || this.check(TokenType.PUBLIC)) {
+    if (this.checkKeyword(Keyword.WEAK) || this.checkKeyword(Keyword.PUBLIC)) {
       modifier = this.advance();
     }
 
@@ -475,6 +476,13 @@ export class Parser {
     return this.peek().type == type;
   }
 
+  checkKeyword(type: Keyword) {
+    if (this.isAtEnd()) return false;
+    return (
+      this.peek().type == TokenType.IDENTIFIER && this.peek().lexeme === type
+    );
+  }
+
   checkNext(type: TokenType) {
     return this.tokens[this.current + 1]?.type === type;
   }
@@ -490,8 +498,28 @@ export class Parser {
     return false;
   }
 
+  matchKeyword(...types: Keyword[]) {
+    for (const type of types) {
+      if (this.checkKeyword(type)) {
+        this.advance();
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   private consume(type: TokenType) {
     if (this.check(type)) return this.advance();
+
+    const current = this.tokens[this.current];
+    const errorMessage = `expected ${type}, but got ${current.type} at line ${current.line}`;
+
+    throw this.error(this.peek(), errorMessage);
+  }
+
+  private consumeKeyword(type: Keyword) {
+    if (this.checkKeyword(type)) return this.advance();
 
     const current = this.tokens[this.current];
     const errorMessage = `expected ${type}, but got ${current.type} at line ${current.line}`;

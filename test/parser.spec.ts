@@ -71,6 +71,7 @@ message M {
   map <int32, M.foo> f3 = 3;
   map <int32, .M> f4 = 4;
   map <int32, .M.foo.bar> f5 = 5 [(custom_option) = "hello world"];
+  map <int32, .M> map = 4;
 }      
       
       `)

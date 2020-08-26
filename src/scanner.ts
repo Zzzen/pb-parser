@@ -32,30 +32,6 @@ export enum TokenType {
   STRING = "STRING",
   NUMBER = "NUMBER",
 
-  // Keywords.
-  SYNTAX = "SYNTAX",
-  IMPORT = "IMPORT",
-  WEAK = "WEAK",
-  PUBLIC = "PUBLIC",
-  PACKAGE = "PACKAGE",
-  OPTION = "OPTION",
-  REQUIRED = "REQUIRED",
-  OPTIONAL = "OPTIONAL",
-  REPEATED = "REPEATED",
-  ONEOF = "ONEOF",
-  GROUP = "GROUP",
-  MAP = "MAP",
-  EXTENSIONS = "EXTENSIONS",
-  TO = "TO",
-  RESERVED = "RESERVED",
-  ENUM = "ENUM",
-  MESSAGE = "MESSAGE",
-  EXTEND = "EXTEND",
-  SERVICE = "SERVICE",
-  RPC = "RPC",
-  RETURNS = "RETURNS",
-  MAX = "MAX",
-
   // int32, int64, string, bytes...
   PRIMITIVE_TYPE = "PRIMITIVE_TYPE",
 
@@ -78,30 +54,33 @@ const PrimitiveTypes = [
   "bytes",
 ] as const;
 
-const Keywords = new Map<string, TokenType>([
-  ["syntax", TokenType.SYNTAX],
-  ["import", TokenType.IMPORT],
-  ["weak", TokenType.WEAK],
-  ["public", TokenType.PUBLIC],
-  ["package", TokenType.PACKAGE],
-  ["option", TokenType.OPTION],
-  ["required", TokenType.REQUIRED],
-  ["optional", TokenType.OPTIONAL],
-  ["repeated", TokenType.REPEATED],
-  ["oneof", TokenType.ONEOF],
-  ["group", TokenType.GROUP],
-  ["map", TokenType.MAP],
-  ["extensions", TokenType.EXTENSIONS],
-  ["to", TokenType.TO],
-  ["reserved", TokenType.RESERVED],
-  ["enum", TokenType.ENUM],
-  ["message", TokenType.MESSAGE],
-  ["extend", TokenType.EXTEND],
-  ["service", TokenType.SERVICE],
-  ["rpc", TokenType.RPC],
-  ["returns", TokenType.RETURNS],
-  ["max", TokenType.MAX],
-]);
+/**
+ * keyword is a subset of IDENTIFIER
+ */
+export enum Keyword {
+  SYNTAX = "syntax",
+  IMPORT = "import",
+  WEAK = "weak",
+  PUBLIC = "public",
+  PACKAGE = "package",
+  OPTION = "option",
+  REQUIRED = "required",
+  OPTIONAL = "optional",
+  REPEATED = "repeated",
+  ONEOF = "oneof",
+  GROUP = "group",
+  MAP = "map",
+  EXTENSIONS = "extensions",
+  TO = "to",
+  RESERVED = "reserved",
+  ENUM = "enum",
+  MESSAGE = "message",
+  EXTEND = "extend",
+  SERVICE = "service",
+  RPC = "rpc",
+  RETURNS = "returns",
+  MAX = "max",
+}
 
 export interface Token {
   type: TokenType;
@@ -349,8 +328,6 @@ export class Scanner {
 
     if (PrimitiveTypes.includes(matched[0] as any)) {
       this.addToken(TokenType.PRIMITIVE_TYPE, matched[0]);
-    } else if (Keywords.has(matched[0])) {
-      this.addToken(Keywords.get(matched[0])!);
     } else {
       this.addToken(TokenType.IDENTIFIER, matched[0]);
     }
