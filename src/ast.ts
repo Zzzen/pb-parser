@@ -100,6 +100,10 @@ export interface Service extends BaseNode {
 
 export interface Field extends BaseNode {
   type: "Field";
+  name: string;
+  fieldType: ValueType;
+  fieldNumber: number;
+  fieldOptions: Option[];
 }
 
 export interface Extensions extends BaseNode {
@@ -116,6 +120,9 @@ export interface Group extends BaseNode {
 
 export interface OneOf extends BaseNode {
   type: "OneOf";
+  oneofName: string;
+  options: Option[];
+  fields: Field[];
 }
 
 export interface MapField extends BaseNode {

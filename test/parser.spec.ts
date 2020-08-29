@@ -89,6 +89,20 @@ message M {
     ).toMatchSnapshot();
   });
 
+  it("parse oneof field", () => {
+    expect(
+      parse(`
+message M {
+  oneof foo {
+      string name = 4;
+      SubMessage sub_message = 9;
+  }
+}
+
+      `)
+    ).toMatchSnapshot();
+  });
+
   it("parse example proto", () => {
     expect(
       parse(`

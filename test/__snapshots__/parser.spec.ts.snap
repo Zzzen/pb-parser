@@ -209,6 +209,62 @@ Object {
 }
 `;
 
+exports[`Parser parse oneof field 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "body": Array [
+        Object {
+          "end": 87,
+          "fields": Array [
+            Object {
+              "end": 49,
+              "fieldNumber": 4,
+              "fieldOptions": Array [],
+              "fieldType": Object {
+                "end": 39,
+                "start": 33,
+                "type": "ValueType",
+                "value": "string",
+              },
+              "name": "name",
+              "start": 33,
+              "type": "Field",
+            },
+            Object {
+              "end": 83,
+              "fieldNumber": 9,
+              "fieldOptions": Array [],
+              "fieldType": Object {
+                "end": 66,
+                "start": 56,
+                "type": "ValueType",
+                "value": "SubMessage",
+              },
+              "name": "sub_message",
+              "start": 56,
+              "type": "Field",
+            },
+          ],
+          "oneofName": "foo",
+          "options": Array [],
+          "start": 15,
+          "type": "OneOf",
+        },
+      ],
+      "end": 89,
+      "name": "M",
+      "start": 1,
+      "type": "Message",
+    },
+  ],
+  "end": 97,
+  "start": 1,
+  "syntax": undefined,
+  "type": "ProtoFile",
+}
+`;
+
 exports[`Parser parse option 1`] = `
 Object {
   "body": Array [

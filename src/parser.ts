@@ -16,6 +16,8 @@ import {
   MessageBody,
   MapField,
   ValueType,
+  Field,
+  OneOf,
 } from "./ast";
 import { last } from "./util";
 
@@ -137,6 +139,9 @@ export class Parser {
       } else if (this.checkKeyword(Keyword.OPTION)) {
         body.push(this.parseOption());
         continue;
+      } else if (this.checkKeyword(Keyword.ONEOF)) {
+        body.push(this.parseOneof());
+        continue;
       }
 
       // emptyStatement
@@ -147,6 +152,71 @@ export class Parser {
       this.error(this.peek());
     }
     return body;
+  }
+
+  /**
+   * oneof = "oneof" oneofName "{" { option | oneofField | emptyStatement } "}"
+   * oneofField = type fieldName "=" fieldNumber [ "[" fieldOptions "]" ] ";"
+   */
+  parseOneof(): OneOf {
+    const start = this.consumeKeyword(Keyword.ONEOF);
+    const oneofName = this.consume(TokenType.IDENTIFIER);
+
+    this.consume(TokenType.LEFT_BRACE);
+
+    const options: Option[] = [];
+    const fields: Field[] = [];
+
+    while (!this.match(TokenType.RIGHT_BRACE)) {
+      if (this.checkKeyword(Keyword.OPTION)) {
+        options.push(this.parseOption());
+        continue;
+      } else if (this.match(TokenType.SEMICOLON)) {
+        continue;
+      } else {
+        fields.push(this.parseField());
+      }
+    }
+
+    const end = this.previous();
+
+    return {
+      type: "OneOf",
+      oneofName: oneofName.lexeme,
+      options,
+      fields,
+      start: start.start,
+      end: end.end,
+    };
+  }
+
+  /**
+   * field = type fieldName "=" fieldNumber [ "[" fieldOptions "]" ] ";"
+   */
+  parseField(): Field {
+    const valueType = this.parseValueType();
+    const id = this.consume(TokenType.IDENTIFIER);
+
+    this.consume(TokenType.EQUAL);
+
+    const numberToken = this.consume(TokenType.NUMBER);
+
+    let options: Option[] = [];
+    if (this.match(TokenType.LEFT_BRACKET)) {
+      options = this.parseFieldOptions();
+      this.consume(TokenType.RIGHT_BRACKET);
+    }
+
+    const end = this.consume(TokenType.SEMICOLON);
+    return {
+      type: "Field",
+      fieldType: valueType,
+      name: id.lexeme,
+      fieldNumber: Number(numberToken.lexeme),
+      fieldOptions: options,
+      start: valueType.start,
+      end: end.end,
+    };
   }
 
   /**
