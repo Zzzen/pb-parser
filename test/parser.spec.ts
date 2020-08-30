@@ -103,6 +103,41 @@ message M {
     ).toMatchSnapshot();
   });
 
+  it("parse nested message", () => {
+    expect(
+      parse(`
+message M {
+  message Inner {
+    option (my_option).a = true;
+  }
+}
+
+      `)
+    ).toMatchSnapshot();
+  });
+
+  it("parse enum", () => {
+    expect(
+      parse(`
+enum EnumAllowingAlias {
+  option allow_alias = true;
+  UNKNOWN = 0;
+  STARTED = 1;
+  RUNNING = 2 [(custom_option) = "hello world"];
+}
+
+message M {
+  enum EnumAllowingAlias {
+    option allow_alias = true;
+    UNKNOWN = 0;
+    STARTED = 1;
+    RUNNING = 2 [(custom_option) = "hello world"];
+  }
+}
+      `)
+    ).toMatchSnapshot();
+  });
+
   it("parse example proto", () => {
     expect(
       parse(`

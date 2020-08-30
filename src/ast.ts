@@ -88,6 +88,9 @@ export type MessageBody =
 
 export interface Enum extends BaseNode {
   type: "Enum";
+  name: string;
+  options: Option[];
+  fields: Field[];
 }
 
 export interface Extend extends BaseNode {
@@ -101,7 +104,7 @@ export interface Service extends BaseNode {
 export interface Field extends BaseNode {
   type: "Field";
   name: string;
-  fieldType: ValueType;
+  fieldType?: ValueType;
   fieldNumber: number;
   fieldOptions: Option[];
 }

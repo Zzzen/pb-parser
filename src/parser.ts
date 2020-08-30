@@ -18,6 +18,7 @@ import {
   ValueType,
   Field,
   OneOf,
+  Enum,
 } from "./ast";
 import { last } from "./util";
 
@@ -101,6 +102,8 @@ export class Parser {
   parseTopLevelDef(): TopLevelDef {
     if (this.checkKeyword(Keyword.MESSAGE)) {
       return this.parseMessage();
+    } else if (this.checkKeyword(Keyword.ENUM)) {
+      return this.parseEnum();
     }
 
     this.error(this.peek(), "");
@@ -142,6 +145,12 @@ export class Parser {
       } else if (this.checkKeyword(Keyword.ONEOF)) {
         body.push(this.parseOneof());
         continue;
+      } else if (this.checkKeyword(Keyword.MESSAGE)) {
+        body.push(this.parseMessage());
+        continue;
+      } else if (this.checkKeyword(Keyword.ENUM)) {
+        body.push(this.parseEnum());
+        continue;
       }
 
       // emptyStatement
@@ -152,6 +161,43 @@ export class Parser {
       this.error(this.peek());
     }
     return body;
+  }
+
+  /**
+   * enum = "enum" enumName enumBody
+   * enumBody = "{" { option | enumField | emptyStatement } "}"
+   * enumField = ident "=" [ "-" ] intLit [ "[" enumValueOption { ","  enumValueOption } "]" ]";"
+   * enumValueOption = optionName "=" constant
+   */
+  parseEnum(): Enum {
+    const start = this.consumeKeyword(Keyword.ENUM);
+    const enumName = this.consume(TokenType.IDENTIFIER);
+
+    this.consume(TokenType.LEFT_BRACE);
+
+    const options: Option[] = [];
+    const fields: Field[] = [];
+
+    while (!this.check(TokenType.RIGHT_BRACE)) {
+      if (this.checkKeyword(Keyword.OPTION)) {
+        options.push(this.parseOption());
+      } else if (this.match(TokenType.SEMICOLON)) {
+        continue;
+      } else if (this.check(TokenType.IDENTIFIER)) {
+        fields.push(this.parseField(false));
+      }
+    }
+
+    const end = this.consume(TokenType.RIGHT_BRACE);
+
+    return {
+      type: "Enum",
+      name: enumName.lexeme,
+      options,
+      fields,
+      start: start.start,
+      end: end.end,
+    };
   }
 
   /**
@@ -193,8 +239,8 @@ export class Parser {
   /**
    * field = type fieldName "=" fieldNumber [ "[" fieldOptions "]" ] ";"
    */
-  parseField(): Field {
-    const valueType = this.parseValueType();
+  parseField(hasValueType = true): Field {
+    const valueType = hasValueType ? this.parseValueType() : undefined;
     const id = this.consume(TokenType.IDENTIFIER);
 
     this.consume(TokenType.EQUAL);
@@ -214,7 +260,7 @@ export class Parser {
       name: id.lexeme,
       fieldNumber: Number(numberToken.lexeme),
       fieldOptions: options,
-      start: valueType.start,
+      start: valueType ? valueType.start : id.start,
       end: end.end,
     };
   }

@@ -10,6 +10,169 @@ Object {
 }
 `;
 
+exports[`Parser parse enum 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "end": 135,
+      "fields": Array [
+        Object {
+          "end": 69,
+          "fieldNumber": 0,
+          "fieldOptions": Array [],
+          "fieldType": undefined,
+          "name": "UNKNOWN",
+          "start": 57,
+          "type": "Field",
+        },
+        Object {
+          "end": 84,
+          "fieldNumber": 1,
+          "fieldOptions": Array [],
+          "fieldType": undefined,
+          "name": "STARTED",
+          "start": 72,
+          "type": "Field",
+        },
+        Object {
+          "end": 133,
+          "fieldNumber": 2,
+          "fieldOptions": Array [
+            Object {
+              "end": 131,
+              "name": Object {
+                "end": 115,
+                "start": 100,
+                "type": "OptionName",
+                "value": "(custom_option)",
+              },
+              "start": 100,
+              "type": "Option",
+              "value": Object {
+                "end": 131,
+                "start": 118,
+                "type": "Literal",
+                "value": "hello world",
+              },
+            },
+          ],
+          "fieldType": undefined,
+          "name": "RUNNING",
+          "start": 87,
+          "type": "Field",
+        },
+      ],
+      "name": "EnumAllowingAlias",
+      "options": Array [
+        Object {
+          "end": 54,
+          "name": Object {
+            "end": 46,
+            "start": 35,
+            "type": "OptionName",
+            "value": "allow_alias",
+          },
+          "start": 28,
+          "type": "Option",
+          "value": Object {
+            "end": 53,
+            "start": 49,
+            "type": "FullIdentifier",
+            "value": "true",
+          },
+        },
+      ],
+      "start": 1,
+      "type": "Enum",
+    },
+    Object {
+      "body": Array [
+        Object {
+          "end": 295,
+          "fields": Array [
+            Object {
+              "end": 223,
+              "fieldNumber": 0,
+              "fieldOptions": Array [],
+              "fieldType": undefined,
+              "name": "UNKNOWN",
+              "start": 211,
+              "type": "Field",
+            },
+            Object {
+              "end": 240,
+              "fieldNumber": 1,
+              "fieldOptions": Array [],
+              "fieldType": undefined,
+              "name": "STARTED",
+              "start": 228,
+              "type": "Field",
+            },
+            Object {
+              "end": 291,
+              "fieldNumber": 2,
+              "fieldOptions": Array [
+                Object {
+                  "end": 289,
+                  "name": Object {
+                    "end": 273,
+                    "start": 258,
+                    "type": "OptionName",
+                    "value": "(custom_option)",
+                  },
+                  "start": 258,
+                  "type": "Option",
+                  "value": Object {
+                    "end": 289,
+                    "start": 276,
+                    "type": "Literal",
+                    "value": "hello world",
+                  },
+                },
+              ],
+              "fieldType": undefined,
+              "name": "RUNNING",
+              "start": 245,
+              "type": "Field",
+            },
+          ],
+          "name": "EnumAllowingAlias",
+          "options": Array [
+            Object {
+              "end": 206,
+              "name": Object {
+                "end": 198,
+                "start": 187,
+                "type": "OptionName",
+                "value": "allow_alias",
+              },
+              "start": 180,
+              "type": "Option",
+              "value": Object {
+                "end": 205,
+                "start": 201,
+                "type": "FullIdentifier",
+                "value": "true",
+              },
+            },
+          ],
+          "start": 151,
+          "type": "Enum",
+        },
+      ],
+      "end": 297,
+      "name": "M",
+      "start": 137,
+      "type": "Message",
+    },
+  ],
+  "end": 304,
+  "start": 1,
+  "syntax": undefined,
+  "type": "ProtoFile",
+}
+`;
+
 exports[`Parser parse example proto 1`] = `
 Object {
   "body": Array [
@@ -203,6 +366,50 @@ Object {
     },
   ],
   "end": 239,
+  "start": 1,
+  "syntax": undefined,
+  "type": "ProtoFile",
+}
+`;
+
+exports[`Parser parse nested message 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "body": Array [
+        Object {
+          "body": Array [
+            Object {
+              "end": 63,
+              "name": Object {
+                "end": 55,
+                "start": 42,
+                "type": "OptionName",
+                "value": "(my_option).a",
+              },
+              "start": 35,
+              "type": "Option",
+              "value": Object {
+                "end": 62,
+                "start": 58,
+                "type": "FullIdentifier",
+                "value": "true",
+              },
+            },
+          ],
+          "end": 67,
+          "name": "Inner",
+          "start": 15,
+          "type": "Message",
+        },
+      ],
+      "end": 69,
+      "name": "M",
+      "start": 1,
+      "type": "Message",
+    },
+  ],
+  "end": 77,
   "start": 1,
   "syntax": undefined,
   "type": "ProtoFile",
