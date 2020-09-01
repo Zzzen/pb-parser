@@ -155,6 +155,9 @@ export class Parser {
       } else if (this.checkKeyword(Keyword.EXTENSIONS)) {
         body.push(this.parseExtensions());
         continue;
+      } else if (this.check(TokenType.IDENTIFIER)) {
+        body.push(this.parseNormalField());
+        continue;
       }
 
       // emptyStatement
@@ -165,6 +168,46 @@ export class Parser {
       this.error(this.peek());
     }
     return body;
+  }
+
+  /**
+   * proto2
+   *
+   * label = "required" | "optional" | "repeated"
+   * type = "double" | "float" | "int32" | "int64" | "uint32" | "uint64"
+   *       | "sint32" | "sint64" | "fixed32" | "fixed64" | "sfixed32" | "sfixed64"
+   *       | "bool" | "string" | "bytes" | messageType | enumType
+   * fieldNumber = intLit;
+   * field = label type fieldName "=" fieldNumber [ "[" fieldOptions "]" ] ";"
+   * fieldOptions = fieldOption { ","  fieldOption }
+   * fieldOption = optionName "=" constant
+   *
+   *
+   *
+   * proto3
+   *
+   * type = "double" | "float" | "int32" | "int64" | "uint32" | "uint64"
+   *       | "sint32" | "sint64" | "fixed32" | "fixed64" | "sfixed32" | "sfixed64"
+   *       | "bool" | "string" | "bytes" | messageType | enumType
+   * fieldNumber = intLit;
+   * field = [ "repeated" ] type fieldName "=" fieldNumber [ "[" fieldOptions "]" ] ";"
+   * fieldOptions = fieldOption { ","  fieldOption }
+   * fieldOption = optionName "=" constant
+   */
+  parseNormalField(): Field {
+    const start = this.peek();
+    let label: string;
+    if (
+      start.type === TokenType.IDENTIFIER &&
+      ["required", "optional", "repeated"].includes(start.lexeme)
+    ) {
+      label = this.advance().lexeme;
+    }
+    const field = this.parseField();
+    return {
+      ...field,
+      label: label! as any,
+    };
   }
 
   /**

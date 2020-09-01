@@ -104,6 +104,7 @@ export interface Service extends BaseNode {
 export interface Field extends BaseNode {
   type: "Field";
   name: string;
+  label?: "repeated" | "optional" | "required";
   fieldType?: ValueType;
   fieldNumber: number;
   fieldOptions: Option[];

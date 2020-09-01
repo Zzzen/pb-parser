@@ -446,6 +446,88 @@ Object {
 }
 `;
 
+exports[`Parser parse normal fields 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "body": Array [
+        Object {
+          "end": 51,
+          "fieldNumber": 2,
+          "fieldOptions": Array [],
+          "fieldType": Object {
+            "end": 31,
+            "start": 24,
+            "type": "ValueType",
+            "value": "foo.bar",
+          },
+          "label": "optional",
+          "name": "nested_message",
+          "start": 24,
+          "type": "Field",
+        },
+        Object {
+          "end": 95,
+          "fieldNumber": 4,
+          "fieldOptions": Array [
+            Object {
+              "end": 93,
+              "name": Object {
+                "end": 88,
+                "start": 82,
+                "type": "OptionName",
+                "value": "packed",
+              },
+              "start": 82,
+              "type": "Option",
+              "value": Object {
+                "end": 93,
+                "start": 89,
+                "type": "FullIdentifier",
+                "value": "true",
+              },
+            },
+          ],
+          "fieldType": Object {
+            "end": 68,
+            "start": 63,
+            "type": "ValueType",
+            "value": "int32",
+          },
+          "label": "repeated",
+          "name": "samples",
+          "start": 63,
+          "type": "Field",
+        },
+        Object {
+          "end": 125,
+          "fieldNumber": 2,
+          "fieldOptions": Array [],
+          "fieldType": Object {
+            "end": 105,
+            "start": 98,
+            "type": "ValueType",
+            "value": "foo.bar",
+          },
+          "label": undefined,
+          "name": "nested_message",
+          "start": 98,
+          "type": "Field",
+        },
+      ],
+      "end": 127,
+      "name": "M",
+      "start": 1,
+      "type": "Message",
+    },
+  ],
+  "end": 134,
+  "start": 1,
+  "syntax": undefined,
+  "type": "ProtoFile",
+}
+`;
+
 exports[`Parser parse oneof field 1`] = `
 Object {
   "body": Array [

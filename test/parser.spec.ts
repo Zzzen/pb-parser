@@ -148,6 +148,18 @@ message M {
     ).toMatchSnapshot();
   });
 
+  it("parse normal fields", () => {
+    expect(
+      parse(`
+message M {
+  optional foo.bar nested_message = 2;
+  repeated int32 samples = 4 [packed=true];
+  foo.bar nested_message = 2;
+}
+      `)
+    ).toMatchSnapshot();
+  });
+
   it("parse example proto", () => {
     expect(
       parse(`
