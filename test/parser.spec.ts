@@ -138,6 +138,16 @@ message M {
     ).toMatchSnapshot();
   });
 
+  it("parse extensions", () => {
+    expect(
+      parse(`
+message M {
+  extensions 20 to 30;
+}
+      `)
+    ).toMatchSnapshot();
+  });
+
   it("parse example proto", () => {
     expect(
       parse(`

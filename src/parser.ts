@@ -19,6 +19,7 @@ import {
   Field,
   OneOf,
   Enum,
+  Extensions,
 } from "./ast";
 import { last } from "./util";
 
@@ -151,6 +152,9 @@ export class Parser {
       } else if (this.checkKeyword(Keyword.ENUM)) {
         body.push(this.parseEnum());
         continue;
+      } else if (this.checkKeyword(Keyword.EXTENSIONS)) {
+        body.push(this.parseExtensions());
+        continue;
       }
 
       // emptyStatement
@@ -161,6 +165,28 @@ export class Parser {
       this.error(this.peek());
     }
     return body;
+  }
+
+  /**
+   * extensions = "extensions" ranges ";"
+   * ranges = range { "," range }
+   * range =  intLit [ "to" ( intLit | "max" ) ]
+   */
+  parseExtensions(): Extensions {
+    const start = this.consumeKeyword(Keyword.EXTENSIONS);
+    const ranges = [this.parseRange()];
+    while (this.match(TokenType.COMMA)) {
+      ranges.push(this.parseRange());
+    }
+
+    const end = this.consume(TokenType.SEMICOLON);
+
+    return {
+      type: "Extensions",
+      ranges,
+      start: start.start,
+      end: end.end,
+    };
   }
 
   /**

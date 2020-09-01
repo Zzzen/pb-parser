@@ -213,6 +213,36 @@ Object {
 }
 `;
 
+exports[`Parser parse extensions 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "body": Array [
+        Object {
+          "end": 35,
+          "ranges": Array [
+            Array [
+              20,
+              30,
+            ],
+          ],
+          "start": 15,
+          "type": "Extensions",
+        },
+      ],
+      "end": 37,
+      "name": "M",
+      "start": 1,
+      "type": "Message",
+    },
+  ],
+  "end": 44,
+  "start": 1,
+  "syntax": undefined,
+  "type": "ProtoFile",
+}
+`;
+
 exports[`Parser parse import 1`] = `
 Object {
   "body": Array [

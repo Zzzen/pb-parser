@@ -111,6 +111,7 @@ export interface Field extends BaseNode {
 
 export interface Extensions extends BaseNode {
   type: "Extensions";
+  ranges: Array<[number, number | "max"] | [number]> | undefined;
 }
 
 export interface Group extends BaseNode {
