@@ -155,7 +155,10 @@ export class Parser {
       } else if (this.checkKeyword(Keyword.EXTENSIONS)) {
         body.push(this.parseExtensions());
         continue;
-      } else if (this.check(TokenType.IDENTIFIER)) {
+      } else if (
+        this.check(TokenType.IDENTIFIER) ||
+        this.check(TokenType.PRIMITIVE_TYPE)
+      ) {
         body.push(this.parseNormalField());
         continue;
       }
