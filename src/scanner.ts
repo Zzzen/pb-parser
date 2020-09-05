@@ -1,3 +1,6 @@
+import { Location } from "./ast";
+import { last } from "./util";
+
 export enum TokenType {
   // Single-character tokens.
   LEFT_PAREN = "LEFT_PAREN",
@@ -86,9 +89,12 @@ export interface Token {
   type: TokenType;
   lexeme: string;
   literal?: unknown;
-  line: number;
   start: number;
   end: number;
+  loc: {
+    start: Location;
+    end: Location;
+  };
 }
 
 const base10Re = /^[1-9][0-9]*/;
@@ -99,16 +105,40 @@ const base8Re = /^0[0-7]+/;
 // const base8NegRe = /^-?0[0-7]+/
 const numberRe = /^(?![eE])[0-9]*(?:\.[0-9]*)?(?:[eE][+-]?[0-9]+)?/;
 const nameRe = /^[a-zA-Z_][a-zA-Z_0-9]*/;
-const typeRefRe = /^(?:\.?[a-zA-Z_][a-zA-Z_0-9]*)(?:\.[a-zA-Z_][a-zA-Z_0-9]*)*/;
-const fqTypeRefRe = /^(?:\.[a-zA-Z_][a-zA-Z_0-9]*)+/;
+// const typeRefRe = /^(?:\.?[a-zA-Z_][a-zA-Z_0-9]*)(?:\.[a-zA-Z_][a-zA-Z_0-9]*)*/;
+// const fqTypeRefRe = /^(?:\.[a-zA-Z_][a-zA-Z_0-9]*)+/;
 
 export class Scanner {
   current = 0;
   start = 0;
   line = 0;
   tokens: Token[] = [];
+  lineStarts: number[] = [];
 
-  constructor(readonly source: string) {}
+  constructor(readonly source: string) {
+    let start = "";
+    source.split(/\r?\n/g).forEach((line) => {
+      this.lineStarts.push(start.length);
+      start += line;
+    });
+  }
+
+  getLocOfIndex(indexOfString: number): Location {
+    const getLineOfIndex = (index: number) => {
+      for (let i = 0; i < this.lineStarts.length - 1; i++) {
+        if (this.lineStarts[i] < index && index < this.lineStarts[i + 1]) {
+          return i;
+        }
+      }
+      return last(this.lineStarts);
+    };
+    const line = getLineOfIndex(indexOfString);
+    const column = indexOfString - this.lineStarts[line];
+    return {
+      line: line + 1,
+      column: column - 1,
+    };
+  }
 
   scanTokens() {
     while (!this.isAtEnd()) {
@@ -119,9 +149,18 @@ export class Scanner {
     this.tokens.push({
       type: TokenType.EOF,
       lexeme: "",
-      line: this.line,
       start: this.start,
       end: this.current,
+      loc: {
+        start: {
+          line: this.line + 1,
+          column: this.source.length - last(this.lineStarts) - 1,
+        },
+        end: {
+          line: this.line + 1,
+          column: this.source.length - last(this.lineStarts) - 1,
+        },
+      },
     });
 
     return this.tokens;
@@ -262,15 +301,17 @@ export class Scanner {
   }
 
   addToken(type: TokenType, literal?: unknown) {
-    const token = {
+    this.tokens.push({
       type,
       literal,
       lexeme: this.source.slice(this.start, this.current),
-      line: this.line,
       start: this.start,
       end: this.current,
-    };
-    this.tokens.push(token);
+      loc: {
+        start: this.getLocOfIndex(this.start),
+        end: this.getLocOfIndex(this.current),
+      },
+    });
   }
 
   private isAtEnd() {
@@ -335,10 +376,6 @@ export class Scanner {
 
   private isAlpha(c: string) {
     return /[a-zA-Z_]/.test(c);
-  }
-
-  private isAlphaNumeric(c: string) {
-    return this.isAlpha(c) || this.isDigit(c);
   }
 
   private isDigit(c: string) {

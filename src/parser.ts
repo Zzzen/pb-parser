@@ -20,11 +20,12 @@ import {
   OneOf,
   Enum,
   Extensions,
+  WithFullLocation,
 } from "./ast";
 import { last } from "./util";
 
 export class Parser {
-  pendingComments: Comment[] = [];
+  leadingComments: Comment[] = [];
   current = 0;
   tokens: Token[] = [];
 
@@ -33,13 +34,25 @@ export class Parser {
   handleComments() {
     while (this.check(TokenType.COMMENT)) {
       const token = this.peek();
-      this.pendingComments.push({
+      this.current++;
+      this.leadingComments.push({
         type: "Comment",
         value: token.literal as string,
         start: token.start,
         end: token.end,
       });
     }
+  }
+
+  getLocFromNodes(start: WithFullLocation, end: WithFullLocation) {
+    return {
+      start: start.start,
+      end: end.end,
+      loc: {
+        start: start.loc.start,
+        end: end.loc.end,
+      },
+    };
   }
 
   parse() {
@@ -51,17 +64,17 @@ export class Parser {
     this.handleComments();
     if (this.checkKeyword(Keyword.SYNTAX)) {
       const syntax = this.advance();
-      this.handleComments();
       this.consume(TokenType.EQUAL);
       const proto = this.consume(TokenType.STRING);
       const semicolon = this.consume(TokenType.SEMICOLON);
       return {
+        ...this.getLocFromNodes(syntax, semicolon),
         type: "SyntaxStatement",
         value: proto.literal as "proto2" | "proto3",
-        start: syntax.start,
-        end: semicolon.end,
       };
     }
+
+    return undefined;
   }
 
   parseTopLevelDirectives(): TopLevelDirective[] {
@@ -123,9 +136,8 @@ export class Parser {
     const end = this.consume(TokenType.RIGHT_BRACE);
 
     return {
+      ...this.getLocFromNodes(messageToken, end),
       type: "Message",
-      start: messageToken.start,
-      end: end.end,
       body,
       name,
     };
@@ -228,10 +240,9 @@ export class Parser {
     const end = this.consume(TokenType.SEMICOLON);
 
     return {
+      ...this.getLocFromNodes(start, end),
       type: "Extensions",
       ranges,
-      start: start.start,
-      end: end.end,
     };
   }
 
@@ -263,12 +274,11 @@ export class Parser {
     const end = this.consume(TokenType.RIGHT_BRACE);
 
     return {
+      ...this.getLocFromNodes(start, end),
       type: "Enum",
       name: enumName.lexeme,
       options,
       fields,
-      start: start.start,
-      end: end.end,
     };
   }
 
@@ -299,12 +309,11 @@ export class Parser {
     const end = this.previous();
 
     return {
+      ...this.getLocFromNodes(start, end),
       type: "OneOf",
       oneofName: oneofName.lexeme,
       options,
       fields,
-      start: start.start,
-      end: end.end,
     };
   }
 
@@ -327,13 +336,12 @@ export class Parser {
 
     const end = this.consume(TokenType.SEMICOLON);
     return {
+      ...this.getLocFromNodes(valueType ? valueType : id, end),
       type: "Field",
       fieldType: valueType,
       name: id.lexeme,
       fieldNumber: Number(numberToken.lexeme),
       fieldOptions: options,
-      start: valueType ? valueType.start : id.start,
-      end: end.end,
     };
   }
 
@@ -369,9 +377,8 @@ export class Parser {
     const end = this.consume(TokenType.SEMICOLON);
 
     return {
+      ...this.getLocFromNodes(start, end),
       type: "MapField",
-      start: start.start,
-      end: end.end,
       valueType: value,
       keyType: keyToken.lexeme,
       mapName: id.lexeme,
@@ -393,9 +400,8 @@ export class Parser {
     if (this.match(TokenType.PRIMITIVE_TYPE)) {
       const token = this.previous();
       return {
+        ...this.getLocFromNodes(token, token),
         type: "ValueType",
-        start: token.start,
-        end: token.end,
         value: token.lexeme,
       };
     } else {
@@ -409,9 +415,11 @@ export class Parser {
       }
 
       return {
+        ...this.getLocFromNodes(
+          leadingDot ? leadingDot : idents[0],
+          last(idents)
+        ),
         type: "ValueType",
-        start: leadingDot ? leadingDot.start : idents[0].start,
-        end: last(idents).end,
         value:
           (leadingDot ? "." : "") + idents.map((id) => id.lexeme).join("."),
       };
@@ -435,11 +443,10 @@ export class Parser {
 
       const end = this.consume(TokenType.SEMICOLON);
       return {
+        ...this.getLocFromNodes(reserved, end),
         type: "Reserved",
         ranges: undefined,
         fieldName: ids.map((x) => x.literal as string),
-        start: reserved.start,
-        end: end.end,
       };
     } else {
       // ranges
@@ -450,11 +457,10 @@ export class Parser {
 
       const end = this.consume(TokenType.SEMICOLON);
       return {
+        ...this.getLocFromNodes(reserved, end),
         type: "Reserved",
         ranges: ranges,
         fieldName: undefined,
-        start: reserved.start,
-        end: end.end,
       };
     }
   }
@@ -489,11 +495,10 @@ export class Parser {
     const end = this.consume(TokenType.SEMICOLON);
 
     return {
+      ...this.getLocFromNodes(start, end),
       type: "Option",
       name: optionName,
       value: constant,
-      start: start.start,
-      end: end.end,
     };
   }
 
@@ -517,9 +522,8 @@ export class Parser {
     this.consume(TokenType.EQUAL);
     const constant = this.parseConstant();
     return {
+      ...this.getLocFromNodes(name, constant),
       type: "Option",
-      start: name.start,
-      end: constant.end,
       value: constant,
       name: name,
     };
@@ -550,10 +554,9 @@ export class Parser {
     }
 
     return {
+      ...this.getLocFromNodes(start, this.previous()),
       type: "OptionName",
       value: name,
-      start: start.start,
-      end: this.previous().end,
     };
   }
 
@@ -570,20 +573,18 @@ export class Parser {
         symbol = this.advance();
         const isMinue = symbol.type === TokenType.MINUS;
         return {
+          ...this.getLocFromNodes(symbol, symbol),
           type: "Literal",
           value:
             (isMinue ? -1 : +1) *
             (this.consume(TokenType.NUMBER).literal as number),
-          start: symbol.start,
-          end: symbol.end,
         };
       } else {
         const token = this.consume(TokenType.STRING);
         return {
+          ...this.getLocFromNodes(token, token),
           type: "Literal",
           value: token.literal as string,
-          start: token.start,
-          end: token.end,
         };
       }
     }
@@ -597,10 +598,9 @@ export class Parser {
     const end = this.consume(TokenType.SEMICOLON);
 
     return {
+      ...this.getLocFromNodes(packageToken, end),
       type: "Package",
       name,
-      start: packageToken.start,
-      end: end.end,
     };
   }
 
@@ -613,10 +613,9 @@ export class Parser {
     const fullId = ids.map((id) => id.lexeme).join(".");
 
     return {
+      ...this.getLocFromNodes(ids[0], last(ids)),
       type: "FullIdentifier",
       value: fullId,
-      start: ids[0].start,
-      end: ids[ids.length - 1].end,
     };
   }
 
@@ -632,11 +631,10 @@ export class Parser {
     const end = this.consume(TokenType.SEMICOLON);
 
     return {
+      ...this.getLocFromNodes(importToken, end),
       type: "ImportStatement",
       file: strLit.literal as string,
       modifier: modifier?.lexeme as "weak" | "public",
-      start: importToken.start,
-      end: end.end,
     };
   }
 
@@ -647,11 +645,11 @@ export class Parser {
     const syntax = this.parseSyntax();
     const body = this.parseTopLevelDirectives();
     return {
+      ...this.getLocFromNodes(this.tokens[0], last(this.tokens)),
       type: "ProtoFile",
       syntax,
       body,
-      start: this.tokens[0].start,
-      end: this.tokens[this.tokens.length - 1].end,
+      tokens: this.tokens,
     };
   }
 
@@ -701,7 +699,7 @@ export class Parser {
     if (this.check(type)) return this.advance();
 
     const current = this.tokens[this.current];
-    const errorMessage = `expected ${type}, but got ${current.type} at line ${current.line}`;
+    const errorMessage = `expected ${type}, but got ${current.type} at line ${current.loc.start.line}`;
 
     throw this.error(this.peek(), errorMessage);
   }
@@ -710,7 +708,7 @@ export class Parser {
     if (this.checkKeyword(type)) return this.advance();
 
     const current = this.tokens[this.current];
-    const errorMessage = `expected ${type}, but got ${current.type} at line ${current.line}`;
+    const errorMessage = `expected ${type}, but got ${current.type} at line ${current.loc.start.line}`;
 
     throw this.error(this.peek(), errorMessage);
   }
@@ -722,6 +720,7 @@ export class Parser {
   }
 
   private advance() {
+    this.handleComments();
     if (!this.isAtEnd()) this.current++;
     return this.previous();
   }

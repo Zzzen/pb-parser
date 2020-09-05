@@ -1,3 +1,5 @@
+import { Token } from "./scanner";
+
 export interface Comment {
   type: "Comment";
   value: string;
@@ -5,9 +7,23 @@ export interface Comment {
   end: number;
 }
 
-export interface BaseNode {
+export interface Location {
+  // starts from 1
+  line: number;
+  // starts from 0
+  column: number;
+}
+
+export interface WithFullLocation {
   start: number;
   end: number;
+  loc: {
+    start: Location;
+    end: Location;
+  };
+}
+
+export interface BaseNode extends WithFullLocation {
   leadingComments?: Comment[];
   trailingComments?: Comment[];
 }
@@ -35,6 +51,7 @@ export interface ProtoFile extends BaseNode {
   type: "ProtoFile";
   syntax?: SyntaxStatement;
   body: TopLevelDirective[];
+  tokens: Token[];
 }
 
 export type TopLevelDirective =

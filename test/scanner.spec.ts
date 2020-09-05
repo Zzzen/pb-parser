@@ -5,30 +5,6 @@ function scan(src: string) {
 }
 
 describe("Scanner", () => {
-  it("scan simple symbols", () => {
-    const fixtures: Array<[string, Token]> = [
-      [
-        "(",
-        { type: TokenType.LEFT_PAREN, lexeme: "(", line: 0, start: 0, end: 1 },
-      ],
-      [
-        "{",
-        { type: TokenType.LEFT_BRACE, lexeme: "{", line: 0, start: 0, end: 1 },
-      ],
-      [".", { type: TokenType.DOT, lexeme: ".", line: 0, start: 0, end: 1 }],
-      [
-        ";",
-        { type: TokenType.SEMICOLON, lexeme: ";", line: 0, start: 0, end: 1 },
-      ],
-    ];
-
-    for (const [text, token] of fixtures) {
-      expect(scan(text).filter((t) => t.type !== TokenType.EOF)).toMatchObject([
-        token,
-      ]);
-    }
-  });
-
   it("scan combinations of simple symbols", () => {
     expect(scan("{}")).toMatchSnapshot();
     expect(scan("[]")).toMatchSnapshot();
