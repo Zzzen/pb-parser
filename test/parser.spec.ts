@@ -119,9 +119,10 @@ message M {
   it("parse enum", () => {
     expect(
       parse(`
+// this is enum
 enum EnumAllowingAlias {
-  option allow_alias = true;
-  UNKNOWN = 0;
+  option /** inline comments **/ allow_alias = true;  // this is an option
+  UNKNOWN = 0;                // this is an enum field
   STARTED = 1;
   RUNNING = 2 [(custom_option) = "hello world"];
 }

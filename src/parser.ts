@@ -21,6 +21,7 @@ import {
   Enum,
   Extensions,
   WithFullLocation,
+  BaseNode,
 } from "./ast";
 import { last } from "./util";
 
@@ -31,21 +32,76 @@ export class Parser {
 
   constructor(private readonly source: string) {}
 
-  handleComments() {
+  extractComments() {
     while (this.check(TokenType.COMMENT)) {
-      const token = this.peek();
+      // TODO: find a better way to handle comments
+      // const token = this.peek();
       this.current++;
-      this.leadingComments.push({
-        type: "Comment",
-        value: token.literal as string,
-        start: token.start,
-        end: token.end,
-      });
+      // this.leadingComments.push({
+      //   type: "Comment",
+      //   value: token.literal as string,
+      //   start: token.start,
+      //   end: token.end,
+      // });
     }
   }
 
-  getLocFromNodes(start: WithFullLocation, end: WithFullLocation) {
+  getLocFromNodes(start: WithFullLocation, end: WithFullLocation): BaseNode {
+    let beforeStart = -1;
+    let afterEnd = -1;
+
+    const leadingComments: Comment[] = [];
+    const trailingComments: Comment[] = [];
+
+    for (let i = 0; i < this.tokens.length; i++) {
+      if (
+        beforeStart === -1 &&
+        this.tokens[i].end <= start.start &&
+        start.start <= this.tokens[i + 1]?.start
+      ) {
+        beforeStart = i;
+      }
+
+      if (afterEnd === -1 && end.end <= this.tokens[i].start) {
+        afterEnd = i;
+        break;
+      }
+    }
+
+    if (beforeStart > -1) {
+      for (let i = beforeStart; i >= 0; i--) {
+        // if it is not trailing comments of previous node
+        if (
+          this.tokens[i].type === TokenType.COMMENT &&
+          !(
+            this.tokens[i - 1]?.type !== TokenType.COMMENT &&
+            this.tokens[i - 1]?.loc.end.line === this.tokens[i]?.loc.start.line
+          )
+        ) {
+          leadingComments.push((this.tokens[i] as unknown) as Comment);
+        } else {
+          break;
+        }
+      }
+    }
+
+    if (afterEnd > -1) {
+      for (let i = afterEnd; i < this.tokens.length; i++) {
+        // trailing lines should always be at the same line
+        if (
+          this.tokens[i].type === TokenType.COMMENT &&
+          this.tokens[i].loc.start.line === end.loc.end.line
+        ) {
+          trailingComments.push((this.tokens[i] as unknown) as Comment);
+        } else {
+          break;
+        }
+      }
+    }
+
     return {
+      leadingComments,
+      trailingComments,
       start: start.start,
       end: end.end,
       loc: {
@@ -61,7 +117,7 @@ export class Parser {
   }
 
   parseSyntax(): SyntaxStatement | undefined {
-    this.handleComments();
+    this.extractComments();
     if (this.checkKeyword(Keyword.SYNTAX)) {
       const syntax = this.advance();
       this.consume(TokenType.EQUAL);
@@ -268,6 +324,8 @@ export class Parser {
         continue;
       } else if (this.check(TokenType.IDENTIFIER)) {
         fields.push(this.parseField(false));
+      } else {
+        this.error(this.peek());
       }
     }
 
@@ -720,8 +778,8 @@ export class Parser {
   }
 
   private advance() {
-    this.handleComments();
     if (!this.isAtEnd()) this.current++;
+    this.extractComments();
     return this.previous();
   }
 

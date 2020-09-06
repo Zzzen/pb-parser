@@ -4,6 +4,7 @@ exports[`Parser parse empty statment 1`] = `
 Object {
   "body": Array [],
   "end": 11,
+  "leadingComments": Array [],
   "loc": Object {
     "end": Object {
       "column": 5,
@@ -119,6 +120,7 @@ Object {
       "type": "EOF",
     },
   ],
+  "trailingComments": Array [],
   "type": "ProtoFile",
 }
 `;
@@ -127,32 +129,14 @@ exports[`Parser parse enum 1`] = `
 Object {
   "body": Array [
     Object {
-      "end": 135,
+      "end": 237,
       "fields": Array [
         Object {
-          "end": 69,
+          "end": 171,
           "fieldNumber": 0,
           "fieldOptions": Array [],
           "fieldType": undefined,
-          "loc": Object {
-            "end": Object {
-              "column": 2,
-              "line": 5,
-            },
-            "start": Object {
-              "column": 4,
-              "line": 4,
-            },
-          },
-          "name": "UNKNOWN",
-          "start": 57,
-          "type": "Field",
-        },
-        Object {
-          "end": 84,
-          "fieldNumber": 1,
-          "fieldOptions": Array [],
-          "fieldType": undefined,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 3,
@@ -163,151 +147,336 @@ Object {
               "line": 5,
             },
           },
-          "name": "STARTED",
-          "start": 72,
+          "name": "UNKNOWN",
+          "start": 119,
+          "trailingComments": Array [],
           "type": "Field",
         },
         Object {
-          "end": 133,
-          "fieldNumber": 2,
-          "fieldOptions": Array [
-            Object {
-              "end": 131,
-              "loc": Object {
-                "end": Object {
-                  "column": 1,
-                  "line": 9,
-                },
-                "start": Object {
-                  "column": 19,
-                  "line": 6,
-                },
-              },
-              "name": Object {
-                "end": 115,
-                "loc": Object {
-                  "end": Object {
-                    "column": 34,
-                    "line": 6,
-                  },
-                  "start": Object {
-                    "column": 19,
-                    "line": 6,
-                  },
-                },
-                "start": 100,
-                "type": "OptionName",
-                "value": "(custom_option)",
-              },
-              "start": 100,
-              "type": "Option",
-              "value": Object {
-                "end": 131,
-                "loc": Object {
-                  "end": Object {
-                    "column": 1,
-                    "line": 9,
-                  },
-                  "start": Object {
-                    "column": 37,
-                    "line": 6,
-                  },
-                },
-                "start": 118,
-                "type": "Literal",
-                "value": "hello world",
-              },
-            },
-          ],
+          "end": 186,
+          "fieldNumber": 1,
+          "fieldOptions": Array [],
           "fieldType": undefined,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
-              "column": 3,
-              "line": 9,
+              "column": 4,
+              "line": 7,
             },
             "start": Object {
               "column": 6,
               "line": 6,
             },
           },
-          "name": "RUNNING",
-          "start": 87,
+          "name": "STARTED",
+          "start": 174,
+          "trailingComments": Array [],
           "type": "Field",
+        },
+        Object {
+          "end": 235,
+          "fieldNumber": 2,
+          "fieldOptions": Array [
+            Object {
+              "end": 233,
+              "leadingComments": Array [],
+              "loc": Object {
+                "end": Object {
+                  "column": 2,
+                  "line": 10,
+                },
+                "start": Object {
+                  "column": 20,
+                  "line": 7,
+                },
+              },
+              "name": Object {
+                "end": 217,
+                "leadingComments": Array [],
+                "loc": Object {
+                  "end": Object {
+                    "column": 35,
+                    "line": 7,
+                  },
+                  "start": Object {
+                    "column": 20,
+                    "line": 7,
+                  },
+                },
+                "start": 202,
+                "trailingComments": Array [],
+                "type": "OptionName",
+                "value": "(custom_option)",
+              },
+              "start": 202,
+              "trailingComments": Array [],
+              "type": "Option",
+              "value": Object {
+                "end": 233,
+                "leadingComments": Array [],
+                "loc": Object {
+                  "end": Object {
+                    "column": 2,
+                    "line": 10,
+                  },
+                  "start": Object {
+                    "column": 38,
+                    "line": 7,
+                  },
+                },
+                "start": 220,
+                "trailingComments": Array [],
+                "type": "Literal",
+                "value": "hello world",
+              },
+            },
+          ],
+          "fieldType": undefined,
+          "leadingComments": Array [],
+          "loc": Object {
+            "end": Object {
+              "column": 4,
+              "line": 10,
+            },
+            "start": Object {
+              "column": 7,
+              "line": 7,
+            },
+          },
+          "name": "RUNNING",
+          "start": 189,
+          "trailingComments": Array [],
+          "type": "Field",
+        },
+      ],
+      "leadingComments": Array [
+        Object {
+          "end": 16,
+          "lexeme": "// this is enum",
+          "literal": " this is enum",
+          "loc": Object {
+            "end": Object {
+              "column": 0,
+              "line": 3,
+            },
+            "start": Object {
+              "column": 0,
+              "line": 2,
+            },
+          },
+          "start": 1,
+          "type": "COMMENT",
         },
       ],
       "loc": Object {
         "end": Object {
-          "column": 5,
-          "line": 9,
+          "column": 6,
+          "line": 10,
         },
         "start": Object {
-          "column": 0,
-          "line": 2,
+          "column": 1,
+          "line": 3,
         },
       },
       "name": "EnumAllowingAlias",
       "options": Array [
         Object {
-          "end": 54,
+          "end": 116,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
-              "column": 1,
-              "line": 4,
+              "column": 2,
+              "line": 5,
             },
             "start": Object {
-              "column": 3,
-              "line": 3,
+              "column": 11,
+              "line": 4,
             },
           },
           "name": Object {
-            "end": 46,
+            "end": 86,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
-                "column": 21,
-                "line": 3,
-              },
-              "start": Object {
-                "column": 10,
-                "line": 3,
-              },
-            },
-            "start": 35,
-            "type": "OptionName",
-            "value": "allow_alias",
-          },
-          "start": 28,
-          "type": "Option",
-          "value": Object {
-            "end": 53,
-            "loc": Object {
-              "end": Object {
-                "column": 0,
+                "column": 46,
                 "line": 4,
               },
               "start": Object {
-                "column": 24,
-                "line": 3,
+                "column": 35,
+                "line": 4,
               },
             },
-            "start": 49,
+            "start": 75,
+            "trailingComments": Array [],
+            "type": "OptionName",
+            "value": "allow_alias",
+          },
+          "start": 51,
+          "trailingComments": Array [],
+          "type": "Option",
+          "value": Object {
+            "end": 93,
+            "leadingComments": Array [],
+            "loc": Object {
+              "end": Object {
+                "column": 53,
+                "line": 4,
+              },
+              "start": Object {
+                "column": 49,
+                "line": 4,
+              },
+            },
+            "start": 89,
+            "trailingComments": Array [],
             "type": "FullIdentifier",
             "value": "true",
           },
         },
       ],
-      "start": 1,
+      "start": 17,
+      "trailingComments": Array [],
       "type": "Enum",
     },
     Object {
       "body": Array [
         Object {
-          "end": 295,
+          "end": 397,
           "fields": Array [
             Object {
-              "end": 223,
+              "end": 325,
               "fieldNumber": 0,
               "fieldOptions": Array [],
               "fieldType": undefined,
+              "leadingComments": Array [],
+              "loc": Object {
+                "end": Object {
+                  "column": 11,
+                  "line": 14,
+                },
+                "start": Object {
+                  "column": NaN,
+                  "line": 384,
+                },
+              },
+              "name": "UNKNOWN",
+              "start": 313,
+              "trailingComments": Array [],
+              "type": "Field",
+            },
+            Object {
+              "end": 342,
+              "fieldNumber": 1,
+              "fieldOptions": Array [],
+              "fieldType": undefined,
+              "leadingComments": Array [],
+              "loc": Object {
+                "end": Object {
+                  "column": 12,
+                  "line": 15,
+                },
+                "start": Object {
+                  "column": 0,
+                  "line": 15,
+                },
+              },
+              "name": "STARTED",
+              "start": 330,
+              "trailingComments": Array [],
+              "type": "Field",
+            },
+            Object {
+              "end": 393,
+              "fieldNumber": 2,
+              "fieldOptions": Array [
+                Object {
+                  "end": 391,
+                  "leadingComments": Array [],
+                  "loc": Object {
+                    "end": Object {
+                      "column": NaN,
+                      "line": 384,
+                    },
+                    "start": Object {
+                      "column": 30,
+                      "line": 15,
+                    },
+                  },
+                  "name": Object {
+                    "end": 375,
+                    "leadingComments": Array [],
+                    "loc": Object {
+                      "end": Object {
+                        "column": 45,
+                        "line": 15,
+                      },
+                      "start": Object {
+                        "column": 30,
+                        "line": 15,
+                      },
+                    },
+                    "start": 360,
+                    "trailingComments": Array [],
+                    "type": "OptionName",
+                    "value": "(custom_option)",
+                  },
+                  "start": 360,
+                  "trailingComments": Array [],
+                  "type": "Option",
+                  "value": Object {
+                    "end": 391,
+                    "leadingComments": Array [],
+                    "loc": Object {
+                      "end": Object {
+                        "column": NaN,
+                        "line": 384,
+                      },
+                      "start": Object {
+                        "column": 48,
+                        "line": 15,
+                      },
+                    },
+                    "start": 378,
+                    "trailingComments": Array [],
+                    "type": "Literal",
+                    "value": "hello world",
+                  },
+                },
+              ],
+              "fieldType": undefined,
+              "leadingComments": Array [],
+              "loc": Object {
+                "end": Object {
+                  "column": NaN,
+                  "line": 384,
+                },
+                "start": Object {
+                  "column": 17,
+                  "line": 15,
+                },
+              },
+              "name": "RUNNING",
+              "start": 347,
+              "trailingComments": Array [],
+              "type": "Field",
+            },
+          ],
+          "leadingComments": Array [],
+          "loc": Object {
+            "end": Object {
+              "column": NaN,
+              "line": 384,
+            },
+            "start": Object {
+              "column": 11,
+              "line": 11,
+            },
+          },
+          "name": "EnumAllowingAlias",
+          "options": Array [
+            Object {
+              "end": 308,
+              "leadingComments": Array [],
               "loc": Object {
                 "end": Object {
                   "column": 10,
@@ -318,182 +487,76 @@ Object {
                   "line": 12,
                 },
               },
-              "name": "UNKNOWN",
-              "start": 211,
-              "type": "Field",
-            },
-            Object {
-              "end": 240,
-              "fieldNumber": 1,
-              "fieldOptions": Array [],
-              "fieldType": undefined,
-              "loc": Object {
-                "end": Object {
-                  "column": 11,
-                  "line": 14,
-                },
-                "start": Object {
-                  "column": NaN,
-                  "line": 283,
-                },
-              },
-              "name": "STARTED",
-              "start": 228,
-              "type": "Field",
-            },
-            Object {
-              "end": 291,
-              "fieldNumber": 2,
-              "fieldOptions": Array [
-                Object {
-                  "end": 289,
-                  "loc": Object {
-                    "end": Object {
-                      "column": NaN,
-                      "line": 283,
-                    },
-                    "start": Object {
-                      "column": 29,
-                      "line": 14,
-                    },
-                  },
-                  "name": Object {
-                    "end": 273,
-                    "loc": Object {
-                      "end": Object {
-                        "column": 44,
-                        "line": 14,
-                      },
-                      "start": Object {
-                        "column": 29,
-                        "line": 14,
-                      },
-                    },
-                    "start": 258,
-                    "type": "OptionName",
-                    "value": "(custom_option)",
-                  },
-                  "start": 258,
-                  "type": "Option",
-                  "value": Object {
-                    "end": 289,
-                    "loc": Object {
-                      "end": Object {
-                        "column": NaN,
-                        "line": 283,
-                      },
-                      "start": Object {
-                        "column": 47,
-                        "line": 14,
-                      },
-                    },
-                    "start": 276,
-                    "type": "Literal",
-                    "value": "hello world",
-                  },
-                },
-              ],
-              "fieldType": undefined,
-              "loc": Object {
-                "end": Object {
-                  "column": NaN,
-                  "line": 283,
-                },
-                "start": Object {
-                  "column": 16,
-                  "line": 14,
-                },
-              },
-              "name": "RUNNING",
-              "start": 245,
-              "type": "Field",
-            },
-          ],
-          "loc": Object {
-            "end": Object {
-              "column": NaN,
-              "line": 283,
-            },
-            "start": Object {
-              "column": 10,
-              "line": 10,
-            },
-          },
-          "name": "EnumAllowingAlias",
-          "options": Array [
-            Object {
-              "end": 206,
-              "loc": Object {
-                "end": Object {
-                  "column": 9,
-                  "line": 12,
-                },
-                "start": Object {
-                  "column": 13,
-                  "line": 11,
-                },
-              },
               "name": Object {
-                "end": 198,
+                "end": 300,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
-                    "column": 1,
-                    "line": 12,
+                    "column": 2,
+                    "line": 13,
                   },
                   "start": Object {
-                    "column": 20,
-                    "line": 11,
+                    "column": 21,
+                    "line": 12,
                   },
                 },
-                "start": 187,
+                "start": 289,
+                "trailingComments": Array [],
                 "type": "OptionName",
                 "value": "allow_alias",
               },
-              "start": 180,
+              "start": 282,
+              "trailingComments": Array [],
               "type": "Option",
               "value": Object {
-                "end": 205,
+                "end": 307,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
-                    "column": 8,
-                    "line": 12,
+                    "column": 9,
+                    "line": 13,
                   },
                   "start": Object {
-                    "column": 4,
-                    "line": 12,
+                    "column": 5,
+                    "line": 13,
                   },
                 },
-                "start": 201,
+                "start": 303,
+                "trailingComments": Array [],
                 "type": "FullIdentifier",
                 "value": "true",
               },
             },
           ],
-          "start": 151,
+          "start": 253,
+          "trailingComments": Array [],
           "type": "Enum",
         },
       ],
-      "end": 297,
+      "end": 399,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": NaN,
-          "line": 283,
+          "line": 384,
         },
         "start": Object {
-          "column": 7,
-          "line": 9,
+          "column": 8,
+          "line": 10,
         },
       },
       "name": "M",
-      "start": 137,
+      "start": 239,
+      "trailingComments": Array [],
       "type": "Message",
     },
   ],
-  "end": 304,
+  "end": 406,
+  "leadingComments": Array [],
   "loc": Object {
     "end": Object {
-      "column": 21,
-      "line": 17,
+      "column": 22,
+      "line": 18,
     },
     "start": Object {
       "column": 0,
@@ -504,13 +567,13 @@ Object {
   "syntax": undefined,
   "tokens": Array [
     Object {
-      "end": 5,
-      "lexeme": "enum",
-      "literal": "enum",
+      "end": 16,
+      "lexeme": "// this is enum",
+      "literal": " this is enum",
       "loc": Object {
         "end": Object {
-          "column": 4,
-          "line": 2,
+          "column": 0,
+          "line": 3,
         },
         "start": Object {
           "column": 0,
@@ -518,554 +581,571 @@ Object {
         },
       },
       "start": 1,
-      "type": "IDENTIFIER",
+      "type": "COMMENT",
     },
     Object {
-      "end": 23,
-      "lexeme": "EnumAllowingAlias",
-      "literal": "EnumAllowingAlias",
-      "loc": Object {
-        "end": Object {
-          "column": 22,
-          "line": 2,
-        },
-        "start": Object {
-          "column": 5,
-          "line": 2,
-        },
-      },
-      "start": 6,
-      "type": "IDENTIFIER",
-    },
-    Object {
-      "end": 25,
-      "lexeme": "{",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 0,
-          "line": 3,
-        },
-        "start": Object {
-          "column": NaN,
-          "line": 283,
-        },
-      },
-      "start": 24,
-      "type": "LEFT_BRACE",
-    },
-    Object {
-      "end": 34,
-      "lexeme": "option",
-      "literal": "option",
-      "loc": Object {
-        "end": Object {
-          "column": 9,
-          "line": 3,
-        },
-        "start": Object {
-          "column": 3,
-          "line": 3,
-        },
-      },
-      "start": 28,
-      "type": "IDENTIFIER",
-    },
-    Object {
-      "end": 46,
-      "lexeme": "allow_alias",
-      "literal": "allow_alias",
-      "loc": Object {
-        "end": Object {
-          "column": 21,
-          "line": 3,
-        },
-        "start": Object {
-          "column": 10,
-          "line": 3,
-        },
-      },
-      "start": 35,
-      "type": "IDENTIFIER",
-    },
-    Object {
-      "end": 48,
-      "lexeme": "=",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 23,
-          "line": 3,
-        },
-        "start": Object {
-          "column": 22,
-          "line": 3,
-        },
-      },
-      "start": 47,
-      "type": "EQUAL",
-    },
-    Object {
-      "end": 53,
-      "lexeme": "true",
-      "literal": "true",
-      "loc": Object {
-        "end": Object {
-          "column": 0,
-          "line": 4,
-        },
-        "start": Object {
-          "column": 24,
-          "line": 3,
-        },
-      },
-      "start": 49,
-      "type": "IDENTIFIER",
-    },
-    Object {
-      "end": 54,
-      "lexeme": ";",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 1,
-          "line": 4,
-        },
-        "start": Object {
-          "column": 0,
-          "line": 4,
-        },
-      },
-      "start": 53,
-      "type": "SEMICOLON",
-    },
-    Object {
-      "end": 64,
-      "lexeme": "UNKNOWN",
-      "literal": "UNKNOWN",
-      "loc": Object {
-        "end": Object {
-          "column": 11,
-          "line": 4,
-        },
-        "start": Object {
-          "column": 4,
-          "line": 4,
-        },
-      },
-      "start": 57,
-      "type": "IDENTIFIER",
-    },
-    Object {
-      "end": 66,
-      "lexeme": "=",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": NaN,
-          "line": 283,
-        },
-        "start": Object {
-          "column": 12,
-          "line": 4,
-        },
-      },
-      "start": 65,
-      "type": "EQUAL",
-    },
-    Object {
-      "end": 68,
-      "lexeme": "0",
-      "literal": 0,
-      "loc": Object {
-        "end": Object {
-          "column": 1,
-          "line": 5,
-        },
-        "start": Object {
-          "column": 0,
-          "line": 5,
-        },
-      },
-      "start": 67,
-      "type": "NUMBER",
-    },
-    Object {
-      "end": 69,
-      "lexeme": ";",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 2,
-          "line": 5,
-        },
-        "start": Object {
-          "column": 1,
-          "line": 5,
-        },
-      },
-      "start": 68,
-      "type": "SEMICOLON",
-    },
-    Object {
-      "end": 79,
-      "lexeme": "STARTED",
-      "literal": "STARTED",
-      "loc": Object {
-        "end": Object {
-          "column": 12,
-          "line": 5,
-        },
-        "start": Object {
-          "column": 5,
-          "line": 5,
-        },
-      },
-      "start": 72,
-      "type": "IDENTIFIER",
-    },
-    Object {
-      "end": 81,
-      "lexeme": "=",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 0,
-          "line": 6,
-        },
-        "start": Object {
-          "column": NaN,
-          "line": 283,
-        },
-      },
-      "start": 80,
-      "type": "EQUAL",
-    },
-    Object {
-      "end": 83,
-      "lexeme": "1",
-      "literal": 1,
-      "loc": Object {
-        "end": Object {
-          "column": 2,
-          "line": 6,
-        },
-        "start": Object {
-          "column": 1,
-          "line": 6,
-        },
-      },
-      "start": 82,
-      "type": "NUMBER",
-    },
-    Object {
-      "end": 84,
-      "lexeme": ";",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 3,
-          "line": 6,
-        },
-        "start": Object {
-          "column": 2,
-          "line": 6,
-        },
-      },
-      "start": 83,
-      "type": "SEMICOLON",
-    },
-    Object {
-      "end": 94,
-      "lexeme": "RUNNING",
-      "literal": "RUNNING",
-      "loc": Object {
-        "end": Object {
-          "column": 13,
-          "line": 6,
-        },
-        "start": Object {
-          "column": 6,
-          "line": 6,
-        },
-      },
-      "start": 87,
-      "type": "IDENTIFIER",
-    },
-    Object {
-      "end": 96,
-      "lexeme": "=",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 15,
-          "line": 6,
-        },
-        "start": Object {
-          "column": 14,
-          "line": 6,
-        },
-      },
-      "start": 95,
-      "type": "EQUAL",
-    },
-    Object {
-      "end": 98,
-      "lexeme": "2",
-      "literal": 2,
-      "loc": Object {
-        "end": Object {
-          "column": 17,
-          "line": 6,
-        },
-        "start": Object {
-          "column": 16,
-          "line": 6,
-        },
-      },
-      "start": 97,
-      "type": "NUMBER",
-    },
-    Object {
-      "end": 100,
-      "lexeme": "[",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 19,
-          "line": 6,
-        },
-        "start": Object {
-          "column": 18,
-          "line": 6,
-        },
-      },
-      "start": 99,
-      "type": "LEFT_BRACKET",
-    },
-    Object {
-      "end": 101,
-      "lexeme": "(",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 20,
-          "line": 6,
-        },
-        "start": Object {
-          "column": 19,
-          "line": 6,
-        },
-      },
-      "start": 100,
-      "type": "LEFT_PAREN",
-    },
-    Object {
-      "end": 114,
-      "lexeme": "custom_option",
-      "literal": "custom_option",
-      "loc": Object {
-        "end": Object {
-          "column": 33,
-          "line": 6,
-        },
-        "start": Object {
-          "column": 20,
-          "line": 6,
-        },
-      },
-      "start": 101,
-      "type": "IDENTIFIER",
-    },
-    Object {
-      "end": 115,
-      "lexeme": ")",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 34,
-          "line": 6,
-        },
-        "start": Object {
-          "column": 33,
-          "line": 6,
-        },
-      },
-      "start": 114,
-      "type": "RIGHT_PAREN",
-    },
-    Object {
-      "end": 117,
-      "lexeme": "=",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 36,
-          "line": 6,
-        },
-        "start": Object {
-          "column": 35,
-          "line": 6,
-        },
-      },
-      "start": 116,
-      "type": "EQUAL",
-    },
-    Object {
-      "end": 131,
-      "lexeme": "\\"hello world\\"",
-      "literal": "hello world",
-      "loc": Object {
-        "end": Object {
-          "column": 1,
-          "line": 9,
-        },
-        "start": Object {
-          "column": 37,
-          "line": 6,
-        },
-      },
-      "start": 118,
-      "type": "STRING",
-    },
-    Object {
-      "end": 132,
-      "lexeme": "]",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 2,
-          "line": 9,
-        },
-        "start": Object {
-          "column": 1,
-          "line": 9,
-        },
-      },
-      "start": 131,
-      "type": "RIGHT_BRACKET",
-    },
-    Object {
-      "end": 133,
-      "lexeme": ";",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 3,
-          "line": 9,
-        },
-        "start": Object {
-          "column": 2,
-          "line": 9,
-        },
-      },
-      "start": 132,
-      "type": "SEMICOLON",
-    },
-    Object {
-      "end": 135,
-      "lexeme": "}",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 5,
-          "line": 9,
-        },
-        "start": Object {
-          "column": 4,
-          "line": 9,
-        },
-      },
-      "start": 134,
-      "type": "RIGHT_BRACE",
-    },
-    Object {
-      "end": 144,
-      "lexeme": "message",
-      "literal": "message",
-      "loc": Object {
-        "end": Object {
-          "column": 3,
-          "line": 10,
-        },
-        "start": Object {
-          "column": 7,
-          "line": 9,
-        },
-      },
-      "start": 137,
-      "type": "IDENTIFIER",
-    },
-    Object {
-      "end": 146,
-      "lexeme": "M",
-      "literal": "M",
-      "loc": Object {
-        "end": Object {
-          "column": 5,
-          "line": 10,
-        },
-        "start": Object {
-          "column": 4,
-          "line": 10,
-        },
-      },
-      "start": 145,
-      "type": "IDENTIFIER",
-    },
-    Object {
-      "end": 148,
-      "lexeme": "{",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 7,
-          "line": 10,
-        },
-        "start": Object {
-          "column": 6,
-          "line": 10,
-        },
-      },
-      "start": 147,
-      "type": "LEFT_BRACE",
-    },
-    Object {
-      "end": 155,
+      "end": 21,
       "lexeme": "enum",
       "literal": "enum",
       "loc": Object {
         "end": Object {
-          "column": 14,
-          "line": 10,
+          "column": 5,
+          "line": 3,
         },
         "start": Object {
-          "column": 10,
-          "line": 10,
+          "column": 1,
+          "line": 3,
         },
       },
-      "start": 151,
+      "start": 17,
       "type": "IDENTIFIER",
     },
     Object {
-      "end": 173,
+      "end": 39,
       "lexeme": "EnumAllowingAlias",
       "literal": "EnumAllowingAlias",
+      "loc": Object {
+        "end": Object {
+          "column": NaN,
+          "line": 384,
+        },
+        "start": Object {
+          "column": 6,
+          "line": 3,
+        },
+      },
+      "start": 22,
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 41,
+      "lexeme": "{",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 1,
+          "line": 4,
+        },
+        "start": Object {
+          "column": 0,
+          "line": 4,
+        },
+      },
+      "start": 40,
+      "type": "LEFT_BRACE",
+    },
+    Object {
+      "end": 50,
+      "lexeme": "option",
+      "literal": "option",
+      "loc": Object {
+        "end": Object {
+          "column": 10,
+          "line": 4,
+        },
+        "start": Object {
+          "column": 4,
+          "line": 4,
+        },
+      },
+      "start": 44,
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 74,
+      "lexeme": "/** inline comments **/",
+      "literal": "* inline comments *",
+      "loc": Object {
+        "end": Object {
+          "column": 34,
+          "line": 4,
+        },
+        "start": Object {
+          "column": 11,
+          "line": 4,
+        },
+      },
+      "start": 51,
+      "type": "COMMENT",
+    },
+    Object {
+      "end": 86,
+      "lexeme": "allow_alias",
+      "literal": "allow_alias",
+      "loc": Object {
+        "end": Object {
+          "column": 46,
+          "line": 4,
+        },
+        "start": Object {
+          "column": 35,
+          "line": 4,
+        },
+      },
+      "start": 75,
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 88,
+      "lexeme": "=",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 48,
+          "line": 4,
+        },
+        "start": Object {
+          "column": 47,
+          "line": 4,
+        },
+      },
+      "start": 87,
+      "type": "EQUAL",
+    },
+    Object {
+      "end": 93,
+      "lexeme": "true",
+      "literal": "true",
+      "loc": Object {
+        "end": Object {
+          "column": 53,
+          "line": 4,
+        },
+        "start": Object {
+          "column": 49,
+          "line": 4,
+        },
+      },
+      "start": 89,
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 94,
+      "lexeme": ";",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 54,
+          "line": 4,
+        },
+        "start": Object {
+          "column": 53,
+          "line": 4,
+        },
+      },
+      "start": 93,
+      "type": "SEMICOLON",
+    },
+    Object {
+      "end": 116,
+      "lexeme": "// this is an option",
+      "literal": " this is an option",
+      "loc": Object {
+        "end": Object {
+          "column": 2,
+          "line": 5,
+        },
+        "start": Object {
+          "column": 56,
+          "line": 4,
+        },
+      },
+      "start": 96,
+      "type": "COMMENT",
+    },
+    Object {
+      "end": 126,
+      "lexeme": "UNKNOWN",
+      "literal": "UNKNOWN",
+      "loc": Object {
+        "end": Object {
+          "column": 12,
+          "line": 5,
+        },
+        "start": Object {
+          "column": 5,
+          "line": 5,
+        },
+      },
+      "start": 119,
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 128,
+      "lexeme": "=",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 14,
+          "line": 5,
+        },
+        "start": Object {
+          "column": 13,
+          "line": 5,
+        },
+      },
+      "start": 127,
+      "type": "EQUAL",
+    },
+    Object {
+      "end": 130,
+      "lexeme": "0",
+      "literal": 0,
+      "loc": Object {
+        "end": Object {
+          "column": 16,
+          "line": 5,
+        },
+        "start": Object {
+          "column": 15,
+          "line": 5,
+        },
+      },
+      "start": 129,
+      "type": "NUMBER",
+    },
+    Object {
+      "end": 131,
+      "lexeme": ";",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 17,
+          "line": 5,
+        },
+        "start": Object {
+          "column": 16,
+          "line": 5,
+        },
+      },
+      "start": 130,
+      "type": "SEMICOLON",
+    },
+    Object {
+      "end": 171,
+      "lexeme": "// this is an enum field",
+      "literal": " this is an enum field",
+      "loc": Object {
+        "end": Object {
+          "column": 3,
+          "line": 6,
+        },
+        "start": Object {
+          "column": 33,
+          "line": 5,
+        },
+      },
+      "start": 147,
+      "type": "COMMENT",
+    },
+    Object {
+      "end": 181,
+      "lexeme": "STARTED",
+      "literal": "STARTED",
+      "loc": Object {
+        "end": Object {
+          "column": NaN,
+          "line": 384,
+        },
+        "start": Object {
+          "column": 6,
+          "line": 6,
+        },
+      },
+      "start": 174,
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 183,
+      "lexeme": "=",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 1,
+          "line": 7,
+        },
+        "start": Object {
+          "column": 0,
+          "line": 7,
+        },
+      },
+      "start": 182,
+      "type": "EQUAL",
+    },
+    Object {
+      "end": 185,
+      "lexeme": "1",
+      "literal": 1,
+      "loc": Object {
+        "end": Object {
+          "column": 3,
+          "line": 7,
+        },
+        "start": Object {
+          "column": 2,
+          "line": 7,
+        },
+      },
+      "start": 184,
+      "type": "NUMBER",
+    },
+    Object {
+      "end": 186,
+      "lexeme": ";",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 4,
+          "line": 7,
+        },
+        "start": Object {
+          "column": 3,
+          "line": 7,
+        },
+      },
+      "start": 185,
+      "type": "SEMICOLON",
+    },
+    Object {
+      "end": 196,
+      "lexeme": "RUNNING",
+      "literal": "RUNNING",
+      "loc": Object {
+        "end": Object {
+          "column": 14,
+          "line": 7,
+        },
+        "start": Object {
+          "column": 7,
+          "line": 7,
+        },
+      },
+      "start": 189,
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 198,
+      "lexeme": "=",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 16,
+          "line": 7,
+        },
+        "start": Object {
+          "column": 15,
+          "line": 7,
+        },
+      },
+      "start": 197,
+      "type": "EQUAL",
+    },
+    Object {
+      "end": 200,
+      "lexeme": "2",
+      "literal": 2,
+      "loc": Object {
+        "end": Object {
+          "column": 18,
+          "line": 7,
+        },
+        "start": Object {
+          "column": 17,
+          "line": 7,
+        },
+      },
+      "start": 199,
+      "type": "NUMBER",
+    },
+    Object {
+      "end": 202,
+      "lexeme": "[",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 20,
+          "line": 7,
+        },
+        "start": Object {
+          "column": 19,
+          "line": 7,
+        },
+      },
+      "start": 201,
+      "type": "LEFT_BRACKET",
+    },
+    Object {
+      "end": 203,
+      "lexeme": "(",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 21,
+          "line": 7,
+        },
+        "start": Object {
+          "column": 20,
+          "line": 7,
+        },
+      },
+      "start": 202,
+      "type": "LEFT_PAREN",
+    },
+    Object {
+      "end": 216,
+      "lexeme": "custom_option",
+      "literal": "custom_option",
+      "loc": Object {
+        "end": Object {
+          "column": 34,
+          "line": 7,
+        },
+        "start": Object {
+          "column": 21,
+          "line": 7,
+        },
+      },
+      "start": 203,
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 217,
+      "lexeme": ")",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 35,
+          "line": 7,
+        },
+        "start": Object {
+          "column": 34,
+          "line": 7,
+        },
+      },
+      "start": 216,
+      "type": "RIGHT_PAREN",
+    },
+    Object {
+      "end": 219,
+      "lexeme": "=",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 37,
+          "line": 7,
+        },
+        "start": Object {
+          "column": 36,
+          "line": 7,
+        },
+      },
+      "start": 218,
+      "type": "EQUAL",
+    },
+    Object {
+      "end": 233,
+      "lexeme": "\\"hello world\\"",
+      "literal": "hello world",
+      "loc": Object {
+        "end": Object {
+          "column": 2,
+          "line": 10,
+        },
+        "start": Object {
+          "column": 38,
+          "line": 7,
+        },
+      },
+      "start": 220,
+      "type": "STRING",
+    },
+    Object {
+      "end": 234,
+      "lexeme": "]",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 3,
+          "line": 10,
+        },
+        "start": Object {
+          "column": 2,
+          "line": 10,
+        },
+      },
+      "start": 233,
+      "type": "RIGHT_BRACKET",
+    },
+    Object {
+      "end": 235,
+      "lexeme": ";",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 4,
+          "line": 10,
+        },
+        "start": Object {
+          "column": 3,
+          "line": 10,
+        },
+      },
+      "start": 234,
+      "type": "SEMICOLON",
+    },
+    Object {
+      "end": 237,
+      "lexeme": "}",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 6,
+          "line": 10,
+        },
+        "start": Object {
+          "column": 5,
+          "line": 10,
+        },
+      },
+      "start": 236,
+      "type": "RIGHT_BRACE",
+    },
+    Object {
+      "end": 246,
+      "lexeme": "message",
+      "literal": "message",
+      "loc": Object {
+        "end": Object {
+          "column": 4,
+          "line": 11,
+        },
+        "start": Object {
+          "column": 8,
+          "line": 10,
+        },
+      },
+      "start": 239,
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 248,
+      "lexeme": "M",
+      "literal": "M",
       "loc": Object {
         "end": Object {
           "column": 6,
           "line": 11,
         },
         "start": Object {
-          "column": 15,
-          "line": 10,
+          "column": 5,
+          "line": 11,
         },
       },
-      "start": 156,
+      "start": 247,
       "type": "IDENTIFIER",
     },
     Object {
-      "end": 175,
+      "end": 250,
       "lexeme": "{",
       "literal": undefined,
       "loc": Object {
@@ -1078,80 +1158,46 @@ Object {
           "line": 11,
         },
       },
-      "start": 174,
+      "start": 249,
       "type": "LEFT_BRACE",
     },
     Object {
-      "end": 186,
-      "lexeme": "option",
-      "literal": "option",
+      "end": 257,
+      "lexeme": "enum",
+      "literal": "enum",
       "loc": Object {
         "end": Object {
-          "column": 19,
+          "column": 15,
           "line": 11,
         },
         "start": Object {
-          "column": 13,
+          "column": 11,
           "line": 11,
         },
       },
-      "start": 180,
+      "start": 253,
       "type": "IDENTIFIER",
     },
     Object {
-      "end": 198,
-      "lexeme": "allow_alias",
-      "literal": "allow_alias",
+      "end": 275,
+      "lexeme": "EnumAllowingAlias",
+      "literal": "EnumAllowingAlias",
       "loc": Object {
         "end": Object {
-          "column": 1,
+          "column": 7,
           "line": 12,
         },
         "start": Object {
-          "column": 20,
+          "column": 16,
           "line": 11,
         },
       },
-      "start": 187,
+      "start": 258,
       "type": "IDENTIFIER",
     },
     Object {
-      "end": 200,
-      "lexeme": "=",
-      "literal": undefined,
-      "loc": Object {
-        "end": Object {
-          "column": 3,
-          "line": 12,
-        },
-        "start": Object {
-          "column": 2,
-          "line": 12,
-        },
-      },
-      "start": 199,
-      "type": "EQUAL",
-    },
-    Object {
-      "end": 205,
-      "lexeme": "true",
-      "literal": "true",
-      "loc": Object {
-        "end": Object {
-          "column": 8,
-          "line": 12,
-        },
-        "start": Object {
-          "column": 4,
-          "line": 12,
-        },
-      },
-      "start": 201,
-      "type": "IDENTIFIER",
-    },
-    Object {
-      "end": 206,
-      "lexeme": ";",
+      "end": 277,
+      "lexeme": "{",
       "literal": undefined,
       "loc": Object {
         "end": Object {
@@ -1163,62 +1209,79 @@ Object {
           "line": 12,
         },
       },
-      "start": 205,
-      "type": "SEMICOLON",
+      "start": 276,
+      "type": "LEFT_BRACE",
     },
     Object {
-      "end": 218,
-      "lexeme": "UNKNOWN",
-      "literal": "UNKNOWN",
+      "end": 288,
+      "lexeme": "option",
+      "literal": "option",
       "loc": Object {
         "end": Object {
-          "column": 5,
-          "line": 13,
+          "column": 20,
+          "line": 12,
         },
         "start": Object {
           "column": 14,
           "line": 12,
         },
       },
-      "start": 211,
+      "start": 282,
       "type": "IDENTIFIER",
     },
     Object {
-      "end": 220,
+      "end": 300,
+      "lexeme": "allow_alias",
+      "literal": "allow_alias",
+      "loc": Object {
+        "end": Object {
+          "column": 2,
+          "line": 13,
+        },
+        "start": Object {
+          "column": 21,
+          "line": 12,
+        },
+      },
+      "start": 289,
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 302,
       "lexeme": "=",
       "literal": undefined,
       "loc": Object {
         "end": Object {
-          "column": 7,
+          "column": 4,
           "line": 13,
         },
         "start": Object {
-          "column": 6,
+          "column": 3,
           "line": 13,
         },
       },
-      "start": 219,
+      "start": 301,
       "type": "EQUAL",
     },
     Object {
-      "end": 222,
-      "lexeme": "0",
-      "literal": 0,
+      "end": 307,
+      "lexeme": "true",
+      "literal": "true",
       "loc": Object {
         "end": Object {
           "column": 9,
           "line": 13,
         },
         "start": Object {
-          "column": 8,
+          "column": 5,
           "line": 13,
         },
       },
-      "start": 221,
-      "type": "NUMBER",
+      "start": 303,
+      "type": "IDENTIFIER",
     },
     Object {
-      "end": 223,
+      "end": 308,
       "lexeme": ";",
       "literal": undefined,
       "loc": Object {
@@ -1231,13 +1294,13 @@ Object {
           "line": 13,
         },
       },
-      "start": 222,
+      "start": 307,
       "type": "SEMICOLON",
     },
     Object {
-      "end": 235,
-      "lexeme": "STARTED",
-      "literal": "STARTED",
+      "end": 320,
+      "lexeme": "UNKNOWN",
+      "literal": "UNKNOWN",
       "loc": Object {
         "end": Object {
           "column": 6,
@@ -1245,14 +1308,14 @@ Object {
         },
         "start": Object {
           "column": NaN,
-          "line": 283,
+          "line": 384,
         },
       },
-      "start": 228,
+      "start": 313,
       "type": "IDENTIFIER",
     },
     Object {
-      "end": 237,
+      "end": 322,
       "lexeme": "=",
       "literal": undefined,
       "loc": Object {
@@ -1265,13 +1328,13 @@ Object {
           "line": 14,
         },
       },
-      "start": 236,
+      "start": 321,
       "type": "EQUAL",
     },
     Object {
-      "end": 239,
-      "lexeme": "1",
-      "literal": 1,
+      "end": 324,
+      "lexeme": "0",
+      "literal": 0,
       "loc": Object {
         "end": Object {
           "column": 10,
@@ -1282,11 +1345,11 @@ Object {
           "line": 14,
         },
       },
-      "start": 238,
+      "start": 323,
       "type": "NUMBER",
     },
     Object {
-      "end": 240,
+      "end": 325,
       "lexeme": ";",
       "literal": undefined,
       "loc": Object {
@@ -1299,247 +1362,316 @@ Object {
           "line": 14,
         },
       },
-      "start": 239,
+      "start": 324,
       "type": "SEMICOLON",
     },
     Object {
-      "end": 252,
+      "end": 337,
+      "lexeme": "STARTED",
+      "literal": "STARTED",
+      "loc": Object {
+        "end": Object {
+          "column": 7,
+          "line": 15,
+        },
+        "start": Object {
+          "column": 0,
+          "line": 15,
+        },
+      },
+      "start": 330,
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 339,
+      "lexeme": "=",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 9,
+          "line": 15,
+        },
+        "start": Object {
+          "column": 8,
+          "line": 15,
+        },
+      },
+      "start": 338,
+      "type": "EQUAL",
+    },
+    Object {
+      "end": 341,
+      "lexeme": "1",
+      "literal": 1,
+      "loc": Object {
+        "end": Object {
+          "column": 11,
+          "line": 15,
+        },
+        "start": Object {
+          "column": 10,
+          "line": 15,
+        },
+      },
+      "start": 340,
+      "type": "NUMBER",
+    },
+    Object {
+      "end": 342,
+      "lexeme": ";",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 12,
+          "line": 15,
+        },
+        "start": Object {
+          "column": 11,
+          "line": 15,
+        },
+      },
+      "start": 341,
+      "type": "SEMICOLON",
+    },
+    Object {
+      "end": 354,
       "lexeme": "RUNNING",
       "literal": "RUNNING",
       "loc": Object {
         "end": Object {
-          "column": 23,
-          "line": 14,
+          "column": 24,
+          "line": 15,
         },
         "start": Object {
-          "column": 16,
-          "line": 14,
+          "column": 17,
+          "line": 15,
         },
       },
-      "start": 245,
+      "start": 347,
       "type": "IDENTIFIER",
     },
     Object {
-      "end": 254,
+      "end": 356,
       "lexeme": "=",
       "literal": undefined,
       "loc": Object {
         "end": Object {
-          "column": 25,
-          "line": 14,
+          "column": 26,
+          "line": 15,
         },
         "start": Object {
-          "column": 24,
-          "line": 14,
+          "column": 25,
+          "line": 15,
         },
       },
-      "start": 253,
+      "start": 355,
       "type": "EQUAL",
     },
     Object {
-      "end": 256,
+      "end": 358,
       "lexeme": "2",
       "literal": 2,
       "loc": Object {
         "end": Object {
-          "column": 27,
-          "line": 14,
+          "column": 28,
+          "line": 15,
         },
         "start": Object {
-          "column": 26,
-          "line": 14,
+          "column": 27,
+          "line": 15,
         },
       },
-      "start": 255,
+      "start": 357,
       "type": "NUMBER",
     },
     Object {
-      "end": 258,
+      "end": 360,
       "lexeme": "[",
       "literal": undefined,
       "loc": Object {
         "end": Object {
-          "column": 29,
-          "line": 14,
+          "column": 30,
+          "line": 15,
         },
         "start": Object {
-          "column": 28,
-          "line": 14,
+          "column": 29,
+          "line": 15,
         },
       },
-      "start": 257,
+      "start": 359,
       "type": "LEFT_BRACKET",
     },
     Object {
-      "end": 259,
+      "end": 361,
       "lexeme": "(",
       "literal": undefined,
       "loc": Object {
         "end": Object {
-          "column": 30,
-          "line": 14,
+          "column": 31,
+          "line": 15,
         },
         "start": Object {
-          "column": 29,
-          "line": 14,
+          "column": 30,
+          "line": 15,
         },
       },
-      "start": 258,
+      "start": 360,
       "type": "LEFT_PAREN",
     },
     Object {
-      "end": 272,
+      "end": 374,
       "lexeme": "custom_option",
       "literal": "custom_option",
       "loc": Object {
         "end": Object {
-          "column": 43,
-          "line": 14,
+          "column": 44,
+          "line": 15,
         },
         "start": Object {
-          "column": 30,
-          "line": 14,
+          "column": 31,
+          "line": 15,
         },
       },
-      "start": 259,
+      "start": 361,
       "type": "IDENTIFIER",
     },
     Object {
-      "end": 273,
+      "end": 375,
       "lexeme": ")",
       "literal": undefined,
       "loc": Object {
         "end": Object {
-          "column": 44,
-          "line": 14,
+          "column": 45,
+          "line": 15,
         },
         "start": Object {
-          "column": 43,
-          "line": 14,
+          "column": 44,
+          "line": 15,
         },
       },
-      "start": 272,
+      "start": 374,
       "type": "RIGHT_PAREN",
     },
     Object {
-      "end": 275,
+      "end": 377,
       "lexeme": "=",
       "literal": undefined,
       "loc": Object {
         "end": Object {
-          "column": 46,
-          "line": 14,
+          "column": 47,
+          "line": 15,
         },
         "start": Object {
-          "column": 45,
-          "line": 14,
+          "column": 46,
+          "line": 15,
         },
       },
-      "start": 274,
+      "start": 376,
       "type": "EQUAL",
     },
     Object {
-      "end": 289,
+      "end": 391,
       "lexeme": "\\"hello world\\"",
       "literal": "hello world",
       "loc": Object {
         "end": Object {
           "column": NaN,
-          "line": 283,
+          "line": 384,
         },
         "start": Object {
-          "column": 47,
-          "line": 14,
+          "column": 48,
+          "line": 15,
         },
       },
-      "start": 276,
+      "start": 378,
       "type": "STRING",
     },
     Object {
-      "end": 290,
+      "end": 392,
       "lexeme": "]",
       "literal": undefined,
       "loc": Object {
         "end": Object {
           "column": NaN,
-          "line": 283,
+          "line": 384,
         },
         "start": Object {
           "column": NaN,
-          "line": 283,
+          "line": 384,
         },
       },
-      "start": 289,
+      "start": 391,
       "type": "RIGHT_BRACKET",
     },
     Object {
-      "end": 291,
+      "end": 393,
       "lexeme": ";",
       "literal": undefined,
       "loc": Object {
         "end": Object {
           "column": NaN,
-          "line": 283,
+          "line": 384,
         },
         "start": Object {
           "column": NaN,
-          "line": 283,
+          "line": 384,
         },
       },
-      "start": 290,
+      "start": 392,
       "type": "SEMICOLON",
     },
     Object {
-      "end": 295,
+      "end": 397,
       "lexeme": "}",
       "literal": undefined,
       "loc": Object {
         "end": Object {
           "column": NaN,
-          "line": 283,
+          "line": 384,
         },
         "start": Object {
           "column": NaN,
-          "line": 283,
+          "line": 384,
         },
       },
-      "start": 294,
+      "start": 396,
       "type": "RIGHT_BRACE",
     },
     Object {
-      "end": 297,
+      "end": 399,
       "lexeme": "}",
       "literal": undefined,
       "loc": Object {
         "end": Object {
           "column": NaN,
-          "line": 283,
+          "line": 384,
         },
         "start": Object {
           "column": NaN,
-          "line": 283,
+          "line": 384,
         },
       },
-      "start": 296,
+      "start": 398,
       "type": "RIGHT_BRACE",
     },
     Object {
-      "end": 304,
+      "end": 406,
       "lexeme": "",
       "loc": Object {
         "end": Object {
-          "column": 21,
-          "line": 17,
+          "column": 22,
+          "line": 18,
         },
         "start": Object {
-          "column": 21,
-          "line": 17,
+          "column": 22,
+          "line": 18,
         },
       },
-      "start": 303,
+      "start": 405,
       "type": "EOF",
     },
   ],
+  "trailingComments": Array [],
   "type": "ProtoFile",
 }
 `;
@@ -1550,6 +1682,7 @@ Object {
     Object {
       "end": 48,
       "file": "other.proto",
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": 1,
@@ -1562,10 +1695,12 @@ Object {
       },
       "modifier": "public",
       "start": 20,
+      "trailingComments": Array [],
       "type": "ImportStatement",
     },
     Object {
       "end": 89,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": 2,
@@ -1578,6 +1713,7 @@ Object {
       },
       "name": Object {
         "end": 68,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": 21,
@@ -1589,13 +1725,16 @@ Object {
           },
         },
         "start": 56,
+        "trailingComments": Array [],
         "type": "OptionName",
         "value": "java_package",
       },
       "start": 49,
+      "trailingComments": Array [],
       "type": "Option",
       "value": Object {
         "end": 88,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": 1,
@@ -1607,6 +1746,7 @@ Object {
           },
         },
         "start": 71,
+        "trailingComments": Array [],
         "type": "Literal",
         "value": "com.example.foo",
       },
@@ -1619,6 +1759,7 @@ Object {
           "fieldNumber": 0,
           "fieldOptions": Array [],
           "fieldType": undefined,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 5,
@@ -1631,6 +1772,7 @@ Object {
           },
           "name": "UNKNOWN",
           "start": 146,
+          "trailingComments": Array [],
           "type": "Field",
         },
         Object {
@@ -1638,6 +1780,7 @@ Object {
           "fieldNumber": 1,
           "fieldOptions": Array [],
           "fieldType": undefined,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 6,
@@ -1650,6 +1793,7 @@ Object {
           },
           "name": "STARTED",
           "start": 161,
+          "trailingComments": Array [],
           "type": "Field",
         },
         Object {
@@ -1658,6 +1802,7 @@ Object {
           "fieldOptions": Array [
             Object {
               "end": 220,
+              "leadingComments": Array [],
               "loc": Object {
                 "end": Object {
                   "column": 4,
@@ -1670,6 +1815,7 @@ Object {
               },
               "name": Object {
                 "end": 204,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
                     "column": 37,
@@ -1681,13 +1827,16 @@ Object {
                   },
                 },
                 "start": 189,
+                "trailingComments": Array [],
                 "type": "OptionName",
                 "value": "(custom_option)",
               },
               "start": 189,
+              "trailingComments": Array [],
               "type": "Option",
               "value": Object {
                 "end": 220,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
                     "column": 4,
@@ -1699,12 +1848,14 @@ Object {
                   },
                 },
                 "start": 207,
+                "trailingComments": Array [],
                 "type": "Literal",
                 "value": "hello world",
               },
             },
           ],
           "fieldType": undefined,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 6,
@@ -1717,9 +1868,11 @@ Object {
           },
           "name": "RUNNING",
           "start": 176,
+          "trailingComments": Array [],
           "type": "Field",
         },
       ],
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": 8,
@@ -1734,6 +1887,7 @@ Object {
       "options": Array [
         Object {
           "end": 143,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 4,
@@ -1746,6 +1900,7 @@ Object {
           },
           "name": Object {
             "end": 135,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 24,
@@ -1757,13 +1912,16 @@ Object {
               },
             },
             "start": 124,
+            "trailingComments": Array [],
             "type": "OptionName",
             "value": "allow_alias",
           },
           "start": 117,
+          "trailingComments": Array [],
           "type": "Option",
           "value": Object {
             "end": 142,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 3,
@@ -1775,18 +1933,21 @@ Object {
               },
             },
             "start": 138,
+            "trailingComments": Array [],
             "type": "FullIdentifier",
             "value": "true",
           },
         },
       ],
       "start": 90,
+      "trailingComments": Array [],
       "type": "Enum",
     },
     Object {
       "body": Array [
         Object {
           "end": 271,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 10,
@@ -1799,6 +1960,7 @@ Object {
           },
           "name": Object {
             "end": 263,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 2,
@@ -1810,13 +1972,16 @@ Object {
               },
             },
             "start": 250,
+            "trailingComments": Array [],
             "type": "OptionName",
             "value": "(my_option).a",
           },
           "start": 243,
+          "trailingComments": Array [],
           "type": "Option",
           "value": Object {
             "end": 270,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 9,
@@ -1828,6 +1993,7 @@ Object {
               },
             },
             "start": 266,
+            "trailingComments": Array [],
             "type": "FullIdentifier",
             "value": "true",
           },
@@ -1840,6 +2006,7 @@ Object {
               "fieldOptions": Array [],
               "fieldType": Object {
                 "end": 308,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
                     "column": NaN,
@@ -1851,10 +2018,12 @@ Object {
                   },
                 },
                 "start": 303,
+                "trailingComments": Array [],
                 "type": "ValueType",
                 "value": "int64",
               },
               "label": "required",
+              "leadingComments": Array [],
               "loc": Object {
                 "end": Object {
                   "column": 9,
@@ -1867,10 +2036,12 @@ Object {
               },
               "name": "ival",
               "start": 303,
+              "trailingComments": Array [],
               "type": "Field",
             },
           ],
           "end": 322,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 13,
@@ -1883,6 +2054,7 @@ Object {
           },
           "name": "inner",
           "start": 274,
+          "trailingComments": Array [],
           "type": "Message",
         },
         Object {
@@ -1891,6 +2063,7 @@ Object {
           "fieldOptions": Array [],
           "fieldType": Object {
             "end": 339,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 30,
@@ -1902,10 +2075,12 @@ Object {
               },
             },
             "start": 334,
+            "trailingComments": Array [],
             "type": "ValueType",
             "value": "inner",
           },
           "label": "repeated",
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 14,
@@ -1918,6 +2093,7 @@ Object {
           },
           "name": "inner_message",
           "start": 334,
+          "trailingComments": Array [],
           "type": "Field",
         },
         Object {
@@ -1926,6 +2102,7 @@ Object {
           "fieldOptions": Array [],
           "fieldType": Object {
             "end": 387,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": NaN,
@@ -1937,10 +2114,12 @@ Object {
               },
             },
             "start": 370,
+            "trailingComments": Array [],
             "type": "ValueType",
             "value": "EnumAllowingAlias",
           },
           "label": "optional",
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 15,
@@ -1953,12 +2132,14 @@ Object {
           },
           "name": "enum_field",
           "start": 370,
+          "trailingComments": Array [],
           "type": "Field",
         },
         Object {
           "end": 436,
           "fieldNumber": 4,
           "keyType": "int32",
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 16,
@@ -1972,9 +2153,11 @@ Object {
           "mapName": "my_map",
           "options": Array [],
           "start": 406,
+          "trailingComments": Array [],
           "type": "MapField",
           "valueType": Object {
             "end": 423,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 3,
@@ -1986,12 +2169,14 @@ Object {
               },
             },
             "start": 417,
+            "trailingComments": Array [],
             "type": "ValueType",
             "value": "string",
           },
         },
         Object {
           "end": 459,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": NaN,
@@ -2009,10 +2194,12 @@ Object {
             ],
           ],
           "start": 439,
+          "trailingComments": Array [],
           "type": "Extensions",
         },
       ],
       "end": 461,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": NaN,
@@ -2025,10 +2212,12 @@ Object {
       },
       "name": "outer",
       "start": 225,
+      "trailingComments": Array [],
       "type": "Message",
     },
   ],
   "end": 466,
+  "leadingComments": Array [],
   "loc": Object {
     "end": Object {
       "column": 23,
@@ -2042,6 +2231,7 @@ Object {
   "start": 1,
   "syntax": Object {
     "end": 19,
+    "leadingComments": Array [],
     "loc": Object {
       "end": Object {
         "column": 0,
@@ -2053,6 +2243,7 @@ Object {
       },
     },
     "start": 1,
+    "trailingComments": Array [],
     "type": "SyntaxStatement",
     "value": "proto2",
   },
@@ -3621,6 +3812,7 @@ Object {
       "type": "EOF",
     },
   ],
+  "trailingComments": Array [],
   "type": "ProtoFile",
 }
 `;
@@ -3631,6 +3823,7 @@ Object {
     Object {
       "end": 48,
       "file": "other.proto",
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": 1,
@@ -3643,10 +3836,12 @@ Object {
       },
       "modifier": "public",
       "start": 20,
+      "trailingComments": Array [],
       "type": "ImportStatement",
     },
     Object {
       "end": 89,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": 2,
@@ -3659,6 +3854,7 @@ Object {
       },
       "name": Object {
         "end": 68,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": 21,
@@ -3670,13 +3866,16 @@ Object {
           },
         },
         "start": 56,
+        "trailingComments": Array [],
         "type": "OptionName",
         "value": "java_package",
       },
       "start": 49,
+      "trailingComments": Array [],
       "type": "Option",
       "value": Object {
         "end": 88,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": 1,
@@ -3688,6 +3887,7 @@ Object {
           },
         },
         "start": 71,
+        "trailingComments": Array [],
         "type": "Literal",
         "value": "com.example.foo",
       },
@@ -3700,6 +3900,7 @@ Object {
           "fieldNumber": 0,
           "fieldOptions": Array [],
           "fieldType": undefined,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 5,
@@ -3712,6 +3913,7 @@ Object {
           },
           "name": "UNKNOWN",
           "start": 146,
+          "trailingComments": Array [],
           "type": "Field",
         },
         Object {
@@ -3719,6 +3921,7 @@ Object {
           "fieldNumber": 1,
           "fieldOptions": Array [],
           "fieldType": undefined,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 6,
@@ -3731,6 +3934,7 @@ Object {
           },
           "name": "STARTED",
           "start": 161,
+          "trailingComments": Array [],
           "type": "Field",
         },
         Object {
@@ -3739,6 +3943,7 @@ Object {
           "fieldOptions": Array [
             Object {
               "end": 220,
+              "leadingComments": Array [],
               "loc": Object {
                 "end": Object {
                   "column": 4,
@@ -3751,6 +3956,7 @@ Object {
               },
               "name": Object {
                 "end": 204,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
                     "column": 37,
@@ -3762,13 +3968,16 @@ Object {
                   },
                 },
                 "start": 189,
+                "trailingComments": Array [],
                 "type": "OptionName",
                 "value": "(custom_option)",
               },
               "start": 189,
+              "trailingComments": Array [],
               "type": "Option",
               "value": Object {
                 "end": 220,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
                     "column": 4,
@@ -3780,12 +3989,14 @@ Object {
                   },
                 },
                 "start": 207,
+                "trailingComments": Array [],
                 "type": "Literal",
                 "value": "hello world",
               },
             },
           ],
           "fieldType": undefined,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 6,
@@ -3798,9 +4009,11 @@ Object {
           },
           "name": "RUNNING",
           "start": 176,
+          "trailingComments": Array [],
           "type": "Field",
         },
       ],
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": 8,
@@ -3815,6 +4028,7 @@ Object {
       "options": Array [
         Object {
           "end": 143,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 4,
@@ -3827,6 +4041,7 @@ Object {
           },
           "name": Object {
             "end": 135,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 24,
@@ -3838,13 +4053,16 @@ Object {
               },
             },
             "start": 124,
+            "trailingComments": Array [],
             "type": "OptionName",
             "value": "allow_alias",
           },
           "start": 117,
+          "trailingComments": Array [],
           "type": "Option",
           "value": Object {
             "end": 142,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 3,
@@ -3856,18 +4074,21 @@ Object {
               },
             },
             "start": 138,
+            "trailingComments": Array [],
             "type": "FullIdentifier",
             "value": "true",
           },
         },
       ],
       "start": 90,
+      "trailingComments": Array [],
       "type": "Enum",
     },
     Object {
       "body": Array [
         Object {
           "end": 271,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 10,
@@ -3880,6 +4101,7 @@ Object {
           },
           "name": Object {
             "end": 263,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 2,
@@ -3891,13 +4113,16 @@ Object {
               },
             },
             "start": 250,
+            "trailingComments": Array [],
             "type": "OptionName",
             "value": "(my_option).a",
           },
           "start": 243,
+          "trailingComments": Array [],
           "type": "Option",
           "value": Object {
             "end": 270,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 9,
@@ -3909,6 +4134,7 @@ Object {
               },
             },
             "start": 266,
+            "trailingComments": Array [],
             "type": "FullIdentifier",
             "value": "true",
           },
@@ -3921,6 +4147,7 @@ Object {
               "fieldOptions": Array [],
               "fieldType": Object {
                 "end": 299,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
                     "column": NaN,
@@ -3932,10 +4159,12 @@ Object {
                   },
                 },
                 "start": 294,
+                "trailingComments": Array [],
                 "type": "ValueType",
                 "value": "int64",
               },
               "label": undefined,
+              "leadingComments": Array [],
               "loc": Object {
                 "end": Object {
                   "column": 9,
@@ -3948,10 +4177,12 @@ Object {
               },
               "name": "ival",
               "start": 294,
+              "trailingComments": Array [],
               "type": "Field",
             },
           ],
           "end": 313,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 13,
@@ -3964,6 +4195,7 @@ Object {
           },
           "name": "inner",
           "start": 274,
+          "trailingComments": Array [],
           "type": "Message",
         },
         Object {
@@ -3972,6 +4204,7 @@ Object {
           "fieldOptions": Array [],
           "fieldType": Object {
             "end": 330,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 30,
@@ -3983,10 +4216,12 @@ Object {
               },
             },
             "start": 325,
+            "trailingComments": Array [],
             "type": "ValueType",
             "value": "inner",
           },
           "label": "repeated",
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 14,
@@ -3999,6 +4234,7 @@ Object {
           },
           "name": "inner_message",
           "start": 325,
+          "trailingComments": Array [],
           "type": "Field",
         },
         Object {
@@ -4007,6 +4243,7 @@ Object {
           "fieldOptions": Array [],
           "fieldType": Object {
             "end": 369,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 0,
@@ -4018,10 +4255,12 @@ Object {
               },
             },
             "start": 352,
+            "trailingComments": Array [],
             "type": "ValueType",
             "value": "EnumAllowingAlias",
           },
           "label": undefined,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 15,
@@ -4034,12 +4273,14 @@ Object {
           },
           "name": "enum_field",
           "start": 352,
+          "trailingComments": Array [],
           "type": "Field",
         },
         Object {
           "end": 417,
           "fieldNumber": 4,
           "keyType": "int32",
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": NaN,
@@ -4053,9 +4294,11 @@ Object {
           "mapName": "my_map",
           "options": Array [],
           "start": 387,
+          "trailingComments": Array [],
           "type": "MapField",
           "valueType": Object {
             "end": 404,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": NaN,
@@ -4067,12 +4310,14 @@ Object {
               },
             },
             "start": 398,
+            "trailingComments": Array [],
             "type": "ValueType",
             "value": "string",
           },
         },
       ],
       "end": 419,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": NaN,
@@ -4085,10 +4330,12 @@ Object {
       },
       "name": "outer",
       "start": 225,
+      "trailingComments": Array [],
       "type": "Message",
     },
   ],
   "end": 424,
+  "leadingComments": Array [],
   "loc": Object {
     "end": Object {
       "column": 22,
@@ -4102,6 +4349,7 @@ Object {
   "start": 1,
   "syntax": Object {
     "end": 19,
+    "leadingComments": Array [],
     "loc": Object {
       "end": Object {
         "column": 0,
@@ -4113,6 +4361,7 @@ Object {
       },
     },
     "start": 1,
+    "trailingComments": Array [],
     "type": "SyntaxStatement",
     "value": "proto3",
   },
@@ -5562,6 +5811,7 @@ Object {
       "type": "EOF",
     },
   ],
+  "trailingComments": Array [],
   "type": "ProtoFile",
 }
 `;
@@ -5573,6 +5823,7 @@ Object {
       "body": Array [
         Object {
           "end": 35,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": NaN,
@@ -5590,10 +5841,12 @@ Object {
             ],
           ],
           "start": 15,
+          "trailingComments": Array [],
           "type": "Extensions",
         },
       ],
       "end": 37,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": NaN,
@@ -5606,10 +5859,12 @@ Object {
       },
       "name": "M",
       "start": 1,
+      "trailingComments": Array [],
       "type": "Message",
     },
   ],
   "end": 44,
+  "leadingComments": Array [],
   "loc": Object {
     "end": Object {
       "column": 9,
@@ -5793,6 +6048,7 @@ Object {
       "type": "EOF",
     },
   ],
+  "trailingComments": Array [],
   "type": "ProtoFile",
 }
 `;
@@ -5803,6 +6059,7 @@ Object {
     Object {
       "end": 23,
       "file": "./test.proto",
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": 0,
@@ -5815,11 +6072,13 @@ Object {
       },
       "modifier": undefined,
       "start": 1,
+      "trailingComments": Array [],
       "type": "ImportStatement",
     },
     Object {
       "end": 51,
       "file": "./test.proto",
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": 1,
@@ -5832,11 +6091,13 @@ Object {
       },
       "modifier": "weak",
       "start": 24,
+      "trailingComments": Array [],
       "type": "ImportStatement",
     },
     Object {
       "end": 81,
       "file": "./test.proto",
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": NaN,
@@ -5849,10 +6110,12 @@ Object {
       },
       "modifier": "public",
       "start": 52,
+      "trailingComments": Array [],
       "type": "ImportStatement",
     },
   ],
   "end": 86,
+  "leadingComments": Array [],
   "loc": Object {
     "end": Object {
       "column": 7,
@@ -6070,6 +6333,7 @@ Object {
       "type": "EOF",
     },
   ],
+  "trailingComments": Array [],
   "type": "ProtoFile",
 }
 `;
@@ -6083,6 +6347,7 @@ Object {
           "end": 42,
           "fieldNumber": 1,
           "keyType": "int32",
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 1,
@@ -6096,9 +6361,11 @@ Object {
           "mapName": "f1",
           "options": Array [],
           "start": 15,
+          "trailingComments": Array [],
           "type": "MapField",
           "valueType": Object {
             "end": 33,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 21,
@@ -6110,6 +6377,7 @@ Object {
               },
             },
             "start": 27,
+            "trailingComments": Array [],
             "type": "ValueType",
             "value": "string",
           },
@@ -6118,6 +6386,7 @@ Object {
           "end": 67,
           "fieldNumber": 2,
           "keyType": "int32",
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 2,
@@ -6131,9 +6400,11 @@ Object {
           "mapName": "f2",
           "options": Array [],
           "start": 45,
+          "trailingComments": Array [],
           "type": "MapField",
           "valueType": Object {
             "end": 58,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 17,
@@ -6145,6 +6416,7 @@ Object {
               },
             },
             "start": 57,
+            "trailingComments": Array [],
             "type": "ValueType",
             "value": "M",
           },
@@ -6153,6 +6425,7 @@ Object {
           "end": 96,
           "fieldNumber": 3,
           "keyType": "int32",
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 3,
@@ -6166,9 +6439,11 @@ Object {
           "mapName": "f3",
           "options": Array [],
           "start": 70,
+          "trailingComments": Array [],
           "type": "MapField",
           "valueType": Object {
             "end": 87,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 22,
@@ -6180,6 +6455,7 @@ Object {
               },
             },
             "start": 82,
+            "trailingComments": Array [],
             "type": "ValueType",
             "value": "M.foo",
           },
@@ -6188,6 +6464,7 @@ Object {
           "end": 122,
           "fieldNumber": 4,
           "keyType": "int32",
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 4,
@@ -6201,9 +6478,11 @@ Object {
           "mapName": "f4",
           "options": Array [],
           "start": 99,
+          "trailingComments": Array [],
           "type": "MapField",
           "valueType": Object {
             "end": 113,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 20,
@@ -6215,6 +6494,7 @@ Object {
               },
             },
             "start": 111,
+            "trailingComments": Array [],
             "type": "ValueType",
             "value": ".M",
           },
@@ -6223,6 +6503,7 @@ Object {
           "end": 190,
           "fieldNumber": 5,
           "keyType": "int32",
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 5,
@@ -6237,6 +6518,7 @@ Object {
           "options": Array [
             Object {
               "end": 188,
+              "leadingComments": Array [],
               "loc": Object {
                 "end": Object {
                   "column": 3,
@@ -6249,6 +6531,7 @@ Object {
               },
               "name": Object {
                 "end": 172,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
                     "column": 54,
@@ -6260,13 +6543,16 @@ Object {
                   },
                 },
                 "start": 157,
+                "trailingComments": Array [],
                 "type": "OptionName",
                 "value": "(custom_option)",
               },
               "start": 157,
+              "trailingComments": Array [],
               "type": "Option",
               "value": Object {
                 "end": 188,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
                     "column": 3,
@@ -6278,15 +6564,18 @@ Object {
                   },
                 },
                 "start": 175,
+                "trailingComments": Array [],
                 "type": "Literal",
                 "value": "hello world",
               },
             },
           ],
           "start": 125,
+          "trailingComments": Array [],
           "type": "MapField",
           "valueType": Object {
             "end": 147,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 29,
@@ -6298,6 +6587,7 @@ Object {
               },
             },
             "start": 137,
+            "trailingComments": Array [],
             "type": "ValueType",
             "value": ".M.foo.bar",
           },
@@ -6306,6 +6596,7 @@ Object {
           "end": 217,
           "fieldNumber": 4,
           "keyType": "int32",
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": NaN,
@@ -6319,9 +6610,11 @@ Object {
           "mapName": "map",
           "options": Array [],
           "start": 193,
+          "trailingComments": Array [],
           "type": "MapField",
           "valueType": Object {
             "end": 207,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 22,
@@ -6333,12 +6626,14 @@ Object {
               },
             },
             "start": 205,
+            "trailingComments": Array [],
             "type": "ValueType",
             "value": ".M",
           },
         },
       ],
       "end": 219,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": 1,
@@ -6351,10 +6646,12 @@ Object {
       },
       "name": "M",
       "start": 1,
+      "trailingComments": Array [],
       "type": "Message",
     },
   ],
   "end": 239,
+  "leadingComments": Array [],
   "loc": Object {
     "end": Object {
       "column": 15,
@@ -7745,6 +8042,7 @@ Object {
       "type": "EOF",
     },
   ],
+  "trailingComments": Array [],
   "type": "ProtoFile",
 }
 `;
@@ -7758,6 +8056,7 @@ Object {
           "body": Array [
             Object {
               "end": 63,
+              "leadingComments": Array [],
               "loc": Object {
                 "end": Object {
                   "column": NaN,
@@ -7770,6 +8069,7 @@ Object {
               },
               "name": Object {
                 "end": 55,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
                     "column": 26,
@@ -7781,13 +8081,16 @@ Object {
                   },
                 },
                 "start": 42,
+                "trailingComments": Array [],
                 "type": "OptionName",
                 "value": "(my_option).a",
               },
               "start": 35,
+              "trailingComments": Array [],
               "type": "Option",
               "value": Object {
                 "end": 62,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
                     "column": 1,
@@ -7799,12 +8102,14 @@ Object {
                   },
                 },
                 "start": 58,
+                "trailingComments": Array [],
                 "type": "FullIdentifier",
                 "value": "true",
               },
             },
           ],
           "end": 67,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": NaN,
@@ -7817,10 +8122,12 @@ Object {
           },
           "name": "Inner",
           "start": 15,
+          "trailingComments": Array [],
           "type": "Message",
         },
       ],
       "end": 69,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": NaN,
@@ -7833,10 +8140,12 @@ Object {
       },
       "name": "M",
       "start": 1,
+      "trailingComments": Array [],
       "type": "Message",
     },
   ],
   "end": 77,
+  "leadingComments": Array [],
   "loc": Object {
     "end": Object {
       "column": 12,
@@ -8156,6 +8465,7 @@ Object {
       "type": "EOF",
     },
   ],
+  "trailingComments": Array [],
   "type": "ProtoFile",
 }
 `;
@@ -8171,6 +8481,7 @@ Object {
           "fieldOptions": Array [],
           "fieldType": Object {
             "end": 31,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 19,
@@ -8182,10 +8493,12 @@ Object {
               },
             },
             "start": 24,
+            "trailingComments": Array [],
             "type": "ValueType",
             "value": "foo.bar",
           },
           "label": "optional",
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 1,
@@ -8198,6 +8511,7 @@ Object {
           },
           "name": "nested_message",
           "start": 24,
+          "trailingComments": Array [],
           "type": "Field",
         },
         Object {
@@ -8206,6 +8520,7 @@ Object {
           "fieldOptions": Array [
             Object {
               "end": 93,
+              "leadingComments": Array [],
               "loc": Object {
                 "end": Object {
                   "column": 0,
@@ -8218,6 +8533,7 @@ Object {
               },
               "name": Object {
                 "end": 88,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
                     "column": 38,
@@ -8229,13 +8545,16 @@ Object {
                   },
                 },
                 "start": 82,
+                "trailingComments": Array [],
                 "type": "OptionName",
                 "value": "packed",
               },
               "start": 82,
+              "trailingComments": Array [],
               "type": "Option",
               "value": Object {
                 "end": 93,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
                     "column": 0,
@@ -8247,6 +8566,7 @@ Object {
                   },
                 },
                 "start": 89,
+                "trailingComments": Array [],
                 "type": "FullIdentifier",
                 "value": "true",
               },
@@ -8254,6 +8574,7 @@ Object {
           ],
           "fieldType": Object {
             "end": 68,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 18,
@@ -8265,10 +8586,12 @@ Object {
               },
             },
             "start": 63,
+            "trailingComments": Array [],
             "type": "ValueType",
             "value": "int32",
           },
           "label": "repeated",
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 2,
@@ -8281,6 +8604,7 @@ Object {
           },
           "name": "samples",
           "start": 63,
+          "trailingComments": Array [],
           "type": "Field",
         },
         Object {
@@ -8289,6 +8613,7 @@ Object {
           "fieldOptions": Array [],
           "fieldType": Object {
             "end": 105,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 12,
@@ -8300,10 +8625,12 @@ Object {
               },
             },
             "start": 98,
+            "trailingComments": Array [],
             "type": "ValueType",
             "value": "foo.bar",
           },
           "label": undefined,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": NaN,
@@ -8316,10 +8643,12 @@ Object {
           },
           "name": "nested_message",
           "start": 98,
+          "trailingComments": Array [],
           "type": "Field",
         },
       ],
       "end": 127,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": NaN,
@@ -8332,10 +8661,12 @@ Object {
       },
       "name": "M",
       "start": 1,
+      "trailingComments": Array [],
       "type": "Message",
     },
   ],
   "end": 134,
+  "leadingComments": Array [],
   "loc": Object {
     "end": Object {
       "column": 11,
@@ -8876,6 +9207,7 @@ Object {
       "type": "EOF",
     },
   ],
+  "trailingComments": Array [],
   "type": "ProtoFile",
 }
 `;
@@ -8894,6 +9226,7 @@ Object {
               "fieldOptions": Array [],
               "fieldType": Object {
                 "end": 39,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
                     "column": 14,
@@ -8905,9 +9238,11 @@ Object {
                   },
                 },
                 "start": 33,
+                "trailingComments": Array [],
                 "type": "ValueType",
                 "value": "string",
               },
+              "leadingComments": Array [],
               "loc": Object {
                 "end": Object {
                   "column": 2,
@@ -8920,6 +9255,7 @@ Object {
               },
               "name": "name",
               "start": 33,
+              "trailingComments": Array [],
               "type": "Field",
             },
             Object {
@@ -8928,6 +9264,7 @@ Object {
               "fieldOptions": Array [],
               "fieldType": Object {
                 "end": 66,
+                "leadingComments": Array [],
                 "loc": Object {
                   "end": Object {
                     "column": 19,
@@ -8939,9 +9276,11 @@ Object {
                   },
                 },
                 "start": 56,
+                "trailingComments": Array [],
                 "type": "ValueType",
                 "value": "SubMessage",
               },
+              "leadingComments": Array [],
               "loc": Object {
                 "end": Object {
                   "column": NaN,
@@ -8954,9 +9293,11 @@ Object {
               },
               "name": "sub_message",
               "start": 56,
+              "trailingComments": Array [],
               "type": "Field",
             },
           ],
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": NaN,
@@ -8970,10 +9311,12 @@ Object {
           "oneofName": "foo",
           "options": Array [],
           "start": 15,
+          "trailingComments": Array [],
           "type": "OneOf",
         },
       ],
       "end": 89,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": NaN,
@@ -8986,10 +9329,12 @@ Object {
       },
       "name": "M",
       "start": 1,
+      "trailingComments": Array [],
       "type": "Message",
     },
   ],
   "end": 97,
+  "leadingComments": Array [],
   "loc": Object {
     "end": Object {
       "column": 13,
@@ -9326,6 +9671,7 @@ Object {
       "type": "EOF",
     },
   ],
+  "trailingComments": Array [],
   "type": "ProtoFile",
 }
 `;
@@ -9335,6 +9681,7 @@ Object {
   "body": Array [
     Object {
       "end": 41,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": 0,
@@ -9347,6 +9694,7 @@ Object {
       },
       "name": Object {
         "end": 20,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": 19,
@@ -9358,13 +9706,16 @@ Object {
           },
         },
         "start": 8,
+        "trailingComments": Array [],
         "type": "OptionName",
         "value": "java_package",
       },
       "start": 1,
+      "trailingComments": Array [],
       "type": "Option",
       "value": Object {
         "end": 40,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": NaN,
@@ -9376,12 +9727,14 @@ Object {
           },
         },
         "start": 23,
+        "trailingComments": Array [],
         "type": "Literal",
         "value": "com.example.foo",
       },
     },
     Object {
       "end": 67,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": 1,
@@ -9394,6 +9747,7 @@ Object {
       },
       "name": Object {
         "end": 61,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": 20,
@@ -9405,13 +9759,16 @@ Object {
           },
         },
         "start": 49,
+        "trailingComments": Array [],
         "type": "OptionName",
         "value": "java_package",
       },
       "start": 42,
+      "trailingComments": Array [],
       "type": "Option",
       "value": Object {
         "end": 65,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": NaN,
@@ -9423,12 +9780,14 @@ Object {
           },
         },
         "start": 64,
+        "trailingComments": Array [],
         "type": "Literal",
         "value": -1,
       },
     },
     Object {
       "end": 108,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": 2,
@@ -9441,6 +9800,7 @@ Object {
       },
       "name": Object {
         "end": 87,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": 21,
@@ -9452,13 +9812,16 @@ Object {
           },
         },
         "start": 75,
+        "trailingComments": Array [],
         "type": "OptionName",
         "value": "java_package",
       },
       "start": 68,
+      "trailingComments": Array [],
       "type": "Option",
       "value": Object {
         "end": 107,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": 1,
@@ -9470,12 +9833,14 @@ Object {
           },
         },
         "start": 90,
+        "trailingComments": Array [],
         "type": "Literal",
         "value": "com.example.foo",
       },
     },
     Object {
       "end": 152,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": 3,
@@ -9488,6 +9853,7 @@ Object {
       },
       "name": Object {
         "end": 131,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": 25,
@@ -9499,13 +9865,16 @@ Object {
           },
         },
         "start": 116,
+        "trailingComments": Array [],
         "type": "OptionName",
         "value": "(java._package)",
       },
       "start": 109,
+      "trailingComments": Array [],
       "type": "Option",
       "value": Object {
         "end": 151,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": 2,
@@ -9517,12 +9886,14 @@ Object {
           },
         },
         "start": 134,
+        "trailingComments": Array [],
         "type": "Literal",
         "value": "com.example.foo",
       },
     },
     Object {
       "end": 191,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": NaN,
@@ -9535,6 +9906,7 @@ Object {
       },
       "name": Object {
         "end": 170,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": 21,
@@ -9546,13 +9918,16 @@ Object {
           },
         },
         "start": 160,
+        "trailingComments": Array [],
         "type": "OptionName",
         "value": "java.pp.cc",
       },
       "start": 153,
+      "trailingComments": Array [],
       "type": "Option",
       "value": Object {
         "end": 190,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": NaN,
@@ -9564,12 +9939,14 @@ Object {
           },
         },
         "start": 173,
+        "trailingComments": Array [],
         "type": "Literal",
         "value": "com.example.foo",
       },
     },
   ],
   "end": 192,
+  "leadingComments": Array [],
   "loc": Object {
     "end": Object {
       "column": 5,
@@ -10178,6 +10555,7 @@ Object {
       "type": "EOF",
     },
   ],
+  "trailingComments": Array [],
   "type": "ProtoFile",
 }
 `;
@@ -10189,6 +10567,7 @@ Object {
       "body": Array [
         Object {
           "end": 43,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 1,
@@ -10201,6 +10580,7 @@ Object {
           },
           "name": Object {
             "end": 35,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 23,
@@ -10212,13 +10592,16 @@ Object {
               },
             },
             "start": 22,
+            "trailingComments": Array [],
             "type": "OptionName",
             "value": "(my_option).a",
           },
           "start": 15,
+          "trailingComments": Array [],
           "type": "Option",
           "value": Object {
             "end": 42,
+            "leadingComments": Array [],
             "loc": Object {
               "end": Object {
                 "column": 0,
@@ -10230,12 +10613,14 @@ Object {
               },
             },
             "start": 38,
+            "trailingComments": Array [],
             "type": "FullIdentifier",
             "value": "true",
           },
         },
       ],
       "end": 45,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": 3,
@@ -10248,10 +10633,12 @@ Object {
       },
       "name": "M",
       "start": 1,
+      "trailingComments": Array [],
       "type": "Message",
     },
   ],
   "end": 65,
+  "leadingComments": Array [],
   "loc": Object {
     "end": Object {
       "column": 10,
@@ -10503,6 +10890,7 @@ Object {
       "type": "EOF",
     },
   ],
+  "trailingComments": Array [],
   "type": "ProtoFile",
 }
 `;
@@ -10512,6 +10900,7 @@ Object {
   "body": Array [
     Object {
       "end": 11,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": 0,
@@ -10524,6 +10913,7 @@ Object {
       },
       "name": Object {
         "end": 10,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": NaN,
@@ -10535,14 +10925,17 @@ Object {
           },
         },
         "start": 9,
+        "trailingComments": Array [],
         "type": "FullIdentifier",
         "value": "a",
       },
       "start": 1,
+      "trailingComments": Array [],
       "type": "Package",
     },
     Object {
       "end": 25,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": NaN,
@@ -10555,6 +10948,7 @@ Object {
       },
       "name": Object {
         "end": 24,
+        "leadingComments": Array [],
         "loc": Object {
           "end": Object {
             "column": NaN,
@@ -10566,14 +10960,17 @@ Object {
           },
         },
         "start": 20,
+        "trailingComments": Array [],
         "type": "FullIdentifier",
         "value": "a.bc",
       },
       "start": 12,
+      "trailingComments": Array [],
       "type": "Package",
     },
   ],
   "end": 30,
+  "leadingComments": Array [],
   "loc": Object {
     "end": Object {
       "column": 6,
@@ -10740,6 +11137,7 @@ Object {
       "type": "EOF",
     },
   ],
+  "trailingComments": Array [],
   "type": "ProtoFile",
 }
 `;
@@ -10752,6 +11150,7 @@ Object {
         Object {
           "end": 26,
           "fieldName": undefined,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 1,
@@ -10768,11 +11167,13 @@ Object {
             ],
           ],
           "start": 15,
+          "trailingComments": Array [],
           "type": "Reserved",
         },
         Object {
           "end": 58,
           "fieldName": undefined,
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 2,
@@ -10797,6 +11198,7 @@ Object {
             ],
           ],
           "start": 29,
+          "trailingComments": Array [],
           "type": "Reserved",
         },
         Object {
@@ -10804,6 +11206,7 @@ Object {
           "fieldName": Array [
             "foo",
           ],
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 3,
@@ -10816,6 +11219,7 @@ Object {
           },
           "ranges": undefined,
           "start": 61,
+          "trailingComments": Array [],
           "type": "Reserved",
         },
         Object {
@@ -10824,6 +11228,7 @@ Object {
             "foo",
             "bar",
           ],
+          "leadingComments": Array [],
           "loc": Object {
             "end": Object {
               "column": 3,
@@ -10836,10 +11241,12 @@ Object {
           },
           "ranges": undefined,
           "start": 79,
+          "trailingComments": Array [],
           "type": "Reserved",
         },
       ],
       "end": 103,
+      "leadingComments": Array [],
       "loc": Object {
         "end": Object {
           "column": NaN,
@@ -10852,10 +11259,12 @@ Object {
       },
       "name": "M",
       "start": 1,
+      "trailingComments": Array [],
       "type": "Message",
     },
   ],
   "end": 117,
+  "leadingComments": Array [],
   "loc": Object {
     "end": Object {
       "column": 13,
@@ -11328,6 +11737,7 @@ Object {
       "type": "EOF",
     },
   ],
+  "trailingComments": Array [],
   "type": "ProtoFile",
 }
 `;
@@ -11336,6 +11746,7 @@ exports[`Parser parse syntax 1`] = `
 Object {
   "body": Array [],
   "end": 18,
+  "leadingComments": Array [],
   "loc": Object {
     "end": Object {
       "column": 17,
@@ -11349,6 +11760,7 @@ Object {
   "start": 0,
   "syntax": Object {
     "end": 18,
+    "leadingComments": Array [],
     "loc": Object {
       "end": Object {
         "column": 17,
@@ -11360,6 +11772,7 @@ Object {
       },
     },
     "start": 0,
+    "trailingComments": Array [],
     "type": "SyntaxStatement",
     "value": "proto2",
   },
@@ -11449,6 +11862,7 @@ Object {
       "type": "EOF",
     },
   ],
+  "trailingComments": Array [],
   "type": "ProtoFile",
 }
 `;
