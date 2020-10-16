@@ -26,6 +26,8 @@ export interface WithFullLocation {
 export interface BaseNode extends WithFullLocation {
   leadingComments?: Comment[];
   trailingComments?: Comment[];
+  startToken: Token;
+  endToken: Token;
 }
 
 export interface SyntaxStatement extends BaseNode {

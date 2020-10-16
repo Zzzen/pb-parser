@@ -95,6 +95,8 @@ export interface Token {
     start: Location;
     end: Location;
   };
+  leadingTrivia: Token[];
+  trailingTrivia: Token[];
 }
 
 const base10Re = /^[1-9][0-9]*/;
@@ -161,9 +163,39 @@ export class Scanner {
           column: this.source.length - last(this.lineStarts) - 1,
         },
       },
+      leadingTrivia: [],
+      trailingTrivia: [],
     });
 
-    return this.tokens;
+    const newTokens: Token[] = [];
+    let leadingTrivias: Token[] = [];
+    let i = 0;
+    while (i < this.tokens.length) {
+      if (this.tokens[i].type === TokenType.COMMENT) {
+        leadingTrivias.push(this.tokens[i]);
+        i++;
+      } else {
+        const currentToken = this.tokens[i];
+        currentToken.leadingTrivia = leadingTrivias;
+        leadingTrivias = [];
+
+        const next = this.tokens[i + 1];
+        if (
+          next &&
+          next.type === TokenType.COMMENT &&
+          currentToken.loc.end.line === next.loc.start.line
+        ) {
+          currentToken.trailingTrivia = [next];
+          i++;
+        }
+
+        newTokens.push(currentToken);
+
+        i++;
+      }
+    }
+
+    return newTokens;
   }
 
   scanToken() {
@@ -311,6 +343,8 @@ export class Scanner {
         start: this.getLocOfIndex(this.start),
         end: this.getLocOfIndex(this.current),
       },
+      leadingTrivia: [],
+      trailingTrivia: [],
     });
   }
 

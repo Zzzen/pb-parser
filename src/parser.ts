@@ -46,62 +46,15 @@ export class Parser {
     }
   }
 
-  getLocFromNodes(start: WithFullLocation, end: WithFullLocation): BaseNode {
-    let beforeStart = -1;
-    let afterEnd = -1;
-
+  getLocFromNodes(start: Token, end: Token): BaseNode {
     const leadingComments: Comment[] = [];
     const trailingComments: Comment[] = [];
-
-    for (let i = 0; i < this.tokens.length; i++) {
-      if (
-        beforeStart === -1 &&
-        this.tokens[i].end <= start.start &&
-        start.start <= this.tokens[i + 1]?.start
-      ) {
-        beforeStart = i;
-      }
-
-      if (afterEnd === -1 && end.end <= this.tokens[i].start) {
-        afterEnd = i;
-        break;
-      }
-    }
-
-    if (beforeStart > -1) {
-      for (let i = beforeStart; i >= 0; i--) {
-        // if it is not trailing comments of previous node
-        if (
-          this.tokens[i].type === TokenType.COMMENT &&
-          !(
-            this.tokens[i - 1]?.type !== TokenType.COMMENT &&
-            this.tokens[i - 1]?.loc.end.line === this.tokens[i]?.loc.start.line
-          )
-        ) {
-          leadingComments.push((this.tokens[i] as unknown) as Comment);
-        } else {
-          break;
-        }
-      }
-    }
-
-    if (afterEnd > -1) {
-      for (let i = afterEnd; i < this.tokens.length; i++) {
-        // trailing lines should always be at the same line
-        if (
-          this.tokens[i].type === TokenType.COMMENT &&
-          this.tokens[i].loc.start.line === end.loc.end.line
-        ) {
-          trailingComments.push((this.tokens[i] as unknown) as Comment);
-        } else {
-          break;
-        }
-      }
-    }
 
     return {
       leadingComments,
       trailingComments,
+      startToken: start,
+      endToken: end,
       start: start.start,
       end: end.end,
       loc: {
@@ -384,6 +337,11 @@ export class Parser {
 
     this.consume(TokenType.EQUAL);
 
+    let isNegative = false;
+    if (this.match(TokenType.MINUS)) {
+      isNegative = true;
+    }
+
     const numberToken = this.consume(TokenType.NUMBER);
 
     let options: Option[] = [];
@@ -394,11 +352,11 @@ export class Parser {
 
     const end = this.consume(TokenType.SEMICOLON);
     return {
-      ...this.getLocFromNodes(valueType ? valueType : id, end),
+      ...this.getLocFromNodes(valueType ? valueType.startToken : id, end),
       type: "Field",
       fieldType: valueType,
       name: id.lexeme,
-      fieldNumber: Number(numberToken.lexeme),
+      fieldNumber: (isNegative ? -1 : 1) * Number(numberToken.lexeme),
       fieldOptions: options,
     };
   }
@@ -580,7 +538,7 @@ export class Parser {
     this.consume(TokenType.EQUAL);
     const constant = this.parseConstant();
     return {
-      ...this.getLocFromNodes(name, constant),
+      ...this.getLocFromNodes(name.startToken, constant.endToken),
       type: "Option",
       value: constant,
       name: name,
@@ -636,6 +594,23 @@ export class Parser {
           value:
             (isMinue ? -1 : +1) *
             (this.consume(TokenType.NUMBER).literal as number),
+        };
+      } else if (this.match(TokenType.NUMBER)) {
+        const num = this.previous();
+        return {
+          ...this.getLocFromNodes(num, num),
+          type: "Literal",
+          value: +(num.literal as number),
+        };
+      } else if (this.match(TokenType.IDENTIFIER)) {
+        const id = this.previous();
+        if (!["true", "false"].includes(id.lexeme)) {
+          this.error(id, "expected literal");
+        }
+        return {
+          ...this.getLocFromNodes(id, id),
+          type: "Literal",
+          value: id.lexeme === "true",
         };
       } else {
         const token = this.consume(TokenType.STRING);

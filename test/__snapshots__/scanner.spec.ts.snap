@@ -4,6 +4,7 @@ exports[`Scanner scan combinations of simple symbols 1`] = `
 Array [
   Object {
     "end": 1,
+    "leadingTrivia": Array [],
     "lexeme": "{",
     "literal": undefined,
     "loc": Object {
@@ -17,10 +18,12 @@ Array [
       },
     },
     "start": 0,
+    "trailingTrivia": Array [],
     "type": "LEFT_BRACE",
   },
   Object {
     "end": 2,
+    "leadingTrivia": Array [],
     "lexeme": "}",
     "literal": undefined,
     "loc": Object {
@@ -34,10 +37,12 @@ Array [
       },
     },
     "start": 1,
+    "trailingTrivia": Array [],
     "type": "RIGHT_BRACE",
   },
   Object {
     "end": 2,
+    "leadingTrivia": Array [],
     "lexeme": "",
     "loc": Object {
       "end": Object {
@@ -50,6 +55,7 @@ Array [
       },
     },
     "start": 1,
+    "trailingTrivia": Array [],
     "type": "EOF",
   },
 ]
@@ -59,6 +65,7 @@ exports[`Scanner scan combinations of simple symbols 2`] = `
 Array [
   Object {
     "end": 1,
+    "leadingTrivia": Array [],
     "lexeme": "[",
     "literal": undefined,
     "loc": Object {
@@ -72,10 +79,12 @@ Array [
       },
     },
     "start": 0,
+    "trailingTrivia": Array [],
     "type": "LEFT_BRACKET",
   },
   Object {
     "end": 2,
+    "leadingTrivia": Array [],
     "lexeme": "]",
     "literal": undefined,
     "loc": Object {
@@ -89,10 +98,12 @@ Array [
       },
     },
     "start": 1,
+    "trailingTrivia": Array [],
     "type": "RIGHT_BRACKET",
   },
   Object {
     "end": 2,
+    "leadingTrivia": Array [],
     "lexeme": "",
     "loc": Object {
       "end": Object {
@@ -105,6 +116,7 @@ Array [
       },
     },
     "start": 1,
+    "trailingTrivia": Array [],
     "type": "EOF",
   },
 ]
@@ -113,41 +125,47 @@ Array [
 exports[`Scanner scan comments 1`] = `
 Array [
   Object {
-    "end": 11,
-    "lexeme": "//comment1",
-    "literal": "comment1",
-    "loc": Object {
-      "end": Object {
-        "column": 0,
-        "line": 3,
-      },
-      "start": Object {
-        "column": 0,
-        "line": 2,
-      },
-    },
-    "start": 1,
-    "type": "COMMENT",
-  },
-  Object {
-    "end": 23,
-    "lexeme": "// comment2",
-    "literal": " comment2",
-    "loc": Object {
-      "end": Object {
-        "column": NaN,
-        "line": 22,
-      },
-      "start": Object {
-        "column": 1,
-        "line": 3,
-      },
-    },
-    "start": 12,
-    "type": "COMMENT",
-  },
-  Object {
     "end": 24,
+    "leadingTrivia": Array [
+      Object {
+        "end": 11,
+        "leadingTrivia": Array [],
+        "lexeme": "//comment1",
+        "literal": "comment1",
+        "loc": Object {
+          "end": Object {
+            "column": 0,
+            "line": 3,
+          },
+          "start": Object {
+            "column": 0,
+            "line": 2,
+          },
+        },
+        "start": 1,
+        "trailingTrivia": Array [],
+        "type": "COMMENT",
+      },
+      Object {
+        "end": 23,
+        "leadingTrivia": Array [],
+        "lexeme": "// comment2",
+        "literal": " comment2",
+        "loc": Object {
+          "end": Object {
+            "column": NaN,
+            "line": 22,
+          },
+          "start": Object {
+            "column": 1,
+            "line": 3,
+          },
+        },
+        "start": 12,
+        "trailingTrivia": Array [],
+        "type": "COMMENT",
+      },
+    ],
     "lexeme": "",
     "loc": Object {
       "end": Object {
@@ -160,6 +178,7 @@ Array [
       },
     },
     "start": 23,
+    "trailingTrivia": Array [],
     "type": "EOF",
   },
 ]
@@ -168,30 +187,34 @@ Array [
 exports[`Scanner scan comments 2`] = `
 Array [
   Object {
-    "end": 32,
-    "lexeme": "/**
+    "end": 41,
+    "leadingTrivia": Array [
+      Object {
+        "end": 32,
+        "leadingTrivia": Array [],
+        "lexeme": "/**
  * comment1
  * comment2
  */",
-    "literal": "*
+        "literal": "*
  * comment1
  * comment2
  ",
-    "loc": Object {
-      "end": Object {
-        "column": NaN,
-        "line": 29,
+        "loc": Object {
+          "end": Object {
+            "column": NaN,
+            "line": 29,
+          },
+          "start": Object {
+            "column": 0,
+            "line": 2,
+          },
+        },
+        "start": 1,
+        "trailingTrivia": Array [],
+        "type": "COMMENT",
       },
-      "start": Object {
-        "column": 0,
-        "line": 2,
-      },
-    },
-    "start": 1,
-    "type": "COMMENT",
-  },
-  Object {
-    "end": 41,
+    ],
     "lexeme": "",
     "loc": Object {
       "end": Object {
@@ -204,6 +227,7 @@ Array [
       },
     },
     "start": 40,
+    "trailingTrivia": Array [],
     "type": "EOF",
   },
 ]
@@ -213,6 +237,7 @@ exports[`Scanner scan identifiers 1`] = `
 Array [
   Object {
     "end": 4,
+    "leadingTrivia": Array [],
     "lexeme": "foo",
     "literal": "foo",
     "loc": Object {
@@ -226,10 +251,12 @@ Array [
       },
     },
     "start": 1,
+    "trailingTrivia": Array [],
     "type": "IDENTIFIER",
   },
   Object {
     "end": 8,
+    "leadingTrivia": Array [],
     "lexeme": "bar",
     "literal": "bar",
     "loc": Object {
@@ -243,10 +270,12 @@ Array [
       },
     },
     "start": 5,
+    "trailingTrivia": Array [],
     "type": "IDENTIFIER",
   },
   Object {
     "end": 13,
+    "leadingTrivia": Array [],
     "lexeme": "_foo",
     "literal": "_foo",
     "loc": Object {
@@ -260,10 +289,12 @@ Array [
       },
     },
     "start": 9,
+    "trailingTrivia": Array [],
     "type": "IDENTIFIER",
   },
   Object {
     "end": 21,
+    "leadingTrivia": Array [],
     "lexeme": "package",
     "literal": "package",
     "loc": Object {
@@ -277,10 +308,12 @@ Array [
       },
     },
     "start": 14,
+    "trailingTrivia": Array [],
     "type": "IDENTIFIER",
   },
   Object {
     "end": 25,
+    "leadingTrivia": Array [],
     "lexeme": "foo",
     "literal": "foo",
     "loc": Object {
@@ -294,10 +327,12 @@ Array [
       },
     },
     "start": 22,
+    "trailingTrivia": Array [],
     "type": "IDENTIFIER",
   },
   Object {
     "end": 26,
+    "leadingTrivia": Array [],
     "lexeme": ";",
     "literal": undefined,
     "loc": Object {
@@ -311,10 +346,12 @@ Array [
       },
     },
     "start": 25,
+    "trailingTrivia": Array [],
     "type": "SEMICOLON",
   },
   Object {
     "end": 33,
+    "leadingTrivia": Array [],
     "lexeme": "import",
     "literal": "import",
     "loc": Object {
@@ -328,10 +365,12 @@ Array [
       },
     },
     "start": 27,
+    "trailingTrivia": Array [],
     "type": "IDENTIFIER",
   },
   Object {
     "end": 42,
+    "leadingTrivia": Array [],
     "lexeme": "",
     "loc": Object {
       "end": Object {
@@ -344,6 +383,7 @@ Array [
       },
     },
     "start": 41,
+    "trailingTrivia": Array [],
     "type": "EOF",
   },
 ]
@@ -353,6 +393,7 @@ exports[`Scanner scan numbers 1`] = `
 Array [
   Object {
     "end": 3,
+    "leadingTrivia": Array [],
     "lexeme": "23",
     "literal": 23,
     "loc": Object {
@@ -366,10 +407,12 @@ Array [
       },
     },
     "start": 1,
+    "trailingTrivia": Array [],
     "type": "NUMBER",
   },
   Object {
     "end": 10,
+    "leadingTrivia": Array [],
     "lexeme": "234.35",
     "literal": 234.35,
     "loc": Object {
@@ -383,10 +426,12 @@ Array [
       },
     },
     "start": 4,
+    "trailingTrivia": Array [],
     "type": "NUMBER",
   },
   Object {
     "end": 15,
+    "leadingTrivia": Array [],
     "lexeme": "0x43",
     "literal": 67,
     "loc": Object {
@@ -400,10 +445,12 @@ Array [
       },
     },
     "start": 11,
+    "trailingTrivia": Array [],
     "type": "NUMBER",
   },
   Object {
     "end": 20,
+    "leadingTrivia": Array [],
     "lexeme": "0345",
     "literal": 229,
     "loc": Object {
@@ -417,10 +464,12 @@ Array [
       },
     },
     "start": 16,
+    "trailingTrivia": Array [],
     "type": "NUMBER",
   },
   Object {
     "end": 24,
+    "leadingTrivia": Array [],
     "lexeme": "1e3",
     "literal": 1000,
     "loc": Object {
@@ -434,10 +483,12 @@ Array [
       },
     },
     "start": 21,
+    "trailingTrivia": Array [],
     "type": "NUMBER",
   },
   Object {
     "end": 33,
+    "leadingTrivia": Array [],
     "lexeme": "",
     "loc": Object {
       "end": Object {
@@ -450,6 +501,7 @@ Array [
       },
     },
     "start": 32,
+    "trailingTrivia": Array [],
     "type": "EOF",
   },
 ]
