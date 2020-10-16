@@ -18978,6 +18978,619 @@ Object {
 }
 `;
 
+exports[`Parser parse service 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "body": Array [
+        Object {
+          "end": 93,
+          "endToken": Object {
+            "end": 93,
+            "leadingTrivia": Array [],
+            "lexeme": ";",
+            "literal": undefined,
+            "loc": Object {
+              "end": Object {
+                "column": NaN,
+                "line": 93,
+              },
+              "start": Object {
+                "column": NaN,
+                "line": 93,
+              },
+            },
+            "start": 92,
+            "trailingTrivia": Array [],
+            "type": "SEMICOLON",
+          },
+          "input": Object {
+            "end": 59,
+            "endToken": Object {
+              "end": 59,
+              "leadingTrivia": Array [],
+              "lexeme": "SearchRequest",
+              "literal": "SearchRequest",
+              "loc": Object {
+                "end": Object {
+                  "column": 35,
+                  "line": 3,
+                },
+                "start": Object {
+                  "column": 22,
+                  "line": 3,
+                },
+              },
+              "start": 46,
+              "trailingTrivia": Array [],
+              "type": "IDENTIFIER",
+            },
+            "leadingComments": Array [],
+            "loc": Object {
+              "end": Object {
+                "column": 35,
+                "line": 3,
+              },
+              "start": Object {
+                "column": 22,
+                "line": 3,
+              },
+            },
+            "start": 46,
+            "startToken": Object {
+              "end": 59,
+              "leadingTrivia": Array [],
+              "lexeme": "SearchRequest",
+              "literal": "SearchRequest",
+              "loc": Object {
+                "end": Object {
+                  "column": 35,
+                  "line": 3,
+                },
+                "start": Object {
+                  "column": 22,
+                  "line": 3,
+                },
+              },
+              "start": 46,
+              "trailingTrivia": Array [],
+              "type": "IDENTIFIER",
+            },
+            "trailingComments": Array [],
+            "type": "ValueType",
+            "value": "SearchRequest",
+          },
+          "leadingComments": Array [],
+          "loc": Object {
+            "end": Object {
+              "column": NaN,
+              "line": 93,
+            },
+            "start": Object {
+              "column": 3,
+              "line": 3,
+            },
+          },
+          "name": "Search",
+          "options": Array [],
+          "output": Object {
+            "end": 91,
+            "endToken": Object {
+              "end": 91,
+              "leadingTrivia": Array [],
+              "lexeme": "SearchResponse",
+              "literal": "SearchResponse",
+              "loc": Object {
+                "end": Object {
+                  "column": NaN,
+                  "line": 93,
+                },
+                "start": Object {
+                  "column": 53,
+                  "line": 3,
+                },
+              },
+              "start": 77,
+              "trailingTrivia": Array [],
+              "type": "IDENTIFIER",
+            },
+            "leadingComments": Array [],
+            "loc": Object {
+              "end": Object {
+                "column": NaN,
+                "line": 93,
+              },
+              "start": Object {
+                "column": 53,
+                "line": 3,
+              },
+            },
+            "start": 77,
+            "startToken": Object {
+              "end": 91,
+              "leadingTrivia": Array [],
+              "lexeme": "SearchResponse",
+              "literal": "SearchResponse",
+              "loc": Object {
+                "end": Object {
+                  "column": NaN,
+                  "line": 93,
+                },
+                "start": Object {
+                  "column": 53,
+                  "line": 3,
+                },
+              },
+              "start": 77,
+              "trailingTrivia": Array [],
+              "type": "IDENTIFIER",
+            },
+            "trailingComments": Array [],
+            "type": "ValueType",
+            "value": "SearchResponse",
+          },
+          "start": 27,
+          "startToken": Object {
+            "end": 30,
+            "leadingTrivia": Array [],
+            "lexeme": "rpc",
+            "literal": "rpc",
+            "loc": Object {
+              "end": Object {
+                "column": 6,
+                "line": 3,
+              },
+              "start": Object {
+                "column": 3,
+                "line": 3,
+              },
+            },
+            "start": 27,
+            "trailingTrivia": Array [],
+            "type": "IDENTIFIER",
+          },
+          "streamInput": true,
+          "streamOutput": true,
+          "trailingComments": Array [],
+          "type": "RPC",
+        },
+      ],
+      "end": 95,
+      "endToken": Object {
+        "end": 95,
+        "leadingTrivia": Array [],
+        "lexeme": "}",
+        "literal": undefined,
+        "loc": Object {
+          "end": Object {
+            "column": NaN,
+            "line": 93,
+          },
+          "start": Object {
+            "column": NaN,
+            "line": 93,
+          },
+        },
+        "start": 94,
+        "trailingTrivia": Array [],
+        "type": "RIGHT_BRACE",
+      },
+      "leadingComments": Array [],
+      "loc": Object {
+        "end": Object {
+          "column": NaN,
+          "line": 93,
+        },
+        "start": Object {
+          "column": 0,
+          "line": 2,
+        },
+      },
+      "name": "SearchService",
+      "start": 1,
+      "startToken": Object {
+        "end": 8,
+        "leadingTrivia": Array [],
+        "lexeme": "service",
+        "literal": "service",
+        "loc": Object {
+          "end": Object {
+            "column": 7,
+            "line": 2,
+          },
+          "start": Object {
+            "column": 0,
+            "line": 2,
+          },
+        },
+        "start": 1,
+        "trailingTrivia": Array [],
+        "type": "IDENTIFIER",
+      },
+      "trailingComments": Array [],
+      "type": "Service",
+    },
+  ],
+  "end": 102,
+  "endToken": Object {
+    "end": 102,
+    "leadingTrivia": Array [],
+    "lexeme": "",
+    "loc": Object {
+      "end": Object {
+        "column": 9,
+        "line": 5,
+      },
+      "start": Object {
+        "column": 9,
+        "line": 5,
+      },
+    },
+    "start": 101,
+    "trailingTrivia": Array [],
+    "type": "EOF",
+  },
+  "leadingComments": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 9,
+      "line": 5,
+    },
+    "start": Object {
+      "column": 0,
+      "line": 2,
+    },
+  },
+  "start": 1,
+  "startToken": Object {
+    "end": 8,
+    "leadingTrivia": Array [],
+    "lexeme": "service",
+    "literal": "service",
+    "loc": Object {
+      "end": Object {
+        "column": 7,
+        "line": 2,
+      },
+      "start": Object {
+        "column": 0,
+        "line": 2,
+      },
+    },
+    "start": 1,
+    "trailingTrivia": Array [],
+    "type": "IDENTIFIER",
+  },
+  "syntax": undefined,
+  "tokens": Array [
+    Object {
+      "end": 8,
+      "leadingTrivia": Array [],
+      "lexeme": "service",
+      "literal": "service",
+      "loc": Object {
+        "end": Object {
+          "column": 7,
+          "line": 2,
+        },
+        "start": Object {
+          "column": 0,
+          "line": 2,
+        },
+      },
+      "start": 1,
+      "trailingTrivia": Array [],
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 22,
+      "leadingTrivia": Array [],
+      "lexeme": "SearchService",
+      "literal": "SearchService",
+      "loc": Object {
+        "end": Object {
+          "column": 21,
+          "line": 2,
+        },
+        "start": Object {
+          "column": 8,
+          "line": 2,
+        },
+      },
+      "start": 9,
+      "trailingTrivia": Array [],
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 24,
+      "leadingTrivia": Array [],
+      "lexeme": "{",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 0,
+          "line": 3,
+        },
+        "start": Object {
+          "column": NaN,
+          "line": 93,
+        },
+      },
+      "start": 23,
+      "trailingTrivia": Array [],
+      "type": "LEFT_BRACE",
+    },
+    Object {
+      "end": 30,
+      "leadingTrivia": Array [],
+      "lexeme": "rpc",
+      "literal": "rpc",
+      "loc": Object {
+        "end": Object {
+          "column": 6,
+          "line": 3,
+        },
+        "start": Object {
+          "column": 3,
+          "line": 3,
+        },
+      },
+      "start": 27,
+      "trailingTrivia": Array [],
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 37,
+      "leadingTrivia": Array [],
+      "lexeme": "Search",
+      "literal": "Search",
+      "loc": Object {
+        "end": Object {
+          "column": 13,
+          "line": 3,
+        },
+        "start": Object {
+          "column": 7,
+          "line": 3,
+        },
+      },
+      "start": 31,
+      "trailingTrivia": Array [],
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 39,
+      "leadingTrivia": Array [],
+      "lexeme": "(",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 15,
+          "line": 3,
+        },
+        "start": Object {
+          "column": 14,
+          "line": 3,
+        },
+      },
+      "start": 38,
+      "trailingTrivia": Array [],
+      "type": "LEFT_PAREN",
+    },
+    Object {
+      "end": 45,
+      "leadingTrivia": Array [],
+      "lexeme": "stream",
+      "literal": "stream",
+      "loc": Object {
+        "end": Object {
+          "column": 21,
+          "line": 3,
+        },
+        "start": Object {
+          "column": 15,
+          "line": 3,
+        },
+      },
+      "start": 39,
+      "trailingTrivia": Array [],
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 59,
+      "leadingTrivia": Array [],
+      "lexeme": "SearchRequest",
+      "literal": "SearchRequest",
+      "loc": Object {
+        "end": Object {
+          "column": 35,
+          "line": 3,
+        },
+        "start": Object {
+          "column": 22,
+          "line": 3,
+        },
+      },
+      "start": 46,
+      "trailingTrivia": Array [],
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 60,
+      "leadingTrivia": Array [],
+      "lexeme": ")",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 36,
+          "line": 3,
+        },
+        "start": Object {
+          "column": 35,
+          "line": 3,
+        },
+      },
+      "start": 59,
+      "trailingTrivia": Array [],
+      "type": "RIGHT_PAREN",
+    },
+    Object {
+      "end": 68,
+      "leadingTrivia": Array [],
+      "lexeme": "returns",
+      "literal": "returns",
+      "loc": Object {
+        "end": Object {
+          "column": 44,
+          "line": 3,
+        },
+        "start": Object {
+          "column": 37,
+          "line": 3,
+        },
+      },
+      "start": 61,
+      "trailingTrivia": Array [],
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 70,
+      "leadingTrivia": Array [],
+      "lexeme": "(",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": 46,
+          "line": 3,
+        },
+        "start": Object {
+          "column": 45,
+          "line": 3,
+        },
+      },
+      "start": 69,
+      "trailingTrivia": Array [],
+      "type": "LEFT_PAREN",
+    },
+    Object {
+      "end": 76,
+      "leadingTrivia": Array [],
+      "lexeme": "stream",
+      "literal": "stream",
+      "loc": Object {
+        "end": Object {
+          "column": 52,
+          "line": 3,
+        },
+        "start": Object {
+          "column": 46,
+          "line": 3,
+        },
+      },
+      "start": 70,
+      "trailingTrivia": Array [],
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 91,
+      "leadingTrivia": Array [],
+      "lexeme": "SearchResponse",
+      "literal": "SearchResponse",
+      "loc": Object {
+        "end": Object {
+          "column": NaN,
+          "line": 93,
+        },
+        "start": Object {
+          "column": 53,
+          "line": 3,
+        },
+      },
+      "start": 77,
+      "trailingTrivia": Array [],
+      "type": "IDENTIFIER",
+    },
+    Object {
+      "end": 92,
+      "leadingTrivia": Array [],
+      "lexeme": ")",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": NaN,
+          "line": 93,
+        },
+        "start": Object {
+          "column": NaN,
+          "line": 93,
+        },
+      },
+      "start": 91,
+      "trailingTrivia": Array [],
+      "type": "RIGHT_PAREN",
+    },
+    Object {
+      "end": 93,
+      "leadingTrivia": Array [],
+      "lexeme": ";",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": NaN,
+          "line": 93,
+        },
+        "start": Object {
+          "column": NaN,
+          "line": 93,
+        },
+      },
+      "start": 92,
+      "trailingTrivia": Array [],
+      "type": "SEMICOLON",
+    },
+    Object {
+      "end": 95,
+      "leadingTrivia": Array [],
+      "lexeme": "}",
+      "literal": undefined,
+      "loc": Object {
+        "end": Object {
+          "column": NaN,
+          "line": 93,
+        },
+        "start": Object {
+          "column": NaN,
+          "line": 93,
+        },
+      },
+      "start": 94,
+      "trailingTrivia": Array [],
+      "type": "RIGHT_BRACE",
+    },
+    Object {
+      "end": 102,
+      "leadingTrivia": Array [],
+      "lexeme": "",
+      "loc": Object {
+        "end": Object {
+          "column": 9,
+          "line": 5,
+        },
+        "start": Object {
+          "column": 9,
+          "line": 5,
+        },
+      },
+      "start": 101,
+      "trailingTrivia": Array [],
+      "type": "EOF",
+    },
+  ],
+  "trailingComments": Array [],
+  "type": "ProtoFile",
+}
+`;
+
 exports[`Parser parse syntax 1`] = `
 Object {
   "body": Array [],

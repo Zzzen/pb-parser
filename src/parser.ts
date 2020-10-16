@@ -20,8 +20,9 @@ import {
   OneOf,
   Enum,
   Extensions,
-  WithFullLocation,
   BaseNode,
+  Service,
+  RPC,
 } from "./ast";
 import { last } from "./util";
 
@@ -127,9 +128,86 @@ export class Parser {
       return this.parseMessage();
     } else if (this.checkKeyword(Keyword.ENUM)) {
       return this.parseEnum();
+    } else if (this.checkKeyword(Keyword.SERVICE)) {
+      return this.parseService();
     }
 
     this.error(this.peek(), "");
+  }
+
+  /**
+   * service = "service" serviceName "{" { option | rpc | emptyStatement } "}"
+   */
+  parseService(): Service {
+    const start = this.consumeKeyword(Keyword.SERVICE);
+    const name = this.consume(TokenType.IDENTIFIER);
+    this.consume(TokenType.LEFT_BRACE);
+    const body: Service["body"] = [];
+    while (!this.check(TokenType.RIGHT_BRACE)) {
+      if (this.checkKeyword(Keyword.OPTION)) {
+        body.push(this.parseOption());
+      } else if (this.checkKeyword(Keyword.RPC)) {
+        body.push(this.parseRPC());
+      } else {
+        this.consume(TokenType.SEMICOLON);
+      }
+    }
+
+    const end = this.consume(TokenType.RIGHT_BRACE);
+
+    return {
+      type: "Service",
+      ...this.getLocFromNodes(start, end),
+      name: name.lexeme,
+      body,
+    };
+  }
+
+  /**
+   * rpc = "rpc" rpcName "(" [ "stream" ] messageType ")" "returns" "(" [ "stream" ]
+   *   messageType ")" (( "{" {option | emptyStatement } "}" ) | ";")
+   */
+  parseRPC(): RPC {
+    const start = this.consumeKeyword(Keyword.RPC);
+    const name = this.consume(TokenType.IDENTIFIER);
+
+    this.consume(TokenType.LEFT_PAREN);
+    const streamInput = this.matchKeyword(Keyword.STREAM);
+    const input = this.parseValueType();
+    this.consume(TokenType.RIGHT_PAREN);
+
+    this.consumeKeyword(Keyword.RETURNS);
+    this.consume(TokenType.LEFT_PAREN);
+    const streamOutput = this.matchKeyword(Keyword.STREAM);
+    const output = this.parseValueType();
+    this.consume(TokenType.RIGHT_PAREN);
+
+    const options: Option[] = [];
+
+    if (this.match(TokenType.LEFT_BRACE)) {
+      while (!this.match(TokenType.RIGHT_BRACE)) {
+        if (this.checkKeyword(Keyword.OPTION)) {
+          options.push(this.parseOption());
+        } else {
+          this.consume(TokenType.SEMICOLON);
+        }
+      }
+    } else {
+      this.consume(TokenType.SEMICOLON);
+    }
+
+    const end = this.previous();
+
+    return {
+      ...this.getLocFromNodes(start, end),
+      type: "RPC",
+      name: name.lexeme,
+      streamInput,
+      streamOutput,
+      input,
+      output,
+      options,
+    };
   }
 
   /**

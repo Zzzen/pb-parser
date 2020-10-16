@@ -161,6 +161,16 @@ message M {
     ).toMatchSnapshot();
   });
 
+  it("parse service", () => {
+    expect(
+      parse(`
+service SearchService {
+  rpc Search (SearchRequest) returns (SearchResponse);
+}
+      `)
+    ).toMatchSnapshot();
+  });
+
   it("parse example proto2", () => {
     expect(
       parse(`

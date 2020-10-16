@@ -169,6 +169,22 @@ export interface Reserved extends BaseNode {
   fieldName: string[] | undefined;
 }
 
+export interface RPC extends BaseNode {
+  type: "RPC";
+  name: string;
+  streamInput: boolean;
+  streamOutput: boolean;
+  input: ValueType;
+  output: ValueType;
+  options: Option[];
+}
+
+export interface Service extends BaseNode {
+  type: "Service";
+  name: string;
+  body: Array<Option | RPC>;
+}
+
 export interface EmptyStatement extends BaseNode {
   type: "EmptyStatement";
 }

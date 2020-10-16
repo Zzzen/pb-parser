@@ -81,6 +81,7 @@ export enum Keyword {
   EXTEND = "extend",
   SERVICE = "service",
   RPC = "rpc",
+  STREAM = "stream",
   RETURNS = "returns",
   MAX = "max",
 }
