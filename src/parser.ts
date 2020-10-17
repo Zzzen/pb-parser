@@ -35,15 +35,7 @@ export class Parser {
 
   extractComments() {
     while (this.check(TokenType.COMMENT)) {
-      // TODO: find a better way to handle comments
-      // const token = this.peek();
       this.current++;
-      // this.leadingComments.push({
-      //   type: "Comment",
-      //   value: token.literal as string,
-      //   start: token.start,
-      //   end: token.end,
-      // });
     }
   }
 
@@ -295,17 +287,21 @@ export class Parser {
    */
   parseNormalField(): Field {
     const start = this.peek();
-    let label: string;
+    let labelToken: Token | undefined;
     if (
       start.type === TokenType.IDENTIFIER &&
       ["required", "optional", "repeated"].includes(start.lexeme)
     ) {
-      label = this.advance().lexeme;
+      labelToken = this.advance();
     }
     const field = this.parseField();
     return {
       ...field,
-      label: label! as any,
+      ...this.getLocFromNodes(
+        labelToken ? labelToken : field.startToken,
+        field.endToken
+      ),
+      label: labelToken ? (labelToken.lexeme as Field["label"]) : undefined,
     };
   }
 
