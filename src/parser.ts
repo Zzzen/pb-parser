@@ -48,12 +48,9 @@ export class Parser {
   }
 
   getLocFromNodes(start: Token, end: Token): BaseNode {
-    const leadingComments: Comment[] = [];
-    const trailingComments: Comment[] = [];
-
     return {
-      leadingComments,
-      trailingComments,
+      leadingComments: start.leadingTrivia,
+      trailingComments: end.trailingTrivia,
       startToken: start,
       endToken: end,
       start: start.start,

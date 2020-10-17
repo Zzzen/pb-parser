@@ -24,8 +24,8 @@ export interface WithFullLocation {
 }
 
 export interface BaseNode extends WithFullLocation {
-  leadingComments?: Comment[];
-  trailingComments?: Comment[];
+  leadingComments?: Token[];
+  trailingComments?: Token[];
   startToken: Token;
   endToken: Token;
 }
