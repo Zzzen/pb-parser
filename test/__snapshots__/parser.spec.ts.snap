@@ -275,7 +275,27 @@ Object {
             "trailingTrivia": Array [],
             "type": "IDENTIFIER",
           },
-          "trailingComments": Array [],
+          "trailingComments": Array [
+            Object {
+              "end": 171,
+              "leadingTrivia": Array [],
+              "lexeme": "// this is an enum field",
+              "literal": " this is an enum field",
+              "loc": Object {
+                "end": Object {
+                  "column": 3,
+                  "line": 6,
+                },
+                "start": Object {
+                  "column": 33,
+                  "line": 5,
+                },
+              },
+              "start": 147,
+              "trailingTrivia": Array [],
+              "type": "COMMENT",
+            },
+          ],
           "type": "Field",
         },
         Object {
@@ -565,7 +585,27 @@ Object {
           "type": "Field",
         },
       ],
-      "leadingComments": Array [],
+      "leadingComments": Array [
+        Object {
+          "end": 16,
+          "leadingTrivia": Array [],
+          "lexeme": "// this is enum",
+          "literal": " this is enum",
+          "loc": Object {
+            "end": Object {
+              "column": 0,
+              "line": 3,
+            },
+            "start": Object {
+              "column": 0,
+              "line": 2,
+            },
+          },
+          "start": 1,
+          "trailingTrivia": Array [],
+          "type": "COMMENT",
+        },
+      ],
       "loc": Object {
         "end": Object {
           "column": 6,
@@ -726,7 +766,27 @@ Object {
             ],
             "type": "IDENTIFIER",
           },
-          "trailingComments": Array [],
+          "trailingComments": Array [
+            Object {
+              "end": 116,
+              "leadingTrivia": Array [],
+              "lexeme": "// this is an option",
+              "literal": " this is an option",
+              "loc": Object {
+                "end": Object {
+                  "column": 2,
+                  "line": 5,
+                },
+                "start": Object {
+                  "column": 56,
+                  "line": 4,
+                },
+              },
+              "start": 96,
+              "trailingTrivia": Array [],
+              "type": "COMMENT",
+            },
+          ],
           "type": "Option",
           "value": Object {
             "end": 93,
@@ -1479,7 +1539,27 @@ Object {
     "trailingTrivia": Array [],
     "type": "EOF",
   },
-  "leadingComments": Array [],
+  "leadingComments": Array [
+    Object {
+      "end": 16,
+      "leadingTrivia": Array [],
+      "lexeme": "// this is enum",
+      "literal": " this is enum",
+      "loc": Object {
+        "end": Object {
+          "column": 0,
+          "line": 3,
+        },
+        "start": Object {
+          "column": 0,
+          "line": 2,
+        },
+      },
+      "start": 1,
+      "trailingTrivia": Array [],
+      "type": "COMMENT",
+    },
+  ],
   "loc": Object {
     "end": Object {
       "column": 22,
@@ -18984,75 +19064,75 @@ Object {
     Object {
       "body": Array [
         Object {
-          "end": 93,
+          "end": 79,
           "endToken": Object {
-            "end": 93,
+            "end": 79,
             "leadingTrivia": Array [],
             "lexeme": ";",
             "literal": undefined,
             "loc": Object {
               "end": Object {
                 "column": NaN,
-                "line": 93,
+                "line": 79,
               },
               "start": Object {
                 "column": NaN,
-                "line": 93,
+                "line": 79,
               },
             },
-            "start": 92,
+            "start": 78,
             "trailingTrivia": Array [],
             "type": "SEMICOLON",
           },
           "input": Object {
-            "end": 59,
+            "end": 52,
             "endToken": Object {
-              "end": 59,
+              "end": 52,
               "leadingTrivia": Array [],
               "lexeme": "SearchRequest",
               "literal": "SearchRequest",
               "loc": Object {
                 "end": Object {
-                  "column": 35,
+                  "column": 28,
                   "line": 3,
                 },
                 "start": Object {
-                  "column": 22,
+                  "column": 15,
                   "line": 3,
                 },
               },
-              "start": 46,
+              "start": 39,
               "trailingTrivia": Array [],
               "type": "IDENTIFIER",
             },
             "leadingComments": Array [],
             "loc": Object {
               "end": Object {
-                "column": 35,
+                "column": 28,
                 "line": 3,
               },
               "start": Object {
-                "column": 22,
+                "column": 15,
                 "line": 3,
               },
             },
-            "start": 46,
+            "start": 39,
             "startToken": Object {
-              "end": 59,
+              "end": 52,
               "leadingTrivia": Array [],
               "lexeme": "SearchRequest",
               "literal": "SearchRequest",
               "loc": Object {
                 "end": Object {
-                  "column": 35,
+                  "column": 28,
                   "line": 3,
                 },
                 "start": Object {
-                  "column": 22,
+                  "column": 15,
                   "line": 3,
                 },
               },
-              "start": 46,
+              "start": 39,
               "trailingTrivia": Array [],
               "type": "IDENTIFIER",
             },
@@ -19064,7 +19144,7 @@ Object {
           "loc": Object {
             "end": Object {
               "column": NaN,
-              "line": 93,
+              "line": 79,
             },
             "start": Object {
               "column": 3,
@@ -19074,23 +19154,23 @@ Object {
           "name": "Search",
           "options": Array [],
           "output": Object {
-            "end": 91,
+            "end": 77,
             "endToken": Object {
-              "end": 91,
+              "end": 77,
               "leadingTrivia": Array [],
               "lexeme": "SearchResponse",
               "literal": "SearchResponse",
               "loc": Object {
                 "end": Object {
                   "column": NaN,
-                  "line": 93,
+                  "line": 79,
                 },
                 "start": Object {
-                  "column": 53,
+                  "column": 39,
                   "line": 3,
                 },
               },
-              "start": 77,
+              "start": 63,
               "trailingTrivia": Array [],
               "type": "IDENTIFIER",
             },
@@ -19098,30 +19178,30 @@ Object {
             "loc": Object {
               "end": Object {
                 "column": NaN,
-                "line": 93,
+                "line": 79,
               },
               "start": Object {
-                "column": 53,
+                "column": 39,
                 "line": 3,
               },
             },
-            "start": 77,
+            "start": 63,
             "startToken": Object {
-              "end": 91,
+              "end": 77,
               "leadingTrivia": Array [],
               "lexeme": "SearchResponse",
               "literal": "SearchResponse",
               "loc": Object {
                 "end": Object {
                   "column": NaN,
-                  "line": 93,
+                  "line": 79,
                 },
                 "start": Object {
-                  "column": 53,
+                  "column": 39,
                   "line": 3,
                 },
               },
-              "start": 77,
+              "start": 63,
               "trailingTrivia": Array [],
               "type": "IDENTIFIER",
             },
@@ -19149,29 +19229,29 @@ Object {
             "trailingTrivia": Array [],
             "type": "IDENTIFIER",
           },
-          "streamInput": true,
-          "streamOutput": true,
+          "streamInput": false,
+          "streamOutput": false,
           "trailingComments": Array [],
           "type": "RPC",
         },
       ],
-      "end": 95,
+      "end": 81,
       "endToken": Object {
-        "end": 95,
+        "end": 81,
         "leadingTrivia": Array [],
         "lexeme": "}",
         "literal": undefined,
         "loc": Object {
           "end": Object {
             "column": NaN,
-            "line": 93,
+            "line": 79,
           },
           "start": Object {
             "column": NaN,
-            "line": 93,
+            "line": 79,
           },
         },
-        "start": 94,
+        "start": 80,
         "trailingTrivia": Array [],
         "type": "RIGHT_BRACE",
       },
@@ -19179,7 +19259,7 @@ Object {
       "loc": Object {
         "end": Object {
           "column": NaN,
-          "line": 93,
+          "line": 79,
         },
         "start": Object {
           "column": 0,
@@ -19211,9 +19291,9 @@ Object {
       "type": "Service",
     },
   ],
-  "end": 102,
+  "end": 88,
   "endToken": Object {
-    "end": 102,
+    "end": 88,
     "leadingTrivia": Array [],
     "lexeme": "",
     "loc": Object {
@@ -19226,7 +19306,7 @@ Object {
         "line": 5,
       },
     },
-    "start": 101,
+    "start": 87,
     "trailingTrivia": Array [],
     "type": "EOF",
   },
@@ -19313,7 +19393,7 @@ Object {
         },
         "start": Object {
           "column": NaN,
-          "line": 93,
+          "line": 79,
         },
       },
       "start": 23,
@@ -19378,13 +19458,13 @@ Object {
       "type": "LEFT_PAREN",
     },
     Object {
-      "end": 45,
+      "end": 52,
       "leadingTrivia": Array [],
-      "lexeme": "stream",
-      "literal": "stream",
+      "lexeme": "SearchRequest",
+      "literal": "SearchRequest",
       "loc": Object {
         "end": Object {
-          "column": 21,
+          "column": 28,
           "line": 3,
         },
         "start": Object {
@@ -19397,178 +19477,140 @@ Object {
       "type": "IDENTIFIER",
     },
     Object {
-      "end": 59,
-      "leadingTrivia": Array [],
-      "lexeme": "SearchRequest",
-      "literal": "SearchRequest",
-      "loc": Object {
-        "end": Object {
-          "column": 35,
-          "line": 3,
-        },
-        "start": Object {
-          "column": 22,
-          "line": 3,
-        },
-      },
-      "start": 46,
-      "trailingTrivia": Array [],
-      "type": "IDENTIFIER",
-    },
-    Object {
-      "end": 60,
+      "end": 53,
       "leadingTrivia": Array [],
       "lexeme": ")",
       "literal": undefined,
       "loc": Object {
         "end": Object {
-          "column": 36,
+          "column": 29,
           "line": 3,
         },
         "start": Object {
-          "column": 35,
+          "column": 28,
           "line": 3,
         },
       },
-      "start": 59,
+      "start": 52,
       "trailingTrivia": Array [],
       "type": "RIGHT_PAREN",
     },
     Object {
-      "end": 68,
+      "end": 61,
       "leadingTrivia": Array [],
       "lexeme": "returns",
       "literal": "returns",
       "loc": Object {
         "end": Object {
-          "column": 44,
-          "line": 3,
-        },
-        "start": Object {
           "column": 37,
           "line": 3,
         },
+        "start": Object {
+          "column": 30,
+          "line": 3,
+        },
       },
-      "start": 61,
+      "start": 54,
       "trailingTrivia": Array [],
       "type": "IDENTIFIER",
     },
     Object {
-      "end": 70,
+      "end": 63,
       "leadingTrivia": Array [],
       "lexeme": "(",
       "literal": undefined,
       "loc": Object {
         "end": Object {
-          "column": 46,
+          "column": 39,
           "line": 3,
         },
         "start": Object {
-          "column": 45,
+          "column": 38,
           "line": 3,
         },
       },
-      "start": 69,
+      "start": 62,
       "trailingTrivia": Array [],
       "type": "LEFT_PAREN",
     },
     Object {
-      "end": 76,
-      "leadingTrivia": Array [],
-      "lexeme": "stream",
-      "literal": "stream",
-      "loc": Object {
-        "end": Object {
-          "column": 52,
-          "line": 3,
-        },
-        "start": Object {
-          "column": 46,
-          "line": 3,
-        },
-      },
-      "start": 70,
-      "trailingTrivia": Array [],
-      "type": "IDENTIFIER",
-    },
-    Object {
-      "end": 91,
+      "end": 77,
       "leadingTrivia": Array [],
       "lexeme": "SearchResponse",
       "literal": "SearchResponse",
       "loc": Object {
         "end": Object {
           "column": NaN,
-          "line": 93,
+          "line": 79,
         },
         "start": Object {
-          "column": 53,
+          "column": 39,
           "line": 3,
         },
       },
-      "start": 77,
+      "start": 63,
       "trailingTrivia": Array [],
       "type": "IDENTIFIER",
     },
     Object {
-      "end": 92,
+      "end": 78,
       "leadingTrivia": Array [],
       "lexeme": ")",
       "literal": undefined,
       "loc": Object {
         "end": Object {
           "column": NaN,
-          "line": 93,
+          "line": 79,
         },
         "start": Object {
           "column": NaN,
-          "line": 93,
+          "line": 79,
         },
       },
-      "start": 91,
+      "start": 77,
       "trailingTrivia": Array [],
       "type": "RIGHT_PAREN",
     },
     Object {
-      "end": 93,
+      "end": 79,
       "leadingTrivia": Array [],
       "lexeme": ";",
       "literal": undefined,
       "loc": Object {
         "end": Object {
           "column": NaN,
-          "line": 93,
+          "line": 79,
         },
         "start": Object {
           "column": NaN,
-          "line": 93,
+          "line": 79,
         },
       },
-      "start": 92,
+      "start": 78,
       "trailingTrivia": Array [],
       "type": "SEMICOLON",
     },
     Object {
-      "end": 95,
+      "end": 81,
       "leadingTrivia": Array [],
       "lexeme": "}",
       "literal": undefined,
       "loc": Object {
         "end": Object {
           "column": NaN,
-          "line": 93,
+          "line": 79,
         },
         "start": Object {
           "column": NaN,
-          "line": 93,
+          "line": 79,
         },
       },
-      "start": 94,
+      "start": 80,
       "trailingTrivia": Array [],
       "type": "RIGHT_BRACE",
     },
     Object {
-      "end": 102,
+      "end": 88,
       "leadingTrivia": Array [],
       "lexeme": "",
       "loc": Object {
@@ -19581,7 +19623,7 @@ Object {
           "line": 5,
         },
       },
-      "start": 101,
+      "start": 87,
       "trailingTrivia": Array [],
       "type": "EOF",
     },
