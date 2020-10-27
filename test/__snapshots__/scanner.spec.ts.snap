@@ -9,11 +9,11 @@ Array [
     "literal": undefined,
     "loc": Object {
       "end": Object {
-        "column": 0,
+        "column": 1,
         "line": 1,
       },
       "start": Object {
-        "column": -1,
+        "column": 0,
         "line": 1,
       },
     },
@@ -28,11 +28,11 @@ Array [
     "literal": undefined,
     "loc": Object {
       "end": Object {
-        "column": 1,
+        "column": 2,
         "line": 1,
       },
       "start": Object {
-        "column": 0,
+        "column": 1,
         "line": 1,
       },
     },
@@ -46,11 +46,11 @@ Array [
     "lexeme": "",
     "loc": Object {
       "end": Object {
-        "column": 1,
+        "column": 2,
         "line": 1,
       },
       "start": Object {
-        "column": 1,
+        "column": 2,
         "line": 1,
       },
     },
@@ -70,11 +70,11 @@ Array [
     "literal": undefined,
     "loc": Object {
       "end": Object {
-        "column": 0,
+        "column": 1,
         "line": 1,
       },
       "start": Object {
-        "column": -1,
+        "column": 0,
         "line": 1,
       },
     },
@@ -89,11 +89,11 @@ Array [
     "literal": undefined,
     "loc": Object {
       "end": Object {
-        "column": 1,
+        "column": 2,
         "line": 1,
       },
       "start": Object {
-        "column": 0,
+        "column": 1,
         "line": 1,
       },
     },
@@ -107,11 +107,11 @@ Array [
     "lexeme": "",
     "loc": Object {
       "end": Object {
-        "column": 1,
+        "column": 2,
         "line": 1,
       },
       "start": Object {
-        "column": 1,
+        "column": 2,
         "line": 1,
       },
     },
@@ -134,8 +134,8 @@ Array [
         "literal": "comment1",
         "loc": Object {
           "end": Object {
-            "column": 0,
-            "line": 3,
+            "column": 10,
+            "line": 2,
           },
           "start": Object {
             "column": 0,
@@ -153,11 +153,11 @@ Array [
         "literal": " comment2",
         "loc": Object {
           "end": Object {
-            "column": NaN,
-            "line": 22,
+            "column": 11,
+            "line": 3,
           },
           "start": Object {
-            "column": 1,
+            "column": 0,
             "line": 3,
           },
         },
@@ -169,11 +169,11 @@ Array [
     "lexeme": "",
     "loc": Object {
       "end": Object {
-        "column": 2,
+        "column": 0,
         "line": 4,
       },
       "start": Object {
-        "column": 2,
+        "column": 0,
         "line": 4,
       },
     },
@@ -202,8 +202,8 @@ Array [
  ",
         "loc": Object {
           "end": Object {
-            "column": NaN,
-            "line": 29,
+            "column": 3,
+            "line": 5,
           },
           "start": Object {
             "column": 0,
@@ -218,11 +218,11 @@ Array [
     "lexeme": "",
     "loc": Object {
       "end": Object {
-        "column": 12,
+        "column": 8,
         "line": 3,
       },
       "start": Object {
-        "column": 12,
+        "column": 8,
         "line": 3,
       },
     },
@@ -242,8 +242,8 @@ Array [
     "literal": "foo",
     "loc": Object {
       "end": Object {
-        "column": 0,
-        "line": 3,
+        "column": 3,
+        "line": 2,
       },
       "start": Object {
         "column": 0,
@@ -261,11 +261,11 @@ Array [
     "literal": "bar",
     "loc": Object {
       "end": Object {
-        "column": 1,
-        "line": 4,
+        "column": 3,
+        "line": 3,
       },
       "start": Object {
-        "column": 1,
+        "column": 0,
         "line": 3,
       },
     },
@@ -280,11 +280,11 @@ Array [
     "literal": "_foo",
     "loc": Object {
       "end": Object {
-        "column": 2,
-        "line": 5,
+        "column": 4,
+        "line": 4,
       },
       "start": Object {
-        "column": 2,
+        "column": 0,
         "line": 4,
       },
     },
@@ -299,11 +299,11 @@ Array [
     "literal": "package",
     "loc": Object {
       "end": Object {
-        "column": 10,
+        "column": 7,
         "line": 5,
       },
       "start": Object {
-        "column": 3,
+        "column": 0,
         "line": 5,
       },
     },
@@ -318,12 +318,12 @@ Array [
     "literal": "foo",
     "loc": Object {
       "end": Object {
-        "column": 2,
-        "line": 6,
+        "column": 11,
+        "line": 5,
       },
       "start": Object {
-        "column": NaN,
-        "line": 29,
+        "column": 8,
+        "line": 5,
       },
     },
     "start": 22,
@@ -337,12 +337,12 @@ Array [
     "literal": undefined,
     "loc": Object {
       "end": Object {
-        "column": 3,
-        "line": 6,
+        "column": 12,
+        "line": 5,
       },
       "start": Object {
-        "column": 2,
-        "line": 6,
+        "column": 11,
+        "line": 5,
       },
     },
     "start": 25,
@@ -356,11 +356,11 @@ Array [
     "literal": "import",
     "loc": Object {
       "end": Object {
-        "column": NaN,
-        "line": 29,
+        "column": 6,
+        "line": 6,
       },
       "start": Object {
-        "column": 4,
+        "column": 0,
         "line": 6,
       },
     },
@@ -374,11 +374,11 @@ Array [
     "lexeme": "",
     "loc": Object {
       "end": Object {
-        "column": 13,
+        "column": 8,
         "line": 7,
       },
       "start": Object {
-        "column": 13,
+        "column": 8,
         "line": 7,
       },
     },
@@ -398,8 +398,8 @@ Array [
     "literal": 23,
     "loc": Object {
       "end": Object {
-        "column": 0,
-        "line": 3,
+        "column": 2,
+        "line": 2,
       },
       "start": Object {
         "column": 0,
@@ -417,11 +417,11 @@ Array [
     "literal": 234.35,
     "loc": Object {
       "end": Object {
-        "column": 1,
-        "line": 4,
+        "column": 6,
+        "line": 3,
       },
       "start": Object {
-        "column": 1,
+        "column": 0,
         "line": 3,
       },
     },
@@ -436,11 +436,11 @@ Array [
     "literal": 67,
     "loc": Object {
       "end": Object {
-        "column": 2,
-        "line": 5,
+        "column": 4,
+        "line": 4,
       },
       "start": Object {
-        "column": 2,
+        "column": 0,
         "line": 4,
       },
     },
@@ -455,12 +455,12 @@ Array [
     "literal": 229,
     "loc": Object {
       "end": Object {
-        "column": NaN,
-        "line": 20,
+        "column": 4,
+        "line": 5,
       },
       "start": Object {
-        "column": NaN,
-        "line": 20,
+        "column": 0,
+        "line": 5,
       },
     },
     "start": 16,
@@ -474,12 +474,12 @@ Array [
     "literal": 1000,
     "loc": Object {
       "end": Object {
-        "column": NaN,
-        "line": 20,
+        "column": 3,
+        "line": 6,
       },
       "start": Object {
-        "column": NaN,
-        "line": 20,
+        "column": 0,
+        "line": 6,
       },
     },
     "start": 21,
@@ -492,11 +492,11 @@ Array [
     "lexeme": "",
     "loc": Object {
       "end": Object {
-        "column": 13,
+        "column": 8,
         "line": 7,
       },
       "start": Object {
-        "column": 13,
+        "column": 8,
         "line": 7,
       },
     },

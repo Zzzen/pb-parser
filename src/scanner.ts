@@ -119,27 +119,27 @@ export class Scanner {
   lineStarts: number[] = [];
 
   constructor(readonly source: string) {
-    let start = "";
-    source.split(/\r?\n/g).forEach((line) => {
-      this.lineStarts.push(start.length);
-      start += line;
+    let start = 0;
+    source.split(/\n/g).forEach((line) => {
+      this.lineStarts.push(start);
+      start += line.length + 1;
     });
   }
 
   getLocOfIndex(indexOfString: number): Location {
     const getLineOfIndex = (index: number) => {
       for (let i = 0; i < this.lineStarts.length - 1; i++) {
-        if (this.lineStarts[i] < index && index < this.lineStarts[i + 1]) {
+        if (this.lineStarts[i] <= index && index < this.lineStarts[i + 1]) {
           return i;
         }
       }
-      return last(this.lineStarts);
+      return this.lineStarts.length - 1;
     };
     const line = getLineOfIndex(indexOfString);
     const column = indexOfString - this.lineStarts[line];
     return {
       line: line + 1,
-      column: column - 1,
+      column: column,
     };
   }
 
@@ -157,11 +157,11 @@ export class Scanner {
       loc: {
         start: {
           line: this.line + 1,
-          column: this.source.length - last(this.lineStarts) - 1,
+          column: this.source.length - last(this.lineStarts),
         },
         end: {
           line: this.line + 1,
-          column: this.source.length - last(this.lineStarts) - 1,
+          column: this.source.length - last(this.lineStarts),
         },
       },
       leadingTrivia: [],
