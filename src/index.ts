@@ -1,6 +1,6 @@
 import { Parser } from "./parser";
 
-export function parse(src: string, _options: unknown) {
+export function parse(src: string) {
   return new Parser(src).parse();
 }
 
