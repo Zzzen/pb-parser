@@ -1,14 +1,15 @@
 {
   "name": "pb-parser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "./build/index.js",
   "scripts": {
     "prepublishOnly": "tsc",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
+  "types": "build/index.d.ts",
+  "keywords": ["protobuf", "protocol-buffers", "parser", "typescript"],
+  "author": "Zzzen",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.11.1",
