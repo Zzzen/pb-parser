@@ -23,6 +23,7 @@ import {
   BaseNode,
   Service,
   RPC,
+  Extend,
 } from "./ast";
 import { last } from "./util";
 
@@ -119,9 +120,33 @@ export class Parser {
       return this.parseEnum();
     } else if (this.checkKeyword(Keyword.SERVICE)) {
       return this.parseService();
+    } else if (this.checkKeyword(Keyword.EXTEND)) {
+      return this.parseExtend();
     }
 
     this.error(this.peek(), "");
+  }
+
+  /**
+   * extend = "extend" messageType "{" {field | group | emptyStatement} "}"
+   */
+  parseExtend(): Extend {
+    const start = this.consumeKeyword(Keyword.EXTEND);
+    // TODO: should use parseMessageType
+    const id = this.parseFullIdentifier();
+    this.consume(TokenType.LEFT_BRACE);
+    const body: Extend["body"] = [];
+    while (!this.check(TokenType.RIGHT_BRACE)) {
+      body.push(this.parseNormalField());
+    }
+    const end = this.consume(TokenType.RIGHT_BRACE);
+
+    return {
+      type: "Extend",
+      ...this.getLocFromNodes(start, end),
+      name: id,
+      body,
+    };
   }
 
   /**
