@@ -7,3 +7,4 @@ export function parse(src: string) {
 export * from "./parser";
 export * from "./scanner";
 export * from "./ast";
+export * from "./print";

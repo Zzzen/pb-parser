@@ -753,7 +753,7 @@ export class Parser {
       type: "ProtoFile",
       syntax,
       body,
-      tokens: this.tokens,
+      // tokens: this.tokens,
     };
   }
 

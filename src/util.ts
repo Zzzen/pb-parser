@@ -11,3 +11,9 @@ export function assertIsDefined<T>(
 export function last<T>(arr: T[]): T {
   return arr[arr.length - 1];
 }
+
+export class UnreachableCaseError extends Error {
+  constructor(val: never) {
+    super(`Unreachable case: ${JSON.stringify(val)}`);
+  }
+}

@@ -53,15 +53,14 @@ export interface ProtoFile extends BaseNode {
   type: "ProtoFile";
   syntax?: SyntaxStatement;
   body: TopLevelDirective[];
-  tokens: Token[];
+  tokens?: Token[];
 }
 
 export type TopLevelDirective =
   | ImportStatement
   | Package
   | Option
-  | TopLevelDef
-  | EmptyStatement;
+  | TopLevelDef;
 
 export type TopLevelDef = Message | Enum | Extend | Service;
 
@@ -185,74 +184,26 @@ export interface Service extends BaseNode {
   body: Array<Option | RPC>;
 }
 
-export interface EmptyStatement extends BaseNode {
-  type: "EmptyStatement";
-}
-
-export interface EnumField extends BaseNode {
-  type: "EnumField";
-}
-
-export interface EnumValueOption extends BaseNode {
-  type: "EnumValueOption";
-}
-
-export interface EnumBody extends BaseNode {
-  type: "EnumBody";
-}
-
-export interface EmptyStatement extends BaseNode {
-  type: "EmptyStatement";
-}
-
-export interface EmptyStatement extends BaseNode {
-  type: "EmptyStatement";
-}
-
-export interface EmptyStatement extends BaseNode {
-  type: "EmptyStatement";
-}
-
-export interface EmptyStatement extends BaseNode {
-  type: "EmptyStatement";
-}
-
-export interface EmptyStatement extends BaseNode {
-  type: "EmptyStatement";
-}
-
-export interface EmptyStatement extends BaseNode {
-  type: "EmptyStatement";
-}
-
-export interface EmptyStatement extends BaseNode {
-  type: "EmptyStatement";
-}
-
-export interface EmptyStatement extends BaseNode {
-  type: "EmptyStatement";
-}
-
-export interface EmptyStatement extends BaseNode {
-  type: "EmptyStatement";
-}
-
-export interface EmptyStatement extends BaseNode {
-  type: "EmptyStatement";
-}
-
-export interface EmptyStatement extends BaseNode {
-  type: "EmptyStatement";
-}
-
-export interface EmptyStatement extends BaseNode {
-  type: "EmptyStatement";
-}
-
-export interface EmptyStatement extends BaseNode {
-  type: "EmptyStatement";
-}
-
-export interface EmptyStatement extends BaseNode {
-  type: "EmptyStatement";
-}
+export type ASTNode =
+  | Comment
+  | SyntaxStatement
+  | ImportStatement
+  | Option
+  | ProtoFile
+  | Package
+  | FullIdentifier
+  | OptionName
+  | Literal
+  | Message
+  | Enum
+  | Extend
+  | Service
+  | Field
+  | Extensions
+  | Group
+  | OneOf
+  | MapField
+  | ValueType
+  | Reserved
+  | RPC
+  | Service;

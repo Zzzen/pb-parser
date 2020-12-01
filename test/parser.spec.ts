@@ -1,4 +1,5 @@
 import { Parser } from "../src/parser";
+import { print } from "../src/print";
 
 function parse(src: string) {
   return new Parser(src).parse();
@@ -198,8 +199,7 @@ message outer {
   });
 
   it("parse example proto3", () => {
-    expect(
-      parse(`
+    const ast = parse(`
 syntax = "proto3";
 import public "other.proto";
 option java_package = "com.example.foo";
@@ -218,7 +218,8 @@ message outer {
   EnumAllowingAlias enum_field =3;
   map<int32, string> my_map = 4;
 }
-    `)
-    ).toMatchSnapshot();
+    `);
+    expect(ast).toMatchSnapshot();
+    expect(print(ast)).toMatchSnapshot();
   });
 });
