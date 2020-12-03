@@ -429,7 +429,9 @@ export class Parser {
    */
   parseField(hasValueType = true): Field {
     const valueType = hasValueType ? this.parseValueType() : undefined;
-    const id = this.consume(TokenType.IDENTIFIER);
+    const id = this.check(TokenType.PRIMITIVE_TYPE)
+      ? this.consume(TokenType.PRIMITIVE_TYPE)
+      : this.consume(TokenType.IDENTIFIER);
 
     this.consume(TokenType.EQUAL);
 

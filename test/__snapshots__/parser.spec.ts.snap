@@ -5077,6 +5077,239 @@ Object {
 }
 `;
 
+exports[`Parser parse fields with special name 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "body": Array [
+        Object {
+          "end": 41,
+          "endToken": Object {
+            "end": 41,
+            "leadingTrivia": Array [],
+            "lexeme": ";",
+            "literal": undefined,
+            "loc": Object {
+              "end": Object {
+                "column": 28,
+                "line": 3,
+              },
+              "start": Object {
+                "column": 27,
+                "line": 3,
+              },
+            },
+            "start": 40,
+            "trailingTrivia": Array [],
+            "type": "SEMICOLON",
+          },
+          "fieldNumber": 1,
+          "fieldOptions": Array [],
+          "fieldType": Object {
+            "end": 29,
+            "endToken": Object {
+              "end": 29,
+              "leadingTrivia": Array [],
+              "lexeme": "bytes",
+              "literal": "bytes",
+              "loc": Object {
+                "end": Object {
+                  "column": 16,
+                  "line": 3,
+                },
+                "start": Object {
+                  "column": 11,
+                  "line": 3,
+                },
+              },
+              "start": 24,
+              "trailingTrivia": Array [],
+              "type": "PRIMITIVE_TYPE",
+            },
+            "leadingComments": Array [],
+            "loc": Object {
+              "end": Object {
+                "column": 16,
+                "line": 3,
+              },
+              "start": Object {
+                "column": 11,
+                "line": 3,
+              },
+            },
+            "start": 24,
+            "startToken": Object {
+              "end": 29,
+              "leadingTrivia": Array [],
+              "lexeme": "bytes",
+              "literal": "bytes",
+              "loc": Object {
+                "end": Object {
+                  "column": 16,
+                  "line": 3,
+                },
+                "start": Object {
+                  "column": 11,
+                  "line": 3,
+                },
+              },
+              "start": 24,
+              "trailingTrivia": Array [],
+              "type": "PRIMITIVE_TYPE",
+            },
+            "trailingComments": Array [],
+            "type": "ValueType",
+            "value": "bytes",
+          },
+          "label": "optional",
+          "leadingComments": Array [],
+          "loc": Object {
+            "end": Object {
+              "column": 28,
+              "line": 3,
+            },
+            "start": Object {
+              "column": 2,
+              "line": 3,
+            },
+          },
+          "name": "string",
+          "start": 15,
+          "startToken": Object {
+            "end": 23,
+            "leadingTrivia": Array [],
+            "lexeme": "optional",
+            "literal": "optional",
+            "loc": Object {
+              "end": Object {
+                "column": 10,
+                "line": 3,
+              },
+              "start": Object {
+                "column": 2,
+                "line": 3,
+              },
+            },
+            "start": 15,
+            "trailingTrivia": Array [],
+            "type": "IDENTIFIER",
+          },
+          "trailingComments": Array [],
+          "type": "Field",
+        },
+      ],
+      "end": 43,
+      "endToken": Object {
+        "end": 43,
+        "leadingTrivia": Array [],
+        "lexeme": "}",
+        "literal": undefined,
+        "loc": Object {
+          "end": Object {
+            "column": 1,
+            "line": 4,
+          },
+          "start": Object {
+            "column": 0,
+            "line": 4,
+          },
+        },
+        "start": 42,
+        "trailingTrivia": Array [],
+        "type": "RIGHT_BRACE",
+      },
+      "leadingComments": Array [],
+      "loc": Object {
+        "end": Object {
+          "column": 1,
+          "line": 4,
+        },
+        "start": Object {
+          "column": 0,
+          "line": 2,
+        },
+      },
+      "name": "M",
+      "start": 1,
+      "startToken": Object {
+        "end": 8,
+        "leadingTrivia": Array [],
+        "lexeme": "message",
+        "literal": "message",
+        "loc": Object {
+          "end": Object {
+            "column": 7,
+            "line": 2,
+          },
+          "start": Object {
+            "column": 0,
+            "line": 2,
+          },
+        },
+        "start": 1,
+        "trailingTrivia": Array [],
+        "type": "IDENTIFIER",
+      },
+      "trailingComments": Array [],
+      "type": "Message",
+    },
+  ],
+  "end": 50,
+  "endToken": Object {
+    "end": 50,
+    "leadingTrivia": Array [],
+    "lexeme": "",
+    "loc": Object {
+      "end": Object {
+        "column": 6,
+        "line": 5,
+      },
+      "start": Object {
+        "column": 6,
+        "line": 5,
+      },
+    },
+    "start": 49,
+    "trailingTrivia": Array [],
+    "type": "EOF",
+  },
+  "leadingComments": Array [],
+  "loc": Object {
+    "end": Object {
+      "column": 6,
+      "line": 5,
+    },
+    "start": Object {
+      "column": 0,
+      "line": 2,
+    },
+  },
+  "start": 1,
+  "startToken": Object {
+    "end": 8,
+    "leadingTrivia": Array [],
+    "lexeme": "message",
+    "literal": "message",
+    "loc": Object {
+      "end": Object {
+        "column": 7,
+        "line": 2,
+      },
+      "start": Object {
+        "column": 0,
+        "line": 2,
+      },
+    },
+    "start": 1,
+    "trailingTrivia": Array [],
+    "type": "IDENTIFIER",
+  },
+  "syntax": undefined,
+  "trailingComments": Array [],
+  "type": "ProtoFile",
+}
+`;
+
 exports[`Parser parse import 1`] = `
 Object {
   "body": Array [

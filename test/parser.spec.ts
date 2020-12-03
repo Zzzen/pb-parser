@@ -162,6 +162,16 @@ message M {
     ).toMatchSnapshot();
   });
 
+  it("parse fields with special name", () => {
+    expect(
+      parse(`
+message M {
+  optional bytes string = 1;
+}
+      `)
+    ).toMatchSnapshot();
+  });
+
   it("parse service", () => {
     expect(
       parse(`
