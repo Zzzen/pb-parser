@@ -2,6 +2,8 @@
 
 a simple protobuf parser written in typescript.
 
+**demo** https://stackblitz.com/edit/pb-parser-demo?file=index.tsx
+
 ## Installation
 
 ```sh
