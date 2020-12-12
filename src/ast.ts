@@ -113,7 +113,7 @@ export interface Enum extends BaseNode {
 
 export interface Extend extends BaseNode {
   type: "Extend";
-  name: FullIdentifier;
+  name: ValueType;
   body: (Field | Group)[];
 }
 

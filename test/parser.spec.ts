@@ -162,6 +162,21 @@ message M {
     ).toMatchSnapshot();
   });
 
+  it("parse extend", () => {
+    expect(
+      parse(`
+extend Foo {
+  optional int32 bar = 126;
+}
+
+extend .Foo {
+  optional int32 bar = 126;
+}
+   
+    `)
+    ).toMatchSnapshot();
+  });
+
   it("parse fields with special name", () => {
     expect(
       parse(`

@@ -27,12 +27,20 @@ import {
 } from "./ast";
 import { last } from "./util";
 
+export interface ParserOptions {
+  slim?: boolean;
+}
+
 export class Parser {
   leadingComments: Comment[] = [];
   current = 0;
   tokens: Token[] = [];
 
-  constructor(private readonly source: string) {}
+  // @ts-expect-error no-unsed-error
+  constructor(
+    private readonly source: string,
+    private readonly options?: ParserOptions
+  ) {}
 
   extractComments() {
     while (this.check(TokenType.COMMENT)) {
@@ -53,6 +61,13 @@ export class Parser {
         end: end.loc.end,
       },
     };
+  }
+
+  removeExtraKeys(obj: any) {
+    for (const prop in obj) {
+      if (["startToken", "endToken"].includes(prop)) delete obj[prop];
+      else if (typeof obj[prop] === "object") this.removeExtraKeys(obj[prop]);
+    }
   }
 
   parse() {
@@ -132,8 +147,7 @@ export class Parser {
    */
   parseExtend(): Extend {
     const start = this.consumeKeyword(Keyword.EXTEND);
-    // TODO: should use parseMessageType
-    const id = this.parseFullIdentifier();
+    const id = this.parseValueType();
     this.consume(TokenType.LEFT_BRACE);
     const body: Extend["body"] = [];
     while (!this.check(TokenType.RIGHT_BRACE)) {
@@ -579,6 +593,10 @@ export class Parser {
     }
   }
 
+  /**
+   * ranges = range { "," range }
+   * range =  intLit [ "to" ( intLit | "max" ) ]
+   */
   parseRange(): [number, number | "max"] | [number] {
     const lit = this.consume(TokenType.NUMBER);
     const value = lit.literal as number;
@@ -721,6 +739,9 @@ export class Parser {
     }
   }
 
+  /**
+   * package = "package" fullIdent ";"
+   */
   parsePackage(): Package {
     const packageToken = this.consumeKeyword(Keyword.PACKAGE);
 
@@ -735,6 +756,9 @@ export class Parser {
     };
   }
 
+  /**
+   * fullIdent = ident { "." ident }
+   */
   parseFullIdentifier(): FullIdentifier {
     const ids = [this.consume(TokenType.IDENTIFIER)];
     while (this.match(TokenType.DOT)) {
@@ -750,6 +774,9 @@ export class Parser {
     };
   }
 
+  /**
+   * import = "import" [ "weak" | "public" ] strLit ";"
+   */
   parseImport(): ImportStatement {
     const importToken = this.consumeKeyword(Keyword.IMPORT);
     let modifier: Token | undefined;
